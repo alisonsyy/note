@@ -1,0 +1,1206 @@
+<!DOCTYPE html><html><head>
+      <title>ipc</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\alison\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.18\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="android-%E4%B8%AD%E7%9A%84-ipc-%E6%96%B9%E5%BC%8F">Android &#x4E2D;&#x7684; IPC &#x65B9;&#x5F0F;</h1>
+
+<h2 class="mume-header" id="%E4%B8%80-%E4%BD%BF%E7%94%A8-intent">&#x4E00;&#x3001;&#x4F7F;&#x7528; Intent</h2>
+
+<ol>
+<li>Activity&#xFF0C;Service&#xFF0C;Receiver &#x90FD;&#x652F;&#x6301;&#x5728; Intent &#x4E2D;&#x4F20;&#x9012; Bundle &#x6570;&#x636E;&#xFF0C;&#x800C; Bundle &#x5B9E;&#x73B0;&#x4E86; Parcelable &#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8FDB;&#x7A0B;&#x95F4;&#x8FDB;&#x884C;&#x4F20;&#x8F93;&#x3002;</li>
+<li>&#x5728;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x542F;&#x52A8;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684; Activity&#xFF0C;Service &#x548C; Receiver &#xFF0C;&#x53EF;&#x4EE5;&#x5728; Bundle &#x4E2D;&#x9644;&#x52A0;&#x8981;&#x4F20;&#x9012;&#x7684;&#x6570;&#x636E;&#x901A;&#x8FC7; Intent &#x53D1;&#x9001;&#x51FA;&#x53BB;&#x3002;</li>
+</ol>
+<h2 class="mume-header" id="%E4%BA%8C-%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB">&#x4E8C;&#x3001;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x5171;&#x4EAB;</h2>
+
+<ol>
+<li>Windows &#x4E0A;&#xFF0C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5982;&#x679C;&#x88AB;&#x52A0;&#x4E86;&#x6392;&#x65A5;&#x9501;&#x4F1A;&#x5BFC;&#x81F4;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x65E0;&#x6CD5;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#xFF0C;&#x5305;&#x62EC;&#x8BFB;&#x548C;&#x5199;&#xFF1B;&#x800C; Android &#x7CFB;&#x7EDF;&#x57FA;&#x4E8E; Linux &#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x5E76;&#x53D1;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x5730;&#x8FDB;&#x884C;&#xFF0C;&#x751A;&#x81F3;&#x5141;&#x8BB8;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x5BF9;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5C3D;&#x7BA1;&#x8FD9;&#x6837;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x5E8F;&#x5217;&#x5316;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5230;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x6062;&#x590D;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;<strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x5E76;&#x4E0D;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x662F;&#x5185;&#x5BB9;&#x76F8;&#x540C;&#x3002;&#xFF09;&#x3002;</li>
+<li>SharedPreferences &#x662F;&#x4E2A;&#x7279;&#x4F8B;&#xFF0C;&#x7CFB;&#x7EDF;&#x5BF9;&#x5B83;&#x7684;&#x8BFB; / &#x5199;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x7F13;&#x5B58;&#x7B56;&#x7565;&#xFF0C;&#x5373;&#x5185;&#x5B58;&#x4E2D;&#x4F1A;&#x6709;&#x4E00;&#x4EFD; ShardPreferences &#x6587;&#x4EF6;&#x7684;&#x7F13;&#x5B58;&#xFF0C;&#x7CFB;&#x7EDF;&#x5BF9;&#x4ED6;&#x7684;&#x8BFB; / &#x5199;&#x5C31;&#x53D8;&#x5F97;&#x4E0D;&#x53EF;&#x9760;&#xFF0C;&#x5F53;&#x9762;&#x5BF9;&#x9AD8;&#x5E76;&#x53D1;&#x7684;&#x8BFB;&#x5199;&#x8BBF;&#x95EE;&#xFF0C;SharedPreferences &#x6709;&#x5F88;&#x591A;&#x5927;&#x7684;&#x51E0;&#x7387;&#x4E22;&#x5931;&#x6570;&#x636E;&#x3002;&#x56E0;&#x6B64;&#xFF0C;IPC &#x4E0D;&#x5EFA;&#x8BAE;&#x91C7;&#x7528; SharedPreferences&#x3002;</li>
+</ol>
+<h2 class="mume-header" id="%E4%B8%89-%E4%BD%BF%E7%94%A8-messenger">&#x4E09;&#x3001;&#x4F7F;&#x7528; Messenger</h2>
+
+<p>Messenger &#x662F;&#x4E00;&#x79CD;&#x8F7B;&#x91CF;&#x7EA7;&#x7684; IPC &#x65B9;&#x6848;&#xFF0C;&#x5B83;&#x7684;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x662F; AIDL &#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x8FDB;&#x7A0B;&#x4E2D;&#x4F20;&#x9012; Message &#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x4E00;&#x6B21;&#x53EA;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#xFF0C;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x4E0D;&#x5B58;&#x5728;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x7684;&#x60C5;&#x5F62;&#x3002;</p>
+<ul>
+<li>&#x670D;&#x52A1;&#x7AEF;&#x8FDB;&#x7A0B;&#xFF1A;&#x670D;&#x52A1;&#x7AEF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Service &#x6765;&#x5904;&#x7406;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#xFF0C;&#x540C;&#x65F6;&#x901A;&#x8FC7;&#x4E00;&#x4E2A; Handler &#x5BF9;&#x8C61;&#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A; Messenger &#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x5728; Service &#x7684; onBind &#x4E2D;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A; Messenger &#x5BF9;&#x8C61;&#x5E95;&#x5C42;&#x7684; Binder &#x5373;&#x53EF;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MessengerService</span> <span class="token keyword">extends</span> <span class="token class-name">Service</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token class-name">MessengerService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">MessengerHandler</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+
+        <span class="token doc-comment comment">/**
+         * <span class="token keyword">@param</span> <span class="token parameter">msg</span>
+         */</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_FROM_CLIENT<span class="token operator">:</span>
+                    <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;receive msg from client: msg = [&quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_KEY<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">MessengerService</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;receive msg from client: msg = [&quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_KEY<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Messenger</span> client <span class="token operator">=</span> msg<span class="token punctuation">.</span>replyTo<span class="token punctuation">;</span>
+                    <span class="token class-name">Message</span> replyMsg <span class="token operator">=</span> <span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">obtain</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_FROM_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Bundle</span> bundle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bundle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    bundle<span class="token punctuation">.</span><span class="token function">putString</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_KEY<span class="token punctuation">,</span> <span class="token string">&quot;&#x6211;&#x5DF2;&#x7ECF;&#x6536;&#x5230;&#x4F60;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x7A0D;&#x540E;&#x56DE;&#x590D;&#x4F60;&#xFF01;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    replyMsg<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span>bundle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                        client<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>replyMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handleMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Messenger</span> mMessenger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Messenger</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MessengerHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token annotation punctuation">@Nullable</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">IBinder</span> <span class="token function">onBind</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> intent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> mMessenger<span class="token punctuation">.</span><span class="token function">getBinder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><ul>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x7A0B;&#xFF1A;&#x9996;&#x5148;&#x7ED1;&#x5B9A;&#x670D;&#x52A1;&#x7AEF; Service &#xFF0C;&#x7ED1;&#x5B9A;&#x6210;&#x529F;&#x4E4B;&#x540E;&#x7528;&#x670D;&#x52A1;&#x7AEF;&#x7684; IBinder &#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Messenger &#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A; Messenger &#x5C31;&#x53EF;&#x4EE5;&#x5411;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x4E86;&#xFF0C;&#x6D88;&#x606F;&#x7C7B;&#x578B;&#x662F; Message &#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x670D;&#x52A1;&#x7AEF;&#x54CD;&#x5E94;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Handler &#x5E76;&#x901A;&#x8FC7;&#x5B83;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Messenger&#xFF08;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x4E00;&#x6837;&#xFF09;&#xFF0C;&#x5E76;&#x901A;&#x8FC7; Message &#x7684; replyTo &#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x670D;&#x52A1;&#x7AEF;&#x3002;&#x670D;&#x52A1;&#x7AEF;&#x901A;&#x8FC7; Message &#x7684; replyTo &#x53C2;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x56DE;&#x5E94;&#x5BA2;&#x6237;&#x7AEF;&#x4E86;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="Java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token class-name">MainActivity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Messenger</span> mGetReplyMessenger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Messenger</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MessageHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Messenger</span> mService<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">MessageHandler</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_FROM_SERVICE<span class="token operator">:</span>
+                    <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;received msg form service: msg = [&quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_KEY<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">MainActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;received msg form service: msg = [&quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_KEY<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handleMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token class-name">Bundle</span> savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">bindService</span><span class="token punctuation">(</span><span class="token class-name">View</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Intent</span> mIntent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token class-name">MessengerService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">bindService</span><span class="token punctuation">(</span>mIntent<span class="token punctuation">,</span> mServiceConnection<span class="token punctuation">,</span> <span class="token class-name">Context</span><span class="token punctuation">.</span>BIND_AUTO_CREATE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">View</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Message</span> msg <span class="token operator">=</span> <span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">obtain</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_FROM_CLIENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Bundle</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bundle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        data<span class="token punctuation">.</span><span class="token function">putString</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_KEY<span class="token punctuation">,</span> <span class="token string">&quot;Hello! This is client.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        msg<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        msg<span class="token punctuation">.</span>replyTo <span class="token operator">=</span> mGetReplyMessenger<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            mService<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">unbindService</span><span class="token punctuation">(</span>mServiceConnection<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">ServiceConnection</span> mServiceConnection <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServiceConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token doc-comment comment">/**
+         * <span class="token keyword">@param</span> <span class="token parameter">name</span>
+         * <span class="token keyword">@param</span> <span class="token parameter">service</span>
+         */</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onServiceConnected</span><span class="token punctuation">(</span><span class="token class-name">ComponentName</span> name<span class="token punctuation">,</span> <span class="token class-name">IBinder</span> service<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mService <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Messenger</span><span class="token punctuation">(</span>service<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Message</span> msg <span class="token operator">=</span> <span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">obtain</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_FROM_CLIENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Bundle</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bundle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            data<span class="token punctuation">.</span><span class="token function">putString</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>MSG_KEY<span class="token punctuation">,</span> <span class="token string">&quot;Hello! This is client.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            msg<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//</span>
+            msg<span class="token punctuation">.</span>replyTo <span class="token operator">=</span> mGetReplyMessenger<span class="token punctuation">;</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                mService<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+
+        <span class="token doc-comment comment">/**
+         * <span class="token keyword">@param</span> <span class="token parameter">name</span>
+         */</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onServiceDisconnected</span><span class="token punctuation">(</span><span class="token class-name">ComponentName</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>**&#x6CE8;&#x610F;&#xFF1A;**&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x662F;&#x901A;&#x8FC7;&#x62FF;&#x5230;&#x5BF9;&#x65B9;&#x7684; Messenger &#x6765;&#x53D1;&#x9001; Message &#x7684;&#x3002;&#x53EA;&#x4E0D;&#x8FC7;&#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x8FC7; bindService onServiceConnected &#x800C;&#x670D;&#x52A1;&#x7AEF;&#x901A;&#x8FC7; message.replyTo &#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x65B9;&#x7684; Messenger &#x3002;Messenger &#x4E2D;&#x6709;&#x4E00;&#x4E2A; Hanlder &#x4EE5;&#x4E32;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x3002;&#x4E0D;&#x5B58;&#x5728;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E0D;&#x7528;&#x8003;&#x8651;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p><a href="http://i1.piimg.com/588795/e7bed224f80f5dad.png"><img src="http://i1.piimg.com/588795/e7bed224f80f5dad.png" alt="Markdown"></a></p>
+<h2 class="mume-header" id="%E5%9B%9B-%E4%BD%BF%E7%94%A8-aidl">&#x56DB;&#x3001;&#x4F7F;&#x7528; AIDL</h2>
+
+<p>Messenger &#x662F;&#x4EE5;&#x4E32;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x6765;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x5982;&#x679C;&#x5927;&#x91CF;&#x6D88;&#x606F;&#x540C;&#x65F6;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x53EA;&#x80FD;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x4EE5;&#x5927;&#x91CF;&#x5E76;&#x53D1;&#x8BF7;&#x6C42;&#x5C31;&#x4E0D;&#x9002;&#x5408;&#x7528; Messenger &#xFF0C;&#x800C;&#x4E14; Messenger &#x53EA;&#x9002;&#x5408;&#x4F20;&#x9012;&#x6D88;&#x606F;&#xFF0C;&#x4E0D;&#x80FD;&#x8DE8;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x65B9;&#x6CD5;&#x3002;AIDL &#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x5E76;&#x53D1;&#x548C;&#x8DE8;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8981;&#x77E5;&#x9053; Messenger &#x672C;&#x8D28;&#x4E0A;&#x4E5F;&#x662F; AIDL &#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x7CFB;&#x7EDF;&#x505A;&#x4E86;&#x5C01;&#x88C5;&#x65B9;&#x4FBF;&#x4E0A;&#x5C42;&#x7684;&#x8C03;&#x7528;&#x800C;&#x5DF2;&#x3002;</p>
+<h3 class="mume-header" id="aidl-%E6%96%87%E4%BB%B6%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">AIDL &#x6587;&#x4EF6;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</h3>
+
+<ul>
+<li><em>&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</em>&#xFF1B;</li>
+<li><em>String</em> &#x548C; <em>CharSequence</em><br>
+<a href="http://images.cnitblog.com/blog/497634/201311/08083111-591e2833f8a34264b0dad417f4188e35.jpg"><img src="http://images.cnitblog.com/blog/497634/201311/08083111-591e2833f8a34264b0dad417f4188e35.jpg" alt="String"></a></li>
+<li><em>ArrayList</em> &#xFF0C;&#x91CC;&#x9762;&#x7684;&#x5143;&#x7D20;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x88AB; AIDL &#x652F;&#x6301;&#xFF1B;</li>
+<li><em>HashMap</em> &#xFF0C;&#x91CC;&#x9762;&#x7684;&#x5143;&#x7D20;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x88AB; AIDL &#x652F;&#x6301;&#xFF1B;</li>
+<li><em>Parcelable</em> &#xFF0C;&#x5B9E;&#x73B0; Parcelable &#x63A5;&#x53E3;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;<br>
+<strong>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C; AIDL &#x6587;&#x4EF6;&#x4E2D;&#x7528;&#x5230;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684; Parcelable &#x5BF9;&#x8C61;&#xFF0C;&#x5FC5;&#x987B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x548C;&#x5B83;&#x540C;&#x540D;&#x7684; AIDL &#x6587;&#x4EF6;&#x3002;</strong></li>
+<li><em>AIDL</em> &#xFF0C;AIDL &#x63A5;&#x53E3;&#x672C;&#x8EAB;&#x4E5F;&#x53EF;&#x4EE5;&#x5728; AIDL &#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+<h3 class="mume-header" id="%E6%9C%8D%E5%8A%A1%E7%AB%AF">&#x670D;&#x52A1;&#x7AEF;</h3>
+
+<p>&#x670D;&#x52A1;&#x7AEF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Service &#x7528;&#x6765;&#x76D1;&#x542C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#xFF0C;&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; AIDL &#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x66B4;&#x9732;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x63A5;&#x53E3;&#x5728;&#x8FD9;&#x4E2A; AIDL &#x6587;&#x4EF6;&#x4E2D;&#x58F0;&#x660E;&#xFF0C;&#x6700;&#x540E;&#x5728; Service &#x4E2D;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A; AIDL &#x63A5;&#x53E3;&#x5373;&#x53EF;&#x3002;</p>
+<h3 class="mume-header" id="%E5%AE%A2%E6%88%B7%E7%AB%AF">&#x5BA2;&#x6237;&#x7AEF;</h3>
+
+<p>&#x7ED1;&#x5B9A;&#x670D;&#x52A1;&#x7AEF;&#x7684; Service &#xFF0C;&#x7ED1;&#x5B9A;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5C06;&#x670D;&#x52A1;&#x7AEF;&#x8FD4;&#x56DE;&#x7684; Binder &#x5BF9;&#x8C61;&#x8F6C;&#x6210; AIDL &#x63A5;&#x53E3;&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x8C03;&#x7528; AIDL &#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x4E86;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x8C03;&#x7528;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x7684; Binder &#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x7EBF;&#x7A0B;&#x4F1A;&#x88AB;&#x6302;&#x8D77;&#xFF0C;&#x5982;&#x679C;&#x670D;&#x52A1;&#x7AEF;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x6BD4;&#x8F83;&#x8017;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x5BA2;&#x6237;&#x7AEF;&#x7EBF;&#x7A0B;&#x957F;&#x65F6;&#x95F4;&#x963B;&#x585E;&#xFF0C;&#x5BFC;&#x81F4; ANR &#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x7684; onServiceConnected &#x548C; onServiceDisconnected &#x65B9;&#x6CD5;&#x90FD;&#x5728; UI &#x7EBF;&#x7A0B;&#x4E2D;&#x3002;</p>
+<h3 class="mume-header" id="%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">&#x670D;&#x52A1;&#x7AEF;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x7BA1;&#x7406;</h3>
+
+<ul>
+<li>&#x4F7F;&#x7528; Permission &#x9A8C;&#x8BC1;&#xFF0C;&#x5728; manifest &#x4E2D;&#x58F0;&#x660E;</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token operator">&lt;</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">&quot;com.jc.ipc.ACCESS_BOOK_SERVICE&quot;</span>
+    android<span class="token operator">:</span>protectionLevel<span class="token operator">=</span><span class="token string">&quot;normal&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token keyword">uses</span><span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">&quot;com.jc.ipc.ACCESS_BOOK_SERVICE&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+</pre><p>&#x670D;&#x52A1;&#x7AEF; onBinder &#x65B9;&#x6CD5;&#x4E2D;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token class-name">IBinder</span> <span class="token function">onBind</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> intent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//Permission &#x6743;&#x9650;&#x9A8C;&#x8BC1;</span>
+    <span class="token keyword">int</span> check <span class="token operator">=</span> <span class="token function">checkCallingOrSelfPermission</span><span class="token punctuation">(</span><span class="token string">&quot;com.jc.ipc.ACCESS_BOOK_SERVICE&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>check <span class="token operator">==</span> <span class="token class-name">PackageManager</span><span class="token punctuation">.</span>PERMISSION_DENIED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> mBinder<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><ul>
+<li>Pid Uid &#x9A8C;&#x8BC1;</li>
+</ul>
+<p>&#x8BE6;&#x7EC6;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token comment">// Book.aidl</span>
+<span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>jc<span class="token punctuation">.</span>ipc<span class="token punctuation">.</span>aidl</span><span class="token punctuation">;</span>
+
+parcelable <span class="token class-name">Book</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token comment">// IBookManager.aidl</span>
+<span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>jc<span class="token punctuation">.</span>ipc<span class="token punctuation">.</span>aidl</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>jc<span class="token punctuation">.</span>ipc<span class="token punctuation">.</span>aidl<span class="token punctuation">.</span></span><span class="token class-name">Book</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>jc<span class="token punctuation">.</span>ipc<span class="token punctuation">.</span>aidl<span class="token punctuation">.</span></span><span class="token class-name">INewBookArrivedListener</span><span class="token punctuation">;</span>
+
+<span class="token comment">// AIDL &#x63A5;&#x53E3;&#x4E2D;&#x53EA;&#x652F;&#x6301;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x9759;&#x6001;&#x5E38;&#x91CF;&#xFF0C;&#x533A;&#x522B;&#x4E8E;&#x4F20;&#x7EDF;&#x7684;&#x63A5;&#x53E3;</span>
+<span class="token keyword">interface</span> <span class="token class-name">IBookManager</span> <span class="token punctuation">{</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">&gt;</span></span> <span class="token function">getBookList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// AIDL &#x4E2D;&#x9664;&#x4E86;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x6807;&#x4E0A;&#x65B9;&#x5411;,in,out &#x6216;&#x8005; inout</span>
+    <span class="token comment">// in &#x8868;&#x793A;&#x8F93;&#x5165;&#x578B;&#x53C2;&#x6570;</span>
+    <span class="token comment">// out &#x8868;&#x793A;&#x8F93;&#x51FA;&#x578B;&#x53C2;&#x6570;</span>
+    <span class="token comment">// inout &#x8868;&#x793A;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x578B;&#x53C2;&#x6570;</span>
+
+    <span class="token keyword">void</span> <span class="token function">addBook</span><span class="token punctuation">(</span>in <span class="token class-name">Book</span> book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">void</span> <span class="token function">registerListener</span><span class="token punctuation">(</span><span class="token class-name">INewBookArrivedListener</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">unregisterListener</span><span class="token punctuation">(</span><span class="token class-name">INewBookArrivedListener</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token comment">// INewBookArrivedListener.aidl</span>
+<span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>jc<span class="token punctuation">.</span>ipc<span class="token punctuation">.</span>aidl</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>jc<span class="token punctuation">.</span>ipc<span class="token punctuation">.</span>aidl<span class="token punctuation">.</span></span><span class="token class-name">Book</span><span class="token punctuation">;</span>
+
+<span class="token comment">// &#x63D0;&#x9192;&#x5BA2;&#x6237;&#x7AEF;&#x65B0;&#x4E66;&#x5230;&#x6765;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">INewBookArrivedListener</span> <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">onNewBookArrived</span><span class="token punctuation">(</span>in <span class="token class-name">Book</span> newBook<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BookManagerActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token class-name">BookManagerActivity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> MSG_NEW_BOOK_ARRIVED <span class="token operator">=</span> <span class="token number">0x10</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Button</span> getBookListBtn<span class="token punctuation">,</span>addBookBtn<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">TextView</span> displayTextView<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">IBookManager</span> bookManager<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Handler</span> mHandler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> MSG_NEW_BOOK_ARRIVED<span class="token operator">:</span>
+                    <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;handleMessage: new book arrived &quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">BookManagerActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;new book arrived &quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span>obj<span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handleMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">ServiceConnection</span> mServiceConn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServiceConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onServiceConnected</span><span class="token punctuation">(</span><span class="token class-name">ComponentName</span> name<span class="token punctuation">,</span> <span class="token class-name">IBinder</span> service<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            bookManager <span class="token operator">=</span> <span class="token class-name">IBookManager<span class="token punctuation">.</span>Stub</span><span class="token punctuation">.</span><span class="token function">asInterface</span><span class="token punctuation">(</span>service<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                bookManager<span class="token punctuation">.</span><span class="token function">registerListener</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onServiceDisconnected</span><span class="token punctuation">(</span><span class="token class-name">ComponentName</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">INewBookArrivedListener</span> listener <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">INewBookArrivedListener<span class="token punctuation">.</span>Stub</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onNewBookArrived</span><span class="token punctuation">(</span><span class="token class-name">Book</span> newBook<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span> <span class="token punctuation">{</span>
+            mHandler<span class="token punctuation">.</span><span class="token function">obtainMessage</span><span class="token punctuation">(</span>MSG_NEW_BOOK_ARRIVED<span class="token punctuation">,</span> newBook<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sendToTarget</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Nullable</span> <span class="token class-name">Bundle</span> savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>layout<span class="token punctuation">.</span>book_manager<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        displayTextView <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">TextView</span><span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>id<span class="token punctuation">.</span>displayTextView<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token class-name">BookManagerService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">bindService</span><span class="token punctuation">(</span>intent<span class="token punctuation">,</span> mServiceConn<span class="token punctuation">,</span> BIND_AUTO_CREATE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getBookList</span><span class="token punctuation">(</span><span class="token class-name">View</span> view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> bookManager<span class="token punctuation">.</span><span class="token function">getBookList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;getBookList: &quot;</span> <span class="token operator">+</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            displayTextView<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addBook</span><span class="token punctuation">(</span><span class="token class-name">View</span> view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            bookManager<span class="token punctuation">.</span><span class="token function">addBook</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x5929;&#x9F99;&#x516B;&#x90E8;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>bookManager <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> bookManager<span class="token punctuation">.</span><span class="token function">asBinder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isBinderAlive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;unregister listener &quot;</span> <span class="token operator">+</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                bookManager<span class="token punctuation">.</span><span class="token function">unregisterListener</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">unbindService</span><span class="token punctuation">(</span>mServiceConn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BookManagerService</span> <span class="token keyword">extends</span> <span class="token class-name">Service</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token class-name">BookManagerService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// CopyOnWriteArrayList &#x652F;&#x6301;&#x5E76;&#x53D1;&#x8BFB;&#x5199;&#xFF0C;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#xFF0C;&#x4ED6;&#x4E0D;&#x662F;&#x7EE7;&#x627F;&#x81EA; ArrayList</span>
+    <span class="token keyword">private</span> <span class="token class-name">CopyOnWriteArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">&gt;</span></span> mBookList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CopyOnWriteArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//&#x5BF9;&#x8C61;&#x662F;&#x4E0D;&#x80FD;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F20;&#x8F93;&#x7684;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F20;&#x8F93;&#x672C;&#x8D28;&#x90FD;&#x662F;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;Binder &#x4F1A;&#x628A;&#x5BA2;&#x6237;&#x7AEF;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x91CD;&#x65B0;&#x8F6C;&#x5316;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;</span>
+    <span class="token comment">//RemoteCallbackList &#x662F;&#x7CFB;&#x7EDF;&#x4E13;&#x95E8;&#x63D0;&#x4F9B;&#x7684;&#x7528;&#x4E8E;&#x5220;&#x9664;&#x7CFB;&#x7EDF;&#x8DE8;&#x8FDB;&#x7A0B; listener &#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5229;&#x7528;&#x5E95;&#x5C42;&#x7684; Binder &#x5BF9;&#x8C61;&#x662F;&#x540C;&#x4E00;&#x4E2A;</span>
+    <span class="token comment">//RemoteCallbackList &#x4F1A;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x7A0B;&#x7EC8;&#x6B62;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x6EA2;&#x51FA;&#x5BA2;&#x6237;&#x7AEF;&#x6CE8;&#x518C;&#x7684; listener &#xFF0C;&#x5185;&#x90E8;&#x81EA;&#x52A8;&#x5B9E;&#x73B0;&#x4E86;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x529F;&#x80FD;&#x3002;</span>
+    <span class="token keyword">private</span> <span class="token class-name">RemoteCallbackList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">INewBookArrivedListener</span><span class="token punctuation">&gt;</span></span> mListeners <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RemoteCallbackList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">AtomicBoolean</span> isServiceDestroied <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicBoolean</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token keyword">private</span> <span class="token class-name">Binder</span> mBinder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IBookManager<span class="token punctuation">.</span>Stub</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">&gt;</span></span> <span class="token function">getBookList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> mBookList<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addBook</span><span class="token punctuation">(</span><span class="token class-name">Book</span> book<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;addBook: &quot;</span> <span class="token operator">+</span> book<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            mBookList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">registerListener</span><span class="token punctuation">(</span><span class="token class-name">INewBookArrivedListener</span> listener<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span> <span class="token punctuation">{</span>
+            mListeners<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">unregisterListener</span><span class="token punctuation">(</span><span class="token class-name">INewBookArrivedListener</span> listener<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span> <span class="token punctuation">{</span>
+            mListeners<span class="token punctuation">.</span><span class="token function">unregister</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mBookList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x8001;&#x4EBA;&#x4E0E;&#x6D77;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mBookList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x54C8;&#x59C6;&#x96F7;&#x7279;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ServiceWorker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">onNewBookArrived</span><span class="token punctuation">(</span><span class="token class-name">Book</span> book<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span> <span class="token punctuation">{</span>
+        mBookList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span> count <span class="token operator">=</span> mListeners<span class="token punctuation">.</span><span class="token function">beginBroadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">INewBookArrivedListener</span> listener <span class="token operator">=</span> mListeners<span class="token punctuation">.</span><span class="token function">getBroadcastItem</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>listener <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                listener<span class="token punctuation">.</span><span class="token function">onNewBookArrived</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        mListeners<span class="token punctuation">.</span><span class="token function">finishBroadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">ServiceWorker</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>isServiceDestroied<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">int</span> bookId <span class="token operator">=</span> mBookList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token class-name">Book</span> newBook <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>bookId<span class="token punctuation">,</span> <span class="token string">&quot;new book # &quot;</span> <span class="token operator">+</span> bookId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token function">onNewBookArrived</span><span class="token punctuation">(</span>newBook<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RemoteException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token annotation punctuation">@Nullable</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">IBinder</span> <span class="token function">onBind</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> intent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//Permission &#x6743;&#x9650;&#x9A8C;&#x8BC1;</span>
+        <span class="token keyword">int</span> check <span class="token operator">=</span> <span class="token function">checkCallingOrSelfPermission</span><span class="token punctuation">(</span><span class="token string">&quot;com.jc.ipc.ACCESS_BOOK_SERVICE&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>check <span class="token operator">==</span> <span class="token class-name">PackageManager</span><span class="token punctuation">.</span>PERMISSION_DENIED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> mBinder<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        isServiceDestroied<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E4%BA%94-%E4%BD%BF%E7%94%A8-contentprovider">&#x4E94;&#x3001;&#x4F7F;&#x7528; ContentProvider</h2>
+
+<p>&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x5E94;&#x7528;&#x95F4;&#x6570;&#x636E;&#x5171;&#x4EAB;&#xFF0C;&#x548C; Messenger &#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x540C;&#x6837;&#x662F; Binder &#x548C; AIDL&#xFF0C;&#x7CFB;&#x7EDF;&#x505A;&#x4E86;&#x5C01;&#x88C5;&#xFF0C;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x3002;<br>
+&#x7CFB;&#x7EDF;&#x9884;&#x7F6E;&#x4E86;&#x8BB8;&#x591A; ContentProvider &#xFF0C;&#x5982;&#x901A;&#x8BAF;&#x5F55;&#x3001;&#x65E5;&#x7A0B;&#x8868;&#xFF0C;&#x9700;&#x8981;&#x8DE8;&#x8FDB;&#x7A0B;&#x8BBF;&#x95EE;&#x3002;<br>
+&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;&#x7EE7;&#x627F; ContentProvider &#x7C7B;&#x5B9E;&#x73B0; 6 &#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x516D;&#x4E2A;&#x65B9;&#x6CD5;&#x5747;&#x8FD0;&#x884C;&#x5728; ContentProvider &#x8FDB;&#x7A0B;&#x4E2D;&#xFF0C;&#x9664; onCreate &#x8FD0;&#x884C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x91CC;&#xFF0C;&#x5176;&#x4ED6;&#x4E94;&#x4E2A;&#x65B9;&#x6CD5;&#x5747;&#x7531;&#x5916;&#x754C;&#x56DE;&#x8C03;&#x8FD0;&#x884C;&#x5728; Binder &#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x3002;</p>
+<p>ContentProvider &#x7684;&#x5E95;&#x5C42;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x662F; SQLite &#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x8BE6;&#x89C1;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BookProvider</span> <span class="token keyword">extends</span> <span class="token class-name">ContentProvider</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token string">&quot;BookProvider&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> AUTHORITY <span class="token operator">=</span> <span class="token string">&quot;com.jc.ipc.Book.Provider&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Uri</span> BOOK_CONTENT_URI <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">&quot;content://&quot;</span> <span class="token operator">+</span> AUTHORITY <span class="token operator">+</span> <span class="token string">&quot;/book&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Uri</span> USER_CONTENT_URI <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">&quot;content://&quot;</span> <span class="token operator">+</span> AUTHORITY <span class="token operator">+</span> <span class="token string">&quot;/user&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> BOOK_URI_CODE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> USER_URI_CODE <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">UriMatcher</span> sUriMatcher <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UriMatcher</span><span class="token punctuation">(</span><span class="token class-name">UriMatcher</span><span class="token punctuation">.</span>NO_MATCH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">{</span>
+        sUriMatcher<span class="token punctuation">.</span><span class="token function">addURI</span><span class="token punctuation">(</span>AUTHORITY<span class="token punctuation">,</span> <span class="token string">&quot;book&quot;</span><span class="token punctuation">,</span> BOOK_URI_CODE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sUriMatcher<span class="token punctuation">.</span><span class="token function">addURI</span><span class="token punctuation">(</span>AUTHORITY<span class="token punctuation">,</span> <span class="token string">&quot;user&quot;</span><span class="token punctuation">,</span> USER_URI_CODE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Context</span> mContext<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">SQLiteDatabase</span> mDB<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mContext <span class="token operator">=</span> <span class="token function">getContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">initProviderData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">initProviderData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//&#x4E0D;&#x5EFA;&#x8BAE;&#x5728; UI &#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x8017;&#x65F6;&#x64CD;&#x4F5C;</span>
+        mDB <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DBOpenHelper</span><span class="token punctuation">(</span>mContext<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getWritableDatabase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDB<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span><span class="token string">&quot;delete from &quot;</span> <span class="token operator">+</span> <span class="token class-name">DBOpenHelper</span><span class="token punctuation">.</span>BOOK_TABLE_NAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDB<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span><span class="token string">&quot;delete from &quot;</span> <span class="token operator">+</span> <span class="token class-name">DBOpenHelper</span><span class="token punctuation">.</span>USER_TABLE_NAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDB<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span><span class="token string">&quot;insert into book values(3,&apos;Android&apos;);&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDB<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span><span class="token string">&quot;insert into book values(4,&apos;iOS&apos;);&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDB<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span><span class="token string">&quot;insert into book values(5,&apos;Html5&apos;);&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDB<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span><span class="token string">&quot;insert into user values(1,&apos;haohao&apos;,1);&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDB<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span><span class="token string">&quot;insert into user values(2,&apos;nannan&apos;,0);&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Nullable</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Cursor</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token class-name">Uri</span> uri<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> projection<span class="token punctuation">,</span> <span class="token class-name">String</span> selection<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> selectionArgs<span class="token punctuation">,</span> <span class="token class-name">String</span> sortOrder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;query, current thread&quot;</span><span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> table <span class="token operator">=</span> <span class="token function">getTableName</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>table <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;Unsupported URI&quot;</span> <span class="token operator">+</span> uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> mDB<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> projection<span class="token punctuation">,</span> selection<span class="token punctuation">,</span> selectionArgs<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> sortOrder<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Nullable</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getType</span><span class="token punctuation">(</span><span class="token class-name">Uri</span> uri<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;getType&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Nullable</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Uri</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">Uri</span> uri<span class="token punctuation">,</span> <span class="token class-name">ContentValues</span> values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;insert&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> table <span class="token operator">=</span> <span class="token function">getTableName</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>table <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;Unsupported URI&quot;</span> <span class="token operator">+</span> uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        mDB<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> values<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// &#x901A;&#x77E5;&#x5916;&#x754C; ContentProvider &#x4E2D;&#x7684;&#x6570;&#x636E;&#x53D1;&#x751F;&#x53D8;&#x5316;</span>
+        mContext<span class="token punctuation">.</span><span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notifyChange</span><span class="token punctuation">(</span>uri<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> uri<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">Uri</span> uri<span class="token punctuation">,</span> <span class="token class-name">String</span> selection<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> selectionArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;delete&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> table <span class="token operator">=</span> <span class="token function">getTableName</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>table <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;Unsupported URI&quot;</span> <span class="token operator">+</span> uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> count <span class="token operator">=</span> mDB<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> selection<span class="token punctuation">,</span> selectionArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mContext<span class="token punctuation">.</span><span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notifyChange</span><span class="token punctuation">(</span>uri<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token class-name">Uri</span> uri<span class="token punctuation">,</span> <span class="token class-name">ContentValues</span> values<span class="token punctuation">,</span> <span class="token class-name">String</span> selection<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> selectionArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;update&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> table <span class="token operator">=</span> <span class="token function">getTableName</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>table <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;Unsupported URI&quot;</span> <span class="token operator">+</span> uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> row <span class="token operator">=</span> mDB<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> values<span class="token punctuation">,</span> selection<span class="token punctuation">,</span> selectionArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>row <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notifyChange</span><span class="token punctuation">(</span>uri<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> row<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token function">getTableName</span><span class="token punctuation">(</span><span class="token class-name">Uri</span> uri<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> tableName <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>sUriMatcher<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> BOOK_URI_CODE<span class="token operator">:</span>
+                tableName <span class="token operator">=</span> <span class="token class-name">DBOpenHelper</span><span class="token punctuation">.</span>BOOK_TABLE_NAME<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> USER_URI_CODE<span class="token operator">:</span>
+                tableName <span class="token operator">=</span> <span class="token class-name">DBOpenHelper</span><span class="token punctuation">.</span>USER_TABLE_NAME<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> tableName<span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DBOpenHelper</span> <span class="token keyword">extends</span> <span class="token class-name">SQLiteOpenHelper</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> DB_NAME <span class="token operator">=</span> <span class="token string">&quot;book_provider.db&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> BOOK_TABLE_NAME <span class="token operator">=</span> <span class="token string">&quot;book&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> USER_TABLE_NAME <span class="token operator">=</span> <span class="token string">&quot;user&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> DB_VERSION <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> CREATE_BOOK_TABLE <span class="token operator">=</span> <span class="token string">&quot;CREATE TABLE IF NOT EXISTS &quot;</span>
+            <span class="token operator">+</span> BOOK_TABLE_NAME <span class="token operator">+</span> <span class="token string">&quot;(_id INTEGER PRIMARY KEY,&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;name TEXT)&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> CREATE_USER_TABLE <span class="token operator">=</span> <span class="token string">&quot;CREATE TABLE IF NOT EXISTS &quot;</span>
+            <span class="token operator">+</span> USER_TABLE_NAME <span class="token operator">+</span> <span class="token string">&quot;(_id INTEGER PRIMARY KEY,&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;name TEXT,&quot;</span>
+            <span class="token operator">+</span> <span class="token string">&quot;sex INT)&quot;</span><span class="token punctuation">;</span>
+
+
+
+    <span class="token keyword">public</span> <span class="token class-name">DBOpenHelper</span><span class="token punctuation">(</span><span class="token class-name">Context</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> DB_NAME<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> DB_VERSION<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token class-name">SQLiteDatabase</span> db<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        db<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span>CREATE_BOOK_TABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        db<span class="token punctuation">.</span><span class="token function">execSQL</span><span class="token punctuation">(</span>CREATE_USER_TABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onUpgrade</span><span class="token punctuation">(</span><span class="token class-name">SQLiteDatabase</span> db<span class="token punctuation">,</span> <span class="token keyword">int</span> oldVersion<span class="token punctuation">,</span> <span class="token keyword">int</span> newVersion<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProviderActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token class-name">ProviderActivity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">TextView</span> displayTextView<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Handler</span> mHandler<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Nullable</span> <span class="token class-name">Bundle</span> savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_provider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        displayTextView <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">TextView</span><span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>id<span class="token punctuation">.</span>displayTextView<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mHandler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">registerContentObserver</span><span class="token punctuation">(</span><span class="token class-name">BookProvider</span><span class="token punctuation">.</span>BOOK_CONTENT_URI<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ContentObserver</span><span class="token punctuation">(</span>mHandler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">deliverSelfNotifications</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">deliverSelfNotifications</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onChange</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> selfChange<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>selfChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onChange</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> selfChange<span class="token punctuation">,</span> <span class="token class-name">Uri</span> uri<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">ProviderActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> uri<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>selfChange<span class="token punctuation">,</span> uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">View</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ContentValues</span> values <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ContentValues</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        values<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;_id&quot;</span><span class="token punctuation">,</span><span class="token number">1123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        values<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x4E09;&#x56FD;&#x6F14;&#x4E49;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">BookProvider</span><span class="token punctuation">.</span>BOOK_CONTENT_URI<span class="token punctuation">,</span> values<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">View</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">BookProvider</span><span class="token punctuation">.</span>BOOK_CONTENT_URI<span class="token punctuation">,</span> <span class="token string">&quot;_id = 4&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token class-name">View</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ContentValues</span> values <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ContentValues</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        values<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;_id&quot;</span><span class="token punctuation">,</span><span class="token number">1123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        values<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x4E09;&#x56FD;&#x6F14;&#x4E49;&#x65B0;&#x7248;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token class-name">BookProvider</span><span class="token punctuation">.</span>BOOK_CONTENT_URI<span class="token punctuation">,</span> values <span class="token punctuation">,</span> <span class="token string">&quot;_id = 1123&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token class-name">View</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Cursor</span> bookCursor <span class="token operator">=</span> <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token class-name">BookProvider</span><span class="token punctuation">.</span>BOOK_CONTENT_URI<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">&quot;_id&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>bookCursor<span class="token punctuation">.</span><span class="token function">moveToNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Book</span> book <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span>bookCursor<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bookCursor<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>book<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;--------------------------------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bookCursor<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Cursor</span> userCursor <span class="token operator">=</span> <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token class-name">BookProvider</span><span class="token punctuation">.</span>USER_CONTENT_URI<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">&quot;_id&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;sex&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>userCursor<span class="token punctuation">.</span><span class="token function">moveToNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>userCursor<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>userCursor<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot; ,&quot;</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>userCursor<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot; ,&quot;</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;--------------------------------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userCursor<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        displayTextView<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E5%85%AD-%E4%BD%BF%E7%94%A8-socket">&#x516D;&#x3001;&#x4F7F;&#x7528; Socket</h2>
+
+<blockquote>
+<p>Socket&#x8D77;&#x6E90;&#x4E8E; Unix&#xFF0C;&#x800C; Unix &#x57FA;&#x672C;&#x54F2;&#x5B66;&#x4E4B;&#x4E00;&#x5C31;&#x662F;&#x201C;&#x4E00;&#x5207;&#x7686;&#x6587;&#x4EF6;&#x201D;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x201C;&#x6253;&#x5F00; open &#x2013;&#x8BFB;&#x5199; write/read &#x2013;&#x5173;&#x95ED; close &#x201D;&#x6A21;&#x5F0F;&#x6765;&#x64CD;&#x4F5C;&#x3002;Socket &#x5C31;&#x662F;&#x8BE5;&#x6A21;&#x5F0F;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#xFF0C;&#x7F51;&#x7EDC;&#x7684; Socket &#x6570;&#x636E;&#x4F20;&#x8F93;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684; I/O&#xFF0C;Socket &#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;Socket &#x4E5F;&#x5177;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E8E;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF1A; Socket()&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6574;&#x578B;&#x7684;Socket &#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x968F;&#x540E;&#x7684;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x3001;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x7B49;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x8BE5; Socket &#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<p>&#x5E38;&#x7528;&#x7684; Socket &#x7C7B;&#x578B;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x6D41;&#x5F0F; Socket&#xFF08;SOCK_STREAM&#xFF09;&#x548C;&#x6570;&#x636E;&#x62A5;&#x5F0F; Socket&#xFF08;SOCK_DGRAM&#xFF09;&#x3002;&#x6D41;&#x5F0F;&#x662F;&#x4E00;&#x79CD;&#x9762;&#x5411;&#x8FDE;&#x63A5;&#x7684; Socket&#xFF0C;&#x9488;&#x5BF9;&#x4E8E;&#x9762;&#x5411;&#x8FDE;&#x63A5;&#x7684; TCP &#x670D;&#x52A1;&#x5E94;&#x7528;&#xFF1B;&#x6570;&#x636E;&#x62A5;&#x5F0F; Socket &#x662F;&#x4E00;&#x79CD;&#x65E0;&#x8FDE;&#x63A5;&#x7684; Socket &#xFF0C;&#x5BF9;&#x5E94;&#x4E8E;&#x65E0;&#x8FDE;&#x63A5;&#x7684; UDP &#x670D;&#x52A1;&#x5E94;&#x7528;&#x3002;</p>
+</blockquote>
+<p>Socket &#x672C;&#x8EAB;&#x53EF;&#x4EE5;&#x4F20;&#x8F93;&#x4EFB;&#x610F;&#x5B57;&#x8282;&#x6D41;&#x3002;</p>
+<p>&#x8C08;&#x5230;Socket&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x8BF4;&#x4E00;&#x8BF4; TCP/IP &#x4E94;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#xFF1A;</p>
+<ul>
+<li>&#x5E94;&#x7528;&#x5C42;&#xFF1A;&#x89C4;&#x5B9A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;&#xFF0C;&#x4E3B;&#x8981;&#x7684;&#x534F;&#x8BAE; HTTP&#xFF0C;FTP&#xFF0C;WebSocket&#xFF0C;POP3 &#x7B49;&#xFF1B;</li>
+<li>&#x4F20;&#x8F93;&#x5C42;&#xFF1A;&#x5EFA;&#x7ACB;&#x201C;&#x7AEF;&#x53E3;&#x5230;&#x7AEF;&#x53E3;&#x201D; &#x7684;&#x901A;&#x4FE1;&#xFF0C;&#x4E3B;&#x8981;&#x7684;&#x534F;&#x8BAE;&#xFF1A;TCP&#xFF0C;UDP&#xFF1B;</li>
+<li>&#x7F51;&#x7EDC;&#x5C42;&#xFF1A;&#x5EFA;&#x7ACB;&#x201D;&#x4E3B;&#x673A;&#x5230;&#x4E3B;&#x673A;&#x201D;&#x7684;&#x901A;&#x4FE1;&#xFF0C;&#x4E3B;&#x8981;&#x7684;&#x534F;&#x8BAE;&#xFF1A;IP&#xFF0C;ARP &#xFF0C;IP &#x534F;&#x8BAE;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x4E3A;&#x6BCF;&#x4E00;&#x53F0;&#x8BA1;&#x7B97;&#x673A;&#x5206;&#x914D; IP &#x5730;&#x5740;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x786E;&#x5B9A;&#x54EA;&#x4E9B;&#x5730;&#x5740;&#x5728;&#x540C;&#x4E00;&#x5B50;&#x7F51;&#xFF1B;</li>
+<li>&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#xFF1A;&#x786E;&#x5B9A;&#x7535;&#x4FE1;&#x53F7;&#x7684;&#x5206;&#x7EC4;&#x65B9;&#x5F0F;&#xFF0C;&#x4E3B;&#x8981;&#x7684;&#x534F;&#x8BAE;&#xFF1A;&#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;&#xFF1B;</li>
+<li>&#x7269;&#x7406;&#x5C42;&#xFF1A;&#x8D1F;&#x8D23;&#x7535;&#x4FE1;&#x53F7;&#x7684;&#x4F20;&#x8F93;&#x3002;</li>
+</ul>
+<p><strong>Socket &#x662F;&#x8FDE;&#x63A5;&#x5E94;&#x7528;&#x5C42;&#x4E0E;&#x4F20;&#x8F93;&#x5C42;&#x4E4B;&#x95F4;&#x63A5;&#x53E3;&#xFF08;API&#xFF09;&#x3002;</strong></p>
+<p><a href="https://github.com/astaxie/build-web-application-with-golang/raw/master/zh/images/8.1.socket.png?raw=true"><img src="https://github.com/astaxie/build-web-application-with-golang/raw/master/zh/images/8.1.socket.png?raw=true" alt="&#x7F51;&#x7EDC;&#x6A21;&#x578B;"></a></p>
+<p>&#x53EA;&#x5B9E;&#x73B0; TCP Socket &#x3002;</p>
+<p>Client &#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TCPClientActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token keyword">implements</span> <span class="token class-name">View<span class="token punctuation">.</span>OnClickListener</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token string">&quot;TCPClientActivity&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> MSG_RECEIVED <span class="token operator">=</span> <span class="token number">0x10</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> MSG_READY <span class="token operator">=</span> <span class="token number">0x11</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">EditText</span> editText<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">TextView</span> textView<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">PrintWriter</span> mPrintWriter<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Socket</span> mClientSocket<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Button</span> sendBtn<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">StringBuilder</span> stringBuilder<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Handler</span> mHandler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> MSG_READY<span class="token operator">:</span>
+                    sendBtn<span class="token punctuation">.</span><span class="token function">setEnabled</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> MSG_RECEIVED<span class="token operator">:</span>
+                    stringBuilder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    textView<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>stringBuilder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handleMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Nullable</span> <span class="token class-name">Bundle</span> savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>layout<span class="token punctuation">.</span>tcp_client_activity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        editText <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">EditText</span><span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>id<span class="token punctuation">.</span>editText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        textView <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">TextView</span><span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>id<span class="token punctuation">.</span>displayTextView<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sendBtn <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Button</span><span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>id<span class="token punctuation">.</span>sendBtn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sendBtn<span class="token punctuation">.</span><span class="token function">setOnClickListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sendBtn<span class="token punctuation">.</span><span class="token function">setEnabled</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stringBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token class-name">TCPClientActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token class-name">TCPServerService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">startService</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">connectTcpServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token function">formatDateTime</span><span class="token punctuation">(</span><span class="token keyword">long</span> time<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">&quot;(HH:mm:ss)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">connectTcpServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Socket</span> socket <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>socket <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                socket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Socket</span><span class="token punctuation">(</span><span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span> <span class="token number">8888</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mClientSocket <span class="token operator">=</span> socket<span class="token punctuation">;</span>
+                mPrintWriter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PrintWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span>
+                        <span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span>socket<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mHandler<span class="token punctuation">.</span><span class="token function">sendEmptyMessage</span><span class="token punctuation">(</span>MSG_READY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// receive message</span>
+        <span class="token class-name">BufferedReader</span> bufferedReader <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            bufferedReader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span>socket<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isFinishing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">String</span> msg <span class="token operator">=</span> bufferedReader<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>msg <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">String</span> time <span class="token operator">=</span> <span class="token function">formatDateTime</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">String</span> showedMsg <span class="token operator">=</span> <span class="token string">&quot;server &quot;</span> <span class="token operator">+</span> time <span class="token operator">+</span> <span class="token string">&quot;:&quot;</span> <span class="token operator">+</span> msg
+                            <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+                    mHandler<span class="token punctuation">.</span><span class="token function">obtainMessage</span><span class="token punctuation">(</span>MSG_RECEIVED<span class="token punctuation">,</span> showedMsg<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sendToTarget</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onClick</span><span class="token punctuation">(</span><span class="token class-name">View</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mPrintWriter <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span> msg <span class="token operator">=</span> editText<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            mPrintWriter<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            editText<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> time <span class="token operator">=</span> <span class="token function">formatDateTime</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> showedMsg <span class="token operator">=</span> <span class="token string">&quot;self &quot;</span> <span class="token operator">+</span> time <span class="token operator">+</span> <span class="token string">&quot;:&quot;</span> <span class="token operator">+</span> msg <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+            stringBuilder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>showedMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mClientSocket <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                mClientSocket<span class="token punctuation">.</span><span class="token function">shutdownInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mClientSocket<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>Server &#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TCPServerService</span> <span class="token keyword">extends</span> <span class="token class-name">Service</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token string">&quot;TCPServerService&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> isServiceDestroyed <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> mMessages <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+            <span class="token string">&quot;Hello! Body!&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;&#x7528;&#x6237;&#x4E0D;&#x5728;&#x7EBF;&#xFF01;&#x8BF7;&#x7A0D;&#x540E;&#x518D;&#x8054;&#x7CFB;&#xFF01;&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;&#x8BF7;&#x95EE;&#x4F60;&#x53EB;&#x4EC0;&#x4E48;&#x540D;&#x5B57;&#x5440;&#xFF1F;&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;&#x5389;&#x5BB3;&#x4E86;&#xFF0C;&#x6211;&#x7684;&#x54E5;&#xFF01;&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;Google &#x4E0D;&#x9700;&#x8981;&#x79D1;&#x5B66;&#x4E0A;&#x7F51;&#x662F;&#x771F;&#x7684;&#x5417;&#xFF1F;&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;&#x624E;&#x5FC3;&#x4E86;&#xFF0C;&#x8001;&#x94C1;&#xFF01;&#xFF01;&#xFF01;&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TCPServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        isServiceDestroyed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Nullable</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">IBinder</span> <span class="token function">onBind</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> intent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">TCPServer</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">ServerSocket</span> serverSocket <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                serverSocket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerSocket</span><span class="token punctuation">(</span><span class="token number">8888</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>isServiceDestroyed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// receive request from client</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">final</span> <span class="token class-name">Socket</span> client <span class="token operator">=</span> serverSocket<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;=============== accept ==================&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token annotation punctuation">@Override</span>
+                        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                                <span class="token function">responseClient</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">responseClient</span><span class="token punctuation">(</span><span class="token class-name">Socket</span> client<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+        <span class="token comment">//receive message</span>
+        <span class="token class-name">BufferedReader</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//send message</span>
+        <span class="token class-name">PrintWriter</span> out <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PrintWriter</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span>
+                        <span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span>
+                                client<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&#x6B22;&#x8FCE;&#x6765;&#x5230;&#x804A;&#x5929;&#x5BA4;&#xFF01;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>isServiceDestroyed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span> str <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;message from client: &quot;</span> <span class="token operator">+</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>str <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token class-name">Random</span> random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> index <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>mMessages<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> msg <span class="token operator">=</span> mMessages<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;send Message: &quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        in<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        client<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x6F14;&#x793A;&#xFF1A;</p>
+<p><a href="http://i4.buimg.com/588795/90d3ecdb634908c1.jpg"><img src="http://i4.buimg.com/588795/90d3ecdb634908c1.jpg" alt="Markdown"></a></p>
+<p>UDP Socket &#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5C1D;&#x8BD5;&#x7740;&#x5B9E;&#x73B0;&#x3002;</p>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#android-%E4%B8%AD%E7%9A%84-ipc-%E6%96%B9%E5%BC%8F">Android &#x4E2D;&#x7684; IPC &#x65B9;&#x5F0F;</a>
+<ul>
+<li><a href="#%E4%B8%80-%E4%BD%BF%E7%94%A8-intent">&#x4E00;&#x3001;&#x4F7F;&#x7528; Intent</a></li>
+<li><a href="#%E4%BA%8C-%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB">&#x4E8C;&#x3001;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x5171;&#x4EAB;</a></li>
+<li><a href="#%E4%B8%89-%E4%BD%BF%E7%94%A8-messenger">&#x4E09;&#x3001;&#x4F7F;&#x7528; Messenger</a></li>
+<li><a href="#%E5%9B%9B-%E4%BD%BF%E7%94%A8-aidl">&#x56DB;&#x3001;&#x4F7F;&#x7528; AIDL</a>
+<ul>
+<li><a href="#aidl-%E6%96%87%E4%BB%B6%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">AIDL &#x6587;&#x4EF6;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF">&#x670D;&#x52A1;&#x7AEF;</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">&#x5BA2;&#x6237;&#x7AEF;</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">&#x670D;&#x52A1;&#x7AEF;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x7BA1;&#x7406;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-%E4%BD%BF%E7%94%A8-contentprovider">&#x4E94;&#x3001;&#x4F7F;&#x7528; ContentProvider</a></li>
+<li><a href="#%E5%85%AD-%E4%BD%BF%E7%94%A8-socket">&#x516D;&#x3001;&#x4F7F;&#x7528; Socket</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

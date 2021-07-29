@@ -1,0 +1,670 @@
+<!DOCTYPE html><html><head>
+      <title>message-mechanism</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\alison\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.18\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h3 class="mume-header" id="%E4%B8%80-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%A6%82%E8%BF%B0">&#x4E00;&#x3001;&#x6D88;&#x606F;&#x673A;&#x5236;&#x6982;&#x8FF0;</h3>
+
+<h5 class="mume-header" id="1%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E7%AE%80%E4%BB%8B">1.&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x7B80;&#x4ECB;</h5>
+
+<p>&#x5728;Android&#x4E2D;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x673A;&#x5236;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x60F3;&#x5230;&#x7684;&#x5C31;&#x662F;Handler&#x3002;&#x6CA1;&#x9519;&#xFF0C;Handler&#x662F;Android&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x4E0A;&#x5C42;&#x63A5;&#x53E3;&#x3002;Handler&#x7684;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5730;&#x5C06;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x5207;&#x6362;&#x5230;Handler&#x6240;&#x5728;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x53BB;&#x6267;&#x884C;&#x3002;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Handler&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x5C31;&#x662F;&#x66F4;&#x65B0;UI&#x3002;<br>
+&#x5982;&#x4E0B;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Activity</span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token namespace">android<span class="token punctuation">.</span>app<span class="token punctuation">.</span></span>Activity</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Handler</span> mHandler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handleMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token class-name">Bundle</span> savedInstanceState<span class="token punctuation">,</span> <span class="token class-name">PersistableBundle</span> persistentState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">,</span> persistentState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>&#x8017;&#x65F6;&#x64CD;&#x4F5C;
+                <span class="token class-name">Message</span> message <span class="token operator">=</span> <span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">obtain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                message<span class="token punctuation">.</span>what <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                mHandler<span class="token punctuation">.</span><span class="token function">sendMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x8FDB;&#x884C;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x901A;&#x77E5;&#x4E3B;&#x7EBF;&#x7A0B;&#x66F4;&#x65B0;UI&#x3002;&#x8FD9;&#x4FBF;&#x662F;&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x5178;&#x578B;&#x5E94;&#x7528;&#x573A;&#x666F;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x53EA;&#x4F1A;&#x63A5;&#x89E6;&#x5230;Handler&#x548C;Message&#x6765;&#x5B8C;&#x6210;&#x6D88;&#x606F;&#x673A;&#x5236;&#xFF0C;&#x5176;&#x5B9E;&#x5185;&#x90E8;&#x8FD8;&#x6709;&#x4E24;&#x5927;&#x52A9;&#x624B;&#x6765;&#x5171;&#x540C;&#x5B8C;&#x6210;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x3002;</p>
+<h5 class="mume-header" id="2%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E6%A8%A1%E5%9E%8B">2.&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x6A21;&#x578B;</h5>
+
+<p>&#x6D88;&#x606F;&#x673A;&#x5236;&#x4E3B;&#x8981;&#x5305;&#x542B;&#xFF1A;MessageQueue&#xFF0C;Handler&#x548C;Looper&#x8FD9;&#x4E09;&#x5927;&#x90E8;&#x5206;&#xFF0C;&#x4EE5;&#x53CA;Message&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x4E00;&#x4E00;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p>**Message&#xFF1A;**&#x9700;&#x8981;&#x4F20;&#x9012;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x6570;&#x636E;&#xFF1B;</p>
+<p>**MessageQueue&#xFF1A;**&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x5E76;&#x4E0D;&#x662F;&#x7528;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5355;&#x94FE;&#x8868;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6765;&#x7EF4;&#x62A4;&#x6D88;&#x606F;&#x5217;&#x8868;&#xFF0C;&#x56E0;&#x4E3A;&#x5355;&#x94FE;&#x8868;&#x5728;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#x4E0A;&#x6BD4;&#x8F83;&#x6709;&#x4F18;&#x52BF;&#x3002;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x5411;&#x6D88;&#x606F;&#x6C60;&#x6295;&#x9012;&#x6D88;&#x606F;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>Q</mi><mi>u</mi><mi>e</mi><mi>u</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>e</mi><mi>n</mi><mi>q</mi><mi>u</mi><mi>e</mi><mi>u</mi><mi>e</mi><mi>M</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">MessageQueue.enqueueMessage</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">ess</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">Q</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">ess</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span></span></span></span>&#x548C;&#x53D6;&#x8D70;&#x6D88;&#x606F;&#x6C60;&#x7684;&#x6D88;&#x606F;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>Q</mi><mi>u</mi><mi>e</mi><mi>u</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>n</mi><mi>e</mi><mi>x</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">MessageQueue.next</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">ess</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">Q</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mord mathnormal">n</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span></span></span></span>&#xFF1B;</p>
+<p>**Handler&#xFF1A;**&#x6D88;&#x606F;&#x8F85;&#x52A9;&#x7C7B;&#xFF0C;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x5411;&#x6D88;&#x606F;&#x6C60;&#x53D1;&#x9001;&#x5404;&#x79CD;&#x6D88;&#x606F;&#x4E8B;&#x4EF6;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>l</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>s</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>M</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Handler.sendMessage</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord">.</span><span class="mord mathnormal">se</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">ess</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span></span></span></span>&#x548C;&#x5904;&#x7406;&#x76F8;&#x5E94;&#x6D88;&#x606F;&#x4E8B;&#x4EF6;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>l</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>h</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>l</mi><mi>e</mi><mi>M</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Handler.handleMessage</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord">.</span><span class="mord mathnormal">han</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">ess</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span></span></span></span>&#xFF1B;</p>
+<p>**Looper&#xFF1A;**&#x4E0D;&#x65AD;&#x5FAA;&#x73AF;&#x6267;&#x884C;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>o</mi><mi>o</mi><mi>p</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>o</mi><mi>o</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">Looper.loop</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">oo</span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">oo</span><span class="mord mathnormal">p</span></span></span></span>&#xFF0C;&#x4ECE;MessageQueue&#x4E2D;&#x8BFB;&#x53D6;&#x6D88;&#x606F;&#xFF0C;&#x6309;&#x5206;&#x53D1;&#x673A;&#x5236;&#x5C06;&#x6D88;&#x606F;&#x5206;&#x53D1;&#x7ED9;&#x76EE;&#x6807;&#x5904;&#x7406;&#x8005;&#x3002;</p>
+<h5 class="mume-header" id="3%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E6%9E%B6%E6%9E%84">3.&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x67B6;&#x6784;</h5>
+
+<p>**&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#xFF1A;**&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;Handler&#x53D1;&#x9001;&#x6D88;&#x606F;&#x65F6;&#xFF0C;&#x5C06;&#x4F1A;&#x8C03;&#x7528;<code>MessageQueue.enqueueMessage</code>&#xFF0C;&#x5411;&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x6DFB;&#x52A0;&#x6D88;&#x606F;&#x3002;&#x5F53;&#x901A;&#x8FC7;<code>Looper.loop</code>&#x5F00;&#x542F;&#x5FAA;&#x73AF;&#x540E;&#xFF0C;&#x4F1A;&#x4E0D;&#x65AD;&#x5730;&#x4ECE;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x8BFB;&#x53D6;&#x6D88;&#x606F;&#xFF0C;&#x5373;&#x8C03;&#x7528;<code>MessageQueue.next</code>&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x76EE;&#x6807;Handler&#xFF08;&#x5373;&#x53D1;&#x9001;&#x8BE5;&#x6D88;&#x606F;&#x7684;Handler&#xFF09;&#x7684;<code>dispatchMessage</code>&#x65B9;&#x6CD5;&#x4F20;&#x9012;&#x6D88;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x5230;Handler&#x6240;&#x5728;&#x7EBF;&#x7A0B;&#xFF0C;&#x76EE;&#x6807;Handler&#x6536;&#x5230;&#x6D88;&#x606F;&#xFF0C;&#x8C03;&#x7528;<code>handleMessage</code>&#x65B9;&#x6CD5;&#xFF0C;&#x63A5;&#x6536;&#x6D88;&#x606F;&#xFF0C;&#x5904;&#x7406;&#x6D88;&#x606F;&#x3002;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3985563-d7da4f5ba49f6887.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>**MessageQueue&#xFF0C;Handler&#x548C;Looper&#x4E09;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF1A;**&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x53EA;&#x80FD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;Looper&#xFF0C;Looper&#x662F;&#x4FDD;&#x5B58;&#x5728;ThreadLocal&#x4E2D;&#x7684;&#x3002;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF08;UI&#x7EBF;&#x7A0B;&#xFF09;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;Looper&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x521B;&#x5EFA;Looper&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x521B;&#x5EFA;Looper&#x3002;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;Handler&#xFF0C;&#x5373;&#x4E00;&#x4E2A;Looper&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x6765;&#x81EA;&#x591A;&#x4E2A;Handler&#x7684;&#x6D88;&#x606F;&#x3002; Looper&#x4E2D;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;MessageQueue&#xFF0C;&#x6765;&#x7EF4;&#x62A4;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x7684;Message&#x53EF;&#x4EE5;&#x6765;&#x81EA;&#x4E0D;&#x540C;&#x7684;Handler&#x3002;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3985563-88a27b5906166c63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x6574;&#x4F53;&#x67B6;&#x6784;&#x56FE;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C06;&#x6162;&#x6162;&#x89E3;&#x5256;&#x6574;&#x4E2A;&#x67B6;&#x6784;&#x3002;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3985563-6c25004471646c1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>&#x4ECE;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF1A;<br>
+Looper&#x6709;&#x4E00;&#x4E2A;MessageQueue&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF1B;<br>
+MessageQueue&#x6709;&#x4E00;&#x7EC4;&#x5F85;&#x5904;&#x7406;&#x7684;Message&#xFF1B;<br>
+Message&#x4E2D;&#x8BB0;&#x5F55;&#x53D1;&#x9001;&#x548C;&#x5904;&#x7406;&#x6D88;&#x606F;&#x7684;Handler&#xFF1B;<br>
+Handler&#x4E2D;&#x6709;Looper&#x548C;MessageQueue&#x3002;</p>
+<h3 class="mume-header" id="%E4%BA%8C-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90">&#x4E8C;&#x3001;&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x6E90;&#x7801;&#x89E3;&#x6790;</h3>
+
+<h5 class="mume-header" id="1looper">1.Looper</h5>
+
+<p>&#x8981;&#x60F3;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x673A;&#x5236;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Looper&#x3002;<br>
+<strong>&#x521D;&#x59CB;&#x5316;Looper</strong><br>
+&#x65E0;&#x53C2;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9ED8;&#x8BA4;&#x8C03;&#x7528;<code>prepare(true);</code>&#x8868;&#x793A;&#x7684;&#x662F;&#x8FD9;&#x4E2A;Looper&#x53EF;&#x4EE5;&#x9000;&#x51FA;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;false&#x7684;&#x60C5;&#x51B5;&#x5219;&#x8868;&#x793A;&#x5F53;&#x524D;Looper&#x4E0D;&#x53EF;&#x4EE5;&#x9000;&#x51FA;&#x3002;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">prepare</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">prepare</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">prepare</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> quitAllowed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sThreadLocal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">&quot;Only one Looper may be created per thread&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        sThreadLocal<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Looper</span><span class="token punctuation">(</span>quitAllowed<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x8FD9;&#x91CC;&#x770B;&#x51FA;&#xFF0C;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#x521B;&#x5EFA;Looper&#xFF0C;&#x53EA;&#x80FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x3002;&#x521B;&#x5EFA;Looper,&#x5E76;&#x4FDD;&#x5B58;&#x5728;ThreadLocal&#x3002;&#x5176;&#x4E2D;ThreadLocal&#x662F;&#x7EBF;&#x7A0B;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x533A;&#xFF08;Thread Local Storage&#xFF0C;&#x7B80;&#x79F0;&#x4E3A;TLS&#xFF09;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x79C1;&#x6709;&#x7684;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x533A;&#x57DF;&#xFF0C;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x5F7C;&#x6B64;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5BF9;&#x65B9;&#x7684;TLS&#x533A;&#x57DF;&#x3002;<br>
+<strong>&#x5F00;&#x542F;Looper</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token class-name">Looper</span> me <span class="token operator">=</span> <span class="token function">myLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//&#x83B7;&#x53D6;TLS&#x5B58;&#x50A8;&#x7684;Looper&#x5BF9;&#x8C61; </span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>me <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">&quot;No Looper; Looper.prepare() wasn&apos;t called on this thread.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">final</span> <span class="token class-name">MessageQueue</span> queue <span class="token operator">=</span> me<span class="token punctuation">.</span>mQueue<span class="token punctuation">;</span>  <span class="token comment">//&#x83B7;&#x53D6;Looper&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x961F;&#x5217;</span>
+
+    <span class="token class-name">Binder</span><span class="token punctuation">.</span><span class="token function">clearCallingIdentity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token keyword">long</span> ident <span class="token operator">=</span> <span class="token class-name">Binder</span><span class="token punctuation">.</span><span class="token function">clearCallingIdentity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//&#x8FDB;&#x5165;loop&#x7684;&#x4E3B;&#x5FAA;&#x73AF;&#x65B9;&#x6CD5;</span>
+        <span class="token class-name">Message</span> msg <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x53EF;&#x80FD;&#x4F1A;&#x963B;&#x585E;,&#x56E0;&#x4E3A;next()&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x4F1A;&#x65E0;&#x9650;&#x5FAA;&#x73AF;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>msg <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//&#x6D88;&#x606F;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x9000;&#x51FA;&#x5FAA;&#x73AF;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token class-name">Printer</span> logging <span class="token operator">=</span> me<span class="token punctuation">.</span>mLogging<span class="token punctuation">;</span>  <span class="token comment">//&#x9ED8;&#x8BA4;&#x4E3A;null&#xFF0C;&#x53EF;&#x901A;&#x8FC7;setMessageLogging()&#x65B9;&#x6CD5;&#x6765;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#xFF0C;&#x7528;&#x4E8E;debug&#x529F;&#x80FD;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>logging <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            logging<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&gt;&gt;&gt;&gt;&gt; Dispatching to &quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span>target <span class="token operator">+</span> <span class="token string">&quot; &quot;</span> <span class="token operator">+</span>
+                    msg<span class="token punctuation">.</span>callback <span class="token operator">+</span> <span class="token string">&quot;: &quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        msg<span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">dispatchMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x83B7;&#x53D6;msg&#x7684;&#x76EE;&#x6807;Handler&#xFF0C;&#x7136;&#x540E;&#x7528;&#x4E8E;&#x5206;&#x53D1;Message </span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>logging <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            logging<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&lt;&lt;&lt;&lt;&lt; Finished to &quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span>target <span class="token operator">+</span> <span class="token string">&quot; &quot;</span> <span class="token operator">+</span> msg<span class="token punctuation">.</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">final</span> <span class="token keyword">long</span> newIdent <span class="token operator">=</span> <span class="token class-name">Binder</span><span class="token punctuation">.</span><span class="token function">clearCallingIdentity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ident <span class="token operator">!=</span> newIdent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         
+        <span class="token punctuation">}</span>
+        msg<span class="token punctuation">.</span><span class="token function">recycleUnchecked</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>loop()&#x8FDB;&#x5165;&#x5FAA;&#x73AF;&#x6A21;&#x5F0F;&#xFF0C;&#x4E0D;&#x65AD;&#x91CD;&#x590D;&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x76F4;&#x5230;&#x6D88;&#x606F;&#x4E3A;&#x7A7A;&#x65F6;&#x9000;&#x51FA;&#x5FAA;&#x73AF;:<br>
+&#x8BFB;&#x53D6;MessageQueue&#x7684;&#x4E0B;&#x4E00;&#x6761;Message&#xFF08;&#x5173;&#x4E8E;next()&#xFF0C;&#x540E;&#x9762;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#xFF09;&#xFF1B;<br>
+&#x628A;Message&#x5206;&#x53D1;&#x7ED9;&#x76F8;&#x5E94;&#x7684;target&#x3002;</p>
+<p><strong>&#x5F53;next()&#x53D6;&#x51FA;&#x4E0B;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x65F6;&#xFF0C;&#x961F;&#x5217;&#x4E2D;&#x5DF2;&#x7ECF;&#x6CA1;&#x6709;&#x6D88;&#x606F;&#x65F6;&#xFF0C;next()&#x4F1A;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#xFF0C;&#x4EA7;&#x751F;&#x963B;&#x585E;&#x3002;&#x7B49;&#x5F85;MessageQueue&#x4E2D;&#x52A0;&#x5165;&#x6D88;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x5524;&#x9192;&#x3002;</strong></p>
+<p><strong>&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;Looper&#xFF0C;&#x8FD9;&#x662F;&#x7531;&#x4E8E;&#x5728;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7CFB;&#x7EDF;&#x5DF2;&#x7ECF;&#x5E2E;&#x6211;&#x4EEC;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x4E86;</strong><code>Looper.prepare()</code><strong>&#x65B9;&#x6CD5;&#x3002;&#x67E5;&#x770B;ActivityThread&#x4E2D;&#x7684;</strong><code>main()</code><strong>&#x65B9;&#x6CD5;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java">  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token class-name">Looper</span><span class="token punctuation">.</span><span class="token function">prepareMainLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token class-name">Looper</span><span class="token punctuation">.</span><span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token punctuation">}</span>
+</pre><p>&#x5176;&#x4E2D;```prepareMainLooper()``&#x65B9;&#x6CD5;&#x4F1A;&#x8C03;&#x7528;<code>prepare(false)</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<h6 class="mume-header" id="2handler">2.Handler</h6>
+
+<p><strong>&#x521B;&#x5EFA;Handler</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token class-name">Callback</span> callback<span class="token punctuation">,</span> <span class="token keyword">boolean</span> async<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token comment">//&#x5FC5;&#x987B;&#x5148;&#x6267;&#x884C;Looper.prepare()&#xFF0C;&#x624D;&#x80FD;&#x83B7;&#x53D6;Looper&#x5BF9;&#x8C61;&#xFF0C;&#x5426;&#x5219;&#x4E3A;null.</span>
+    mLooper <span class="token operator">=</span> <span class="token class-name">Looper</span><span class="token punctuation">.</span><span class="token function">myLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//&#x4ECE;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;TLS&#x4E2D;&#x83B7;&#x53D6;Looper&#x5BF9;&#x8C61;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>mLooper <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    mQueue <span class="token operator">=</span> mLooper<span class="token punctuation">.</span>mQueue<span class="token punctuation">;</span> <span class="token comment">//&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x6765;&#x81EA;Looper&#x5BF9;&#x8C61;</span>
+    mCallback <span class="token operator">=</span> callback<span class="token punctuation">;</span>  <span class="token comment">//&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</span>
+    mAsynchronous <span class="token operator">=</span> async<span class="token punctuation">;</span> <span class="token comment">//&#x8BBE;&#x7F6E;&#x6D88;&#x606F;&#x662F;&#x5426;&#x4E3A;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x65B9;&#x5F0F;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5BF9;&#x4E8E;Handler&#x7684;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x9ED8;&#x8BA4;&#x91C7;&#x7528;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;TLS&#x4E2D;&#x7684;Looper&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;callback&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x4E3A;null&#xFF0C;&#x4E14;&#x6D88;&#x606F;&#x4E3A;&#x540C;&#x6B65;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x3002;&#x53EA;&#x8981;&#x6267;&#x884C;&#x7684;<code>Looper.prepare()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x4FBF;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6709;&#x6548;&#x7684;Looper&#x5BF9;&#x8C61;&#x3002;</p>
+<h6 class="mume-header" id="3%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF">3.&#x53D1;&#x9001;&#x6D88;&#x606F;</h6>
+
+<p>&#x53D1;&#x9001;&#x6D88;&#x606F;&#x6709;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x5F52;&#x6839;&#x7ED3;&#x5E95;&#x90FD;&#x662F;&#x8C03;&#x7528;&#x4E86;<code>sendMessageAtTime()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x901A;&#x8FC7;Handler&#x7684;post()&#x65B9;&#x5F0F;&#x6216;send()&#x65B9;&#x5F0F;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x6700;&#x7EC8;&#x90FD;&#x662F;&#x8C03;&#x7528;&#x4E86;<code>sendMessageAtTime()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p><strong>post&#x65B9;&#x6CD5;</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">post</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> r<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token keyword">return</span>  <span class="token function">sendMessageDelayed</span><span class="token punctuation">(</span><span class="token function">getPostMessage</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">postAtTime</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> r<span class="token punctuation">,</span> <span class="token keyword">long</span> uptimeMillis<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">sendMessageAtTime</span><span class="token punctuation">(</span><span class="token function">getPostMessage</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> uptimeMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">postAtTime</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> r<span class="token punctuation">,</span> <span class="token class-name">Object</span> token<span class="token punctuation">,</span> <span class="token keyword">long</span> uptimeMillis<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">sendMessageAtTime</span><span class="token punctuation">(</span><span class="token function">getPostMessage</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> token<span class="token punctuation">)</span><span class="token punctuation">,</span> uptimeMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">postDelayed</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> r<span class="token punctuation">,</span> <span class="token keyword">long</span> delayMillis<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">sendMessageDelayed</span><span class="token punctuation">(</span><span class="token function">getPostMessage</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> delayMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p><strong>send&#x65B9;&#x6CD5;</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">sendMessageDelayed</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">sendEmptyMessage</span><span class="token punctuation">(</span><span class="token keyword">int</span> what<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">sendEmptyMessageDelayed</span><span class="token punctuation">(</span>what<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">sendEmptyMessageDelayed</span><span class="token punctuation">(</span><span class="token keyword">int</span> what<span class="token punctuation">,</span> <span class="token keyword">long</span> delayMillis<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Message</span> msg <span class="token operator">=</span> <span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">obtain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        msg<span class="token punctuation">.</span>what <span class="token operator">=</span> what<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">sendMessageDelayed</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> delayMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">sendEmptyMessageAtTime</span><span class="token punctuation">(</span><span class="token keyword">int</span> what<span class="token punctuation">,</span> <span class="token keyword">long</span> uptimeMillis<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Message</span> msg <span class="token operator">=</span> <span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">obtain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        msg<span class="token punctuation">.</span>what <span class="token operator">=</span> what<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">sendMessageAtTime</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> uptimeMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">sendMessageDelayed</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">,</span> <span class="token keyword">long</span> delayMillis<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>delayMillis <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            delayMillis <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">sendMessageAtTime</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token class-name">SystemClock</span><span class="token punctuation">.</span><span class="token function">uptimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> delayMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x5C31;&#x8FDE;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x8C03;&#x7528;Activity&#x4E2D;&#x7684;runOnUiThread()&#x4E2D;&#x66F4;&#x65B0;UI&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x662F;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x901A;&#x77E5;&#x4E3B;&#x7EBF;&#x7A0B;&#x66F4;&#x65B0;UI&#xFF0C;&#x6700;&#x7EC8;&#x4E5F;&#x4F1A;&#x8C03;&#x7528;<code>sendMessageAtTime()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">runOnUiThread</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> mUiThread<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mHandler<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            action<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x5982;&#x679C;&#x5F53;&#x524D;&#x7684;&#x7EBF;&#x7A0B;&#x4E0D;&#x7B49;&#x4E8E;UI&#x7EBF;&#x7A0B;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>&#x4E3B;&#x7EBF;&#x7A0B;</mtext></mrow><annotation encoding="application/x-tex">&#x4E3B;&#x7EBF;&#x7A0B;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">&#x4E3B;&#x7EBF;&#x7A0B;</span></span></span></span>&#xFF0C;&#x5C31;&#x53BB;&#x8C03;&#x7528;Handler&#x7684;post()&#x65B9;&#x6CD5;&#xFF0C;&#x6700;&#x7EC8;&#x4F1A;&#x8C03;&#x7528;<code>sendMessageAtTime()</code>&#x65B9;&#x6CD5;&#x3002;&#x5426;&#x5219;&#x5C31;&#x76F4;&#x63A5;&#x8C03;&#x7528;Runnable&#x5BF9;&#x8C61;&#x7684;run()&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x4E00;&#x63A2;&#x7A76;&#x7ADF;&#xFF0C;&#x5230;&#x5E95;<code>sendMessageAtTime()</code>&#x65B9;&#x6CD5;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;&#xFF1F;<br>
+<strong>sendMessageAtTime()</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">sendMessageAtTime</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">,</span> <span class="token keyword">long</span> uptimeMillis<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment">//&#x5176;&#x4E2D;mQueue&#x662F;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x4ECE;Looper&#x4E2D;&#x83B7;&#x53D6;&#x7684;</span>
+        <span class="token class-name">MessageQueue</span> queue <span class="token operator">=</span> mQueue<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>queue <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">RuntimeException</span> e <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>
+                    <span class="token keyword">this</span> <span class="token operator">+</span> <span class="token string">&quot; sendMessageAtTime() called with no mQueue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">w</span><span class="token punctuation">(</span><span class="token string">&quot;Looper&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//&#x8C03;&#x7528;enqueueMessage&#x65B9;&#x6CD5;</span>
+        <span class="token keyword">return</span> <span class="token function">enqueueMessage</span><span class="token punctuation">(</span>queue<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> uptimeMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">enqueueMessage</span><span class="token punctuation">(</span><span class="token class-name">MessageQueue</span> queue<span class="token punctuation">,</span> <span class="token class-name">Message</span> msg<span class="token punctuation">,</span> <span class="token keyword">long</span> uptimeMillis<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        msg<span class="token punctuation">.</span>target <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mAsynchronous<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            msg<span class="token punctuation">.</span><span class="token function">setAsynchronous</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//&#x8C03;&#x7528;MessageQueue&#x7684;enqueueMessage&#x65B9;&#x6CD5;</span>
+        <span class="token keyword">return</span> queue<span class="token punctuation">.</span><span class="token function">enqueueMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> uptimeMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;sendMessageAtTime()`&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x8C03;&#x7528;MessageQueue&#x7684;enqueueMessage()&#x65B9;&#x6CD5;&#xFF0C;&#x5F80;&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x3002;<br>
+&#x4E0B;&#x9762;&#x6765;&#x770B;enqueueMessage()&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x6267;&#x884C;&#x903B;&#x8F91;&#x3002;<br>
+<strong>enqueueMessage()</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">boolean</span> <span class="token function">enqueueMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">,</span> <span class="token keyword">long</span> when<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x6BCF;&#x4E00;&#x4E2A;Message&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;target</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>target <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">&quot;Message must have a target.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span><span class="token function">isInUse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span>msg <span class="token operator">+</span> <span class="token string">&quot; This message is already in use.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mQuitting<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">//&#x6B63;&#x5728;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x56DE;&#x6536;msg&#xFF0C;&#x52A0;&#x5165;&#x5230;&#x6D88;&#x606F;&#x6C60;</span>
+            msg<span class="token punctuation">.</span><span class="token function">recycle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        msg<span class="token punctuation">.</span><span class="token function">markInUse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        msg<span class="token punctuation">.</span>when <span class="token operator">=</span> when<span class="token punctuation">;</span>
+        <span class="token class-name">Message</span> p <span class="token operator">=</span> mMessages<span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> needWake<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> when <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> when <span class="token operator">&lt;</span> p<span class="token punctuation">.</span>when<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">//p&#x4E3A;null(&#x4EE3;&#x8868;MessageQueue&#x6CA1;&#x6709;&#x6D88;&#x606F;&#xFF09; &#x6216;&#x8005;msg&#x7684;&#x89E6;&#x53D1;&#x65F6;&#x95F4;&#x662F;&#x961F;&#x5217;&#x4E2D;&#x6700;&#x65E9;&#x7684;&#xFF0C; &#x5219;&#x8FDB;&#x5165;&#x8BE5;&#x8BE5;&#x5206;&#x652F;</span>
+            msg<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            mMessages <span class="token operator">=</span> msg<span class="token punctuation">;</span>
+            needWake <span class="token operator">=</span> mBlocked<span class="token punctuation">;</span> 
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">//&#x5C06;&#x6D88;&#x606F;&#x6309;&#x65F6;&#x95F4;&#x987A;&#x5E8F;&#x63D2;&#x5165;&#x5230;MessageQueue&#x3002;&#x4E00;&#x822C;&#x5730;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5524;&#x9192;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x9664;&#x975E;</span>
+            <span class="token comment">//&#x6D88;&#x606F;&#x961F;&#x5934;&#x5B58;&#x5728;barrier&#xFF0C;&#x5E76;&#x4E14;&#x540C;&#x65F6;Message&#x662F;&#x961F;&#x5217;&#x4E2D;&#x6700;&#x65E9;&#x7684;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x3002;</span>
+            needWake <span class="token operator">=</span> mBlocked <span class="token operator">&amp;&amp;</span> p<span class="token punctuation">.</span>target <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> msg<span class="token punctuation">.</span><span class="token function">isAsynchronous</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Message</span> prev<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                prev <span class="token operator">=</span> p<span class="token punctuation">;</span>
+                p <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> when <span class="token operator">&lt;</span> p<span class="token punctuation">.</span>when<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>needWake <span class="token operator">&amp;&amp;</span> p<span class="token punctuation">.</span><span class="token function">isAsynchronous</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    needWake <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            msg<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            prev<span class="token punctuation">.</span>next <span class="token operator">=</span> msg<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>needWake<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">nativeWake</span><span class="token punctuation">(</span>mPtr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>MessageQueue&#x662F;&#x6309;&#x7167;Message&#x89E6;&#x53D1;&#x65F6;&#x95F4;&#x7684;&#x5148;&#x540E;&#x987A;&#x5E8F;&#x6392;&#x5217;&#x7684;&#xFF0C;&#x961F;&#x5934;&#x7684;&#x6D88;&#x606F;&#x662F;&#x5C06;&#x8981;&#x6700;&#x65E9;&#x89E6;&#x53D1;&#x7684;&#x6D88;&#x606F;&#x3002;&#x5F53;&#x6709;&#x6D88;&#x606F;&#x9700;&#x8981;&#x52A0;&#x5165;&#x6D88;&#x606F;&#x961F;&#x5217;&#x65F6;&#xFF0C;&#x4F1A;&#x4ECE;&#x961F;&#x5217;&#x5934;&#x5F00;&#x59CB;&#x904D;&#x5386;&#xFF0C;&#x76F4;&#x5230;&#x627E;&#x5230;&#x6D88;&#x606F;&#x5E94;&#x8BE5;&#x63D2;&#x5165;&#x7684;&#x5408;&#x9002;&#x4F4D;&#x7F6E;&#xFF0C;&#x4EE5;&#x4FDD;&#x8BC1;&#x6240;&#x6709;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x987A;&#x5E8F;&#x3002;</p>
+<h5 class="mume-header" id="4%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF">4.&#x83B7;&#x53D6;&#x6D88;&#x606F;</h5>
+
+<p>&#x5F53;&#x53D1;&#x9001;&#x4E86;&#x6D88;&#x606F;&#x540E;&#xFF0C;&#x5728;MessageQueue&#x7EF4;&#x62A4;&#x4E86;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x7136;&#x540E;&#x5728;Looper&#x4E2D;&#x901A;&#x8FC7;<code>loop()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x65AD;&#x5730;&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x3002;&#x4E0A;&#x9762;&#x5BF9;<code>loop()</code>&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4E86;&#x4ECB;&#x7ECD;&#xFF0C;&#x5176;&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x8C03;&#x7528;&#x4E86;<code>queue.next()</code>&#x65B9;&#x6CD5;,&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x6765;&#x63D0;&#x53D6;&#x4E0B;&#x4E00;&#x6761;&#x4FE1;&#x606F;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;<code>next()</code>&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x6D41;&#x7A0B;&#x3002;<br>
+<strong>next()</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token class-name">Message</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token keyword">long</span> ptr <span class="token operator">=</span> mPtr<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ptr <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//&#x5F53;&#x6D88;&#x606F;&#x5FAA;&#x73AF;&#x5DF2;&#x7ECF;&#x9000;&#x51FA;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> pendingIdleHandlerCount <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// &#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x7684;&#x9996;&#x6B21;&#x4E3A;-1</span>
+    <span class="token keyword">int</span> nextPollTimeoutMillis <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nextPollTimeoutMillis <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Binder</span><span class="token punctuation">.</span><span class="token function">flushPendingCommands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//&#x963B;&#x585E;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;&#x7B49;&#x5F85;nextPollTimeoutMillis&#x65F6;&#x957F;&#xFF0C;&#x6216;&#x8005;&#x6D88;&#x606F;&#x961F;&#x5217;&#x88AB;&#x5524;&#x9192;&#xFF0C;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;</span>
+        <span class="token function">nativePollOnce</span><span class="token punctuation">(</span>ptr<span class="token punctuation">,</span> nextPollTimeoutMillis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">final</span> <span class="token keyword">long</span> now <span class="token operator">=</span> <span class="token class-name">SystemClock</span><span class="token punctuation">.</span><span class="token function">uptimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Message</span> prevMsg <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token class-name">Message</span> msg <span class="token operator">=</span> mMessages<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>msg <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> msg<span class="token punctuation">.</span>target <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//&#x5F53;&#x6D88;&#x606F;Handler&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x67E5;&#x8BE2;MessageQueue&#x4E2D;&#x7684;&#x4E0B;&#x4E00;&#x6761;&#x5F02;&#x6B65;&#x6D88;&#x606F;msg&#xFF0C;&#x4E3A;&#x7A7A;&#x5219;&#x9000;&#x51FA;&#x5FAA;&#x73AF;&#x3002;</span>
+                <span class="token keyword">do</span> <span class="token punctuation">{</span>
+                    prevMsg <span class="token operator">=</span> msg<span class="token punctuation">;</span>
+                    msg <span class="token operator">=</span> msg<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>msg <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>msg<span class="token punctuation">.</span><span class="token function">isAsynchronous</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>msg <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>now <span class="token operator">&lt;</span> msg<span class="token punctuation">.</span>when<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//&#x5F53;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x89E6;&#x53D1;&#x65F6;&#x95F4;&#x5927;&#x4E8E;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF0C;&#x5219;&#x8BBE;&#x7F6E;&#x4E0B;&#x4E00;&#x6B21;&#x8F6E;&#x8BE2;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x957F;</span>
+                    nextPollTimeoutMillis <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>when <span class="token operator">-</span> now<span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// &#x83B7;&#x53D6;&#x4E00;&#x6761;&#x6D88;&#x606F;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;</span>
+                    mBlocked <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>prevMsg <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        prevMsg<span class="token punctuation">.</span>next <span class="token operator">=</span> msg<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        mMessages <span class="token operator">=</span> msg<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    msg<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                    <span class="token comment">//&#x8BBE;&#x7F6E;&#x6D88;&#x606F;&#x7684;&#x4F7F;&#x7528;&#x72B6;&#x6001;&#xFF0C;&#x5373;flags |= FLAG_IN_USE</span>
+                    msg<span class="token punctuation">.</span><span class="token function">markInUse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> msg<span class="token punctuation">;</span>   <span class="token comment">//&#x6210;&#x529F;&#x5730;&#x83B7;&#x53D6;MessageQueue&#x4E2D;&#x7684;&#x4E0B;&#x4E00;&#x6761;&#x5373;&#x5C06;&#x8981;&#x6267;&#x884C;&#x7684;&#x6D88;&#x606F;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">//&#x6CA1;&#x6709;&#x6D88;&#x606F;</span>
+                nextPollTimeoutMillis <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+         <span class="token comment">//&#x6D88;&#x606F;&#x6B63;&#x5728;&#x9000;&#x51FA;&#xFF0C;&#x8FD4;&#x56DE;null</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>mQuitting<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>nativePollOnce&#x662F;&#x963B;&#x585E;&#x64CD;&#x4F5C;&#xFF0C;&#x5176;&#x4E2D;nextPollTimeoutMillis&#x4EE3;&#x8868;&#x4E0B;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x5230;&#x6765;&#x524D;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x957F;&#xFF1B;&#x5F53;nextPollTimeoutMillis = -1&#x65F6;&#xFF0C;&#x8868;&#x793A;&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x65E0;&#x6D88;&#x606F;&#xFF0C;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x4E0B;&#x53BB;&#x3002;<br>
+&#x53EF;&#x4EE5;&#x770B;&#x51FA;<code>next()</code>&#x65B9;&#x6CD5;&#x6839;&#x636E;&#x6D88;&#x606F;&#x7684;&#x89E6;&#x53D1;&#x65F6;&#x95F4;&#xFF0C;&#x83B7;&#x53D6;&#x4E0B;&#x4E00;&#x6761;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x6D88;&#x606F;,&#x961F;&#x5217;&#x4E2D;&#x6D88;&#x606F;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x8FDB;&#x884C;&#x963B;&#x585E;&#x64CD;&#x4F5C;&#x3002;</p>
+<h5 class="mume-header" id="5%E5%88%86%E5%8F%91%E6%B6%88%E6%81%AF">5.&#x5206;&#x53D1;&#x6D88;&#x606F;</h5>
+
+<p>&#x5728;loop()&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x83B7;&#x53D6;&#x5230;&#x4E0B;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x540E;&#xFF0C;&#x6267;&#x884C;<code>msg.target.dispatchMessage(msg)</code>&#xFF0C;&#x6765;&#x5206;&#x53D1;&#x6D88;&#x606F;&#x5230;&#x76EE;&#x6807;Handler&#x5BF9;&#x8C61;&#x3002;<br>
+&#x4E0B;&#x9762;&#x5C31;&#x6765;&#x5177;&#x4F53;&#x770B;&#x4E0B;<code>dispatchMessage(msg)</code>&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x6D41;&#x7A0B;&#x3002;<br>
+<strong>dispatchMessage()</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">dispatchMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//&#x5F53;Message&#x5B58;&#x5728;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x56DE;&#x8C03;msg.callback.run()&#x65B9;&#x6CD5;&#xFF1B;</span>
+        <span class="token function">handleCallback</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mCallback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">//&#x5F53;Handler&#x5B58;&#x5728;Callback&#x6210;&#x5458;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;handleMessage()&#xFF1B;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>mCallback<span class="token punctuation">.</span><span class="token function">handleMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//Handler&#x81EA;&#x8EAB;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;handleMessage()</span>
+        <span class="token function">handleMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">handleCallback</span><span class="token punctuation">(</span><span class="token class-name">Message</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        message<span class="token punctuation">.</span>callback<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p><strong>&#x5206;&#x53D1;&#x6D88;&#x606F;&#x6D41;&#x7A0B;&#xFF1A;</strong><br>
+&#x5F53;Message&#x7684;<code>msg.callback</code>&#x4E0D;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x5219;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;<code>msg.callback.run()</code>;<br>
+&#x5F53;Handler&#x7684;<code>mCallback</code>&#x4E0D;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x5219;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;<code>mCallback.handleMessage(msg)</code>&#xFF1B;<br>
+&#x6700;&#x540E;&#x8C03;&#x7528;Handler&#x81EA;&#x8EAB;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;<code>handleMessage()</code>&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x4E3A;&#x7A7A;&#xFF0C;Handler&#x5B50;&#x7C7B;&#x901A;&#x8FC7;&#x8986;&#x5199;&#x8BE5;&#x65B9;&#x6CD5;&#x6765;&#x5B8C;&#x6210;&#x5177;&#x4F53;&#x7684;&#x903B;&#x8F91;&#x3002;</p>
+<p><strong>&#x6D88;&#x606F;&#x5206;&#x53D1;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF1A;</strong><br>
+Message&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF1A;<code>message.callback.run()</code>&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x9AD8;&#xFF1B;<br>
+Handler&#x4E2D;Callback&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF1A;<code>Handler.mCallback.handleMessage(msg)</code>&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x4EC5;&#x6B21;&#x4E8E;1&#xFF1B;<br>
+Handler&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#xFF1A;<code>Handler.handleMessage(msg)</code>&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x4F4E;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6D88;&#x606F;&#x5206;&#x53D1;&#x540E;&#x7684;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x662F;&#x7B2C;3&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5373;<code>Handler.handleMessage()</code>&#xFF0C;&#x4E00;&#x822C;&#x5730;&#x5F80;&#x5F80;&#x901A;&#x8FC7;&#x8986;&#x5199;&#x8BE5;&#x65B9;&#x6CD5;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x3002;</p>
+<h3 class="mume-header" id="%E4%B8%89-%E6%80%BB%E7%BB%93">&#x4E09;&#x3001;&#x603B;&#x7ED3;</h3>
+
+<p>&#x4EE5;&#x4E0A;&#x4FBF;&#x662F;&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x4EE5;&#x53CA;&#x4ECE;&#x6E90;&#x7801;&#x89D2;&#x5EA6;&#x6765;&#x89E3;&#x6790;&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x3002;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x7528;&#x4E0B;&#x56FE;&#x6765;&#x7406;&#x89E3;&#x3002;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3985563-b3295b67a2b0477f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E4%B8%80-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%A6%82%E8%BF%B0">&#x4E00;&#x3001;&#x6D88;&#x606F;&#x673A;&#x5236;&#x6982;&#x8FF0;</a>
+<ul>
+<li><a href="#1%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E7%AE%80%E4%BB%8B">1.&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x7B80;&#x4ECB;</a></li>
+<li><a href="#2%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E6%A8%A1%E5%9E%8B">2.&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x6A21;&#x578B;</a></li>
+<li><a href="#3%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E6%9E%B6%E6%9E%84">3.&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x67B6;&#x6784;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90">&#x4E8C;&#x3001;&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x6E90;&#x7801;&#x89E3;&#x6790;</a>
+<ul>
+<li><a href="#1looper">1.Looper</a>
+<ul>
+<li><a href="#2handler">2.Handler</a></li>
+<li><a href="#3%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF">3.&#x53D1;&#x9001;&#x6D88;&#x606F;</a></li>
+</ul>
+</li>
+<li><a href="#4%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF">4.&#x83B7;&#x53D6;&#x6D88;&#x606F;</a></li>
+<li><a href="#5%E5%88%86%E5%8F%91%E6%B6%88%E6%81%AF">5.&#x5206;&#x53D1;&#x6D88;&#x606F;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E6%80%BB%E7%BB%93">&#x4E09;&#x3001;&#x603B;&#x7ED3;</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

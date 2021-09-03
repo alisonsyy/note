@@ -1,0 +1,594 @@
+<!DOCTYPE html><html><head>
+      <title>&#x7B80;&#x5386;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\alison\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.22\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E7%AE%80%E5%8E%86">&#x7B80;&#x5386;</h1>
+
+<h2 class="mume-header" id="%E9%AA%A8%E5%85%B3%E8%8A%82%E5%8E%8B%E5%8A%9B%E4%BC%A0%E6%84%9F%E5%99%A8%E7%B3%BB%E7%BB%9F">&#x9AA8;&#x5173;&#x8282;&#x538B;&#x529B;&#x4F20;&#x611F;&#x5668;&#x7CFB;&#x7EDF;</h2>
+
+<ul>
+<li>&#x4E00;&#x53F0;&#x624B;&#x673A;&#x76D1;&#x63A7;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#xFF1A;&#x5229;&#x7528;&#x67D4;&#x6027;&#x538B;&#x529B;&#x4F20;&#x611F;&#x5668;&#x9635;&#x5217;&#x611F;&#x77E5;&#x9AA8;&#x5173;&#x8282;&#x538B;&#x529B;&#x5E76;&#x901A;&#x8FC7;&#x84DD;&#x7259;&#x5C06;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x5230;&#x79FB;&#x52A8;&#x7AEF;&#xFF0C;&#x79FB;&#x52A8;&#x7AEF;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x63A5;&#x6536;&#x84DD;&#x7259;&#x6570;&#x636E;&#xFF0C;&#x4E4B;&#x540E;&#x8FDB;&#x884C;&#x5B57;&#x8282;&#x89E3;&#x6790;&#xFF0C;&#x663E;&#x793A;&#x548C;&#x5904;&#x7406;&#x3002;</li>
+<li>&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x89E3;&#x51B3;&#x4E86;&#x84DD;&#x7259;&#x6570;&#x636E;&#x53D1;&#x9001;&#x9891;&#x7387;&#x8FC7;&#x5FEB;&#x5BFC;&#x81F4;&#x7684;app&#x5361;&#x987F;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6765;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5904;&#x7406;&#xFF0C;&#x901A;&#x8FC7;<code>sendMessage</code>&#x65B9;&#x6CD5;&#x5411;&#x4E3B;&#x7EBF;&#x7A0B;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;handle&#x6765;&#x63A5;&#x6536;&#x5B50;&#x7EBF;&#x7A0B;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#x5E76;&#x8FDB;&#x884C;UI&#x663E;&#x793A;&#x3002;</li>
+</ul>
+<h2 class="mume-header" id="%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F">&#x62BD;&#x5956;&#x7CFB;&#x7EDF;</h2>
+
+<p><img src="./images/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt></p>
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%BA%93">&#x6570;&#x636E;&#x5E93;</h3>
+
+<p>&#x4E00;&#x5171;&#x56DB;&#x5F20;&#x8868;&#xFF1A;good: &#x5546;&#x54C1;&#x8868;  lottery_activity: &#x62BD;&#x5956;&#x6D3B;&#x52A8;&#x8868;&#xFF1A;prize&#xFF1A;&#x5956;&#x54C1;&#x8868;&#xFF1B; winning_record:&#x62BD;&#x5956;&#x8BB0;&#x5F55;&#x8868;; &#x6D88;&#x8D39;&#x6D88;&#x606F;&#x8868;&#xFF1A;consum_log</p>
+<p><img src="./images/%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png" alt></p>
+<h3 class="mume-header" id="%E6%8A%BD%E5%A5%96%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81">&#x62BD;&#x5956;&#x63A5;&#x53E3;&#x9650;&#x6D41;</h3>
+
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token class-name">RateLimiter</span> lotteryRateLimiter<span class="token punctuation">;</span>
+  <span class="token annotation punctuation">@PostConstruct</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        executorService <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        lotteryRateLimiter <span class="token operator">=</span> <span class="token class-name">RateLimiter</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>lotteryRateLimiter<span class="token punctuation">.</span><span class="token function">tryAcquire</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BusinessException</span><span class="token punctuation">(</span><span class="token class-name">EmBusinessError</span><span class="token punctuation">.</span>RATELIMIT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="%E6%8A%BD%E5%A5%96%E6%8E%A5%E5%8F%A3%E9%98%B2%E5%88%B7">&#x62BD;&#x5956;&#x63A5;&#x53E3;&#x9632;&#x5237;</h3>
+
+<h4 class="mume-header" id="ip%E8%8E%B7%E5%8F%96">IP&#x83B7;&#x53D6;</h4>
+
+<h4 class="mume-header" id="%E9%98%B2%E9%81%8D%E5%8E%86">&#x9632;&#x904D;&#x5386;</h4>
+
+<p>&#x8003;&#x8651;&#x53EF;&#x80FD;&#x53D1;&#x5C55;&#x4E3A;&#x5206;&#x5E03;&#x5F0F;&#x60C5;&#x51B5;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x6210;&#x672C;&#xFF0C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;UUID&#x4F5C;&#x4E3A;&#x4E3B;&#x952E;&#xFF0C;&#x4F7F;&#x7528;&#x96EA;&#x82B1;&#x7B97;&#x6CD5;&#x4F5C;&#x4E3A;&#x6D3B;&#x52A8;ID&#xFF0C;&#x4FDD;&#x6301;&#x81EA;&#x589E;&#x7684;&#x540C;&#x65F6;&#x907F;&#x514D;&#x6D3B;&#x52A8;&#x88AB;&#x6839;&#x636E;ID&#x6765;&#x904D;&#x5386;</p>
+<p>&#x7B97;&#x6CD5;&#x4F7F;&#x7528;53bit long&#x4E3A;id&#xFF0C;&#x6839;&#x636E;&#x673A;&#x5668;&#x7684;&#x4E0D;&#x540C;ip&#x6765;&#x751F;&#x6210;&#x3002;</p>
+<h4 class="mume-header" id="ip%E9%99%90%E5%88%B6">IP&#x9650;&#x5236;</h4>
+
+<p>&#x540C;&#x4E00;&#x4E2A;IP&#x5728;5s&#x5185;&#x4E0D;&#x53EF;&#x70B9;&#x51FB;&#x62BD;&#x5956;&#x8D85;&#x8FC7;10&#x6B21;,&#x4F7F;&#x7528;redis&#x8FDB;&#x884C;&#x9650;&#x6D41;&#xFF1B;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x5BF9;&#x540C;&#x4E00;ip&#x7684;&#x83B7;&#x5956;&#x6B21;&#x6570;&#x505A;&#x9650;&#x5236;&#xFF0C;&#x540C;&#x4E00;&#x7528;&#x6237;&#x7406;&#x8BBA;&#x4E0A;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x83B7;&#x5956;&#xFF0C;&#x53EA;&#x662F;&#x5BF9;&#x5176;&#x5237;&#x62BD;&#x5956;&#x884C;&#x4E3A;&#x505A;&#x9650;&#x5236;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isLimitedByIp</span><span class="token punctuation">(</span><span class="token class-name">String</span> ip<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">StoreKey</span> storeKey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StoreKey</span><span class="token punctuation">(</span>lotteryConstants<span class="token punctuation">.</span>IP_PREFIX<span class="token punctuation">,</span>ip<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Long</span> times <span class="token operator">=</span> redisStoreClient<span class="token punctuation">.</span><span class="token function">incrBy</span><span class="token punctuation">(</span>storeKey<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token class-name">LotteryConstants</span><span class="token punctuation">.</span>IP_EXPIRE_SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> times <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> times <span class="token operator">&lt;</span> <span class="token class-name">LotteryConstants</span><span class="token punctuation">.</span>DRAW_MAX_PER_IP<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="%E9%98%9F%E5%88%97%E6%B3%84%E6%B4%AA">&#x961F;&#x5217;&#x6CC4;&#x6D2A;</h3>
+
+<pre data-role="codeBlock" data-info="java" class="language-java">		 <span class="token comment">//&#x540C;&#x6B65;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;submit&#x65B9;&#x6CD5;</span>
+        <span class="token comment">//&#x62E5;&#x585E;&#x7A97;&#x53E3;&#x4E3A;20&#x7684;&#x7B49;&#x5F85;&#x961F;&#x5217;&#xFF0C;&#x7528;&#x6765;&#x961F;&#x5217;&#x5316;&#x6CC4;&#x6D2A;</span>
+        <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span> future <span class="token operator">=</span> executorService<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Callable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+                <span class="token comment">//&#x62BD;&#x5956;&#x7B97;&#x6CD5;&#x83B7;&#x53D6;&#x62BD;&#x5956;&#x7ED3;&#x679C;</span>
+                <span class="token class-name">PrizeModel</span> prizeModel <span class="token operator">=</span> lotteryService<span class="token punctuation">.</span><span class="token function">getLotteryResult</span><span class="token punctuation">(</span>itemId<span class="token punctuation">,</span> amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>prizeModel <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> flase<span class="token punctuation">;</span>
+                
+                <span class="token comment">//&#x518D;&#x53BB;&#x5B8C;&#x6210;&#x5BF9;&#x5E94;&#x7684;&#x6D88;&#x606F;&#x673A;&#x5236;</span>
+                <span class="token keyword">boolean</span> result <span class="token operator">=</span> mqProducer<span class="token punctuation">.</span><span class="token function">transactionAsyncReduceStock</span><span class="token punctuation">(</span>prizeModel<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BusinessException</span><span class="token punctuation">(</span><span class="token class-name">EmBusinessError</span><span class="token punctuation">.</span>UNKNOWN_ERROR<span class="token punctuation">,</span> <span class="token string">&quot;&#x62BD;&#x5956;&#x5931;&#x8D25;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            future<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BusinessException</span><span class="token punctuation">(</span><span class="token class-name">EmBusinessError</span><span class="token punctuation">.</span>UNKNOWN_ERROR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ExecutionException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BusinessException</span><span class="token punctuation">(</span><span class="token class-name">EmBusinessError</span><span class="token punctuation">.</span>UNKNOWN_ERROR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="%E8%8E%B7%E5%8F%96%E6%B4%BB%E5%8A%A8%E4%BF%A1%E6%81%AF">&#x83B7;&#x53D6;&#x6D3B;&#x52A8;&#x4FE1;&#x606F;</h3>
+
+<p><strong>&#x6D3B;&#x52A8;&#x7F13;&#x5B58;</strong></p>
+<p>&#x5728;&#x53D1;&#x5E03;&#x6D3B;&#x52A8;&#x4E2D;&#x5C06;&#x6D3B;&#x52A8;&#x7684;DTO&#x653E;&#x5165;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x548C;redis&#x4E2D;&#x3002;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x4E3A;&#x6D3B;&#x52A8;&#x7ED3;&#x675F;&#x65F6;&#x95F4;-&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x62BD;&#x5956;&#x65F6;&#x5982;&#x679C;&#x65E0;&#x6570;&#x636E;&#x5219;&#x67E5;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x540C;&#x65F6;&#x653E;&#x5165;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x548C;redis&#x4E2D;&#x3002;</p>
+<p>&#x82E5;&#x5F53;&#x524D;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x4E3A;&#x5F00;&#x59CB;&#x72B6;&#x6001;&#x5219;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;&#x524D;&#x7AEF;&#x6D3B;&#x52A8;&#x672A;&#x5F00;&#x59CB;/&#x5DF2;&#x7ED3;&#x675F;&#x3002;</p>
+<h3 class="mume-header" id="%E6%8A%BD%E5%A5%96%E7%AE%97%E6%B3%95">&#x62BD;&#x5956;&#x7B97;&#x6CD5;</h3>
+
+<ul>
+<li>
+<p>&#x6BD4;&#x5982;&#x5343;&#x4E07;&#x5206;&#x4E4B;&#x4E94;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x4E00;&#x4E2A;[1,1000w]&#xFF0C;&#x968F;&#x673A;&#x9009;&#x53D6;&#x91CC;&#x9762;&#x7684;5&#x4E2A;&#x6570;&#x5B57;&#x4F5C;&#x4E3A;&#x4E2D;&#x5956;&#x6570;&#x5B57;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x6570;&#x5B57;&#x53BB;&#x547D;&#x4E2D;&#x8FD9;&#x4E2A;&#x96C6;&#x5408;&#xFF0C;&#x5982;&#x679C;&#x547D;&#x4E2D;&#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x5C31;&#x8868;&#x660E;&#x4E2D;&#x5956;&#x4E86;&#x3002;</p>
+</li>
+<li>
+<p>&#x4E2D;&#x5956;&#x540E;&#x5224;&#x65AD;&#x5956;&#x54C1;&#x7684;&#x5E93;&#x5B58;&#x662F;&#x5426;&#x5145;&#x8DB3;&#x3002;</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token class-name">Prize</span> <span class="token function">getLotteryResult</span><span class="token punctuation">(</span><span class="token class-name">LotteryActivityModel</span> activityModel<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BusinessException</span> <span class="token punctuation">{</span>
+        <span class="token comment">//&#x83B7;&#x53D6;&#x8BE5;&#x6D3B;&#x52A8;&#x7684;&#x6240;&#x6709;&#x5956;&#x54C1;&#x5217;&#x8868;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Prize</span><span class="token punctuation">&gt;</span></span> prizeList <span class="token operator">=</span> activityModel<span class="token punctuation">.</span><span class="token function">getPrizeList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>prizeList<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BusinessException</span><span class="token punctuation">(</span><span class="token class-name">EmBusinessError</span><span class="token punctuation">.</span>ACTIVITY_HAS_NO_PRIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        prizeList<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Prize</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">Prize</span> o1<span class="token punctuation">,</span> <span class="token class-name">Prize</span> o2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> o1<span class="token punctuation">.</span><span class="token function">getPrizeLevel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>o2<span class="token punctuation">.</span><span class="token function">getPrizeLevel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> randNum <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> pre <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> prizeList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>randNum <span class="token operator">&gt;</span> pre <span class="token operator">&amp;&amp;</span> randNum <span class="token operator">&lt;</span> pre <span class="token operator">+</span> prizeList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getProbability</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+               <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">loadStock</span><span class="token punctuation">(</span>prizeList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span>prizeId<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                   <span class="token keyword">return</span> prizeList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+               <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            pre <span class="token operator">+=</span> prizeList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getProbability</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//&#x672A;&#x4E2D;&#x5956;</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="%E5%A5%96%E5%93%81%E5%BA%93%E5%AD%98">&#x5956;&#x54C1;&#x5E93;&#x5B58;</h4>
+
+<p>&#x5728;&#x53D1;&#x5E03;&#x6D3B;&#x52A8;&#x65F6;&#xFF0C;&#x5C06;Prize&#x8FDB;&#x884C;redis&#x7F13;&#x5B58;&#xFF0C;key&#x4E3A;prizeId,value&#x662F;&#x5E93;&#x5B58;&#x3002;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x4E3A;&#x6D3B;&#x52A8;&#x7ED3;&#x675F;&#x65F6;&#x95F4;-&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x62BD;&#x5956;&#x65F6;&#x6839;&#x636E;prizeId&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x5956;&#x54C1;&#x5E93;&#x5B58;&#xFF0C;&#x5148;&#x83B7;&#x53D6;&#x7F13;&#x5B58;&#xFF0C;&#x5982;&#x679C;&#x76F8;&#x5E94;&#x7684;&#x7F13;&#x5B58;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x5F00;&#x5355;&#x7EBF;&#x7A0B;&#x53BB;&#x635E;&#x53D6;&#xFF0C;setnx&#x8FDB;&#x884C;&#x585E;&#x5165;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5956;&#x54C1;&#x5E93;&#x5B58;&#x4E3A;&#x7A7A;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E2D;&#x5956;&#x5931;&#x8D25;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">long</span> <span class="token function">loadStock</span><span class="token punctuation">(</span><span class="token keyword">long</span> prizeId<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">StoreKey</span> storeKey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StoreKey</span><span class="token punctuation">(</span><span class="token string">&quot;prizeId&quot;</span><span class="token punctuation">,</span>prizeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>redisClient<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>storeKey<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">Prize</span> prize <span class="token operator">=</span> prizeMapper<span class="token punctuation">.</span><span class="token function">selectByPrimaryKey</span><span class="token punctuation">(</span>prezeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>prize <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">LotteryExecption</span><span class="token punctuation">(</span><span class="token class-name">ResultCodeEnum</span><span class="token punctuation">.</span>RESOURCE_NOT_FOUND<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">LotteryConstants</span><span class="token punctuation">.</span>PRIZE_STOCK_REMAIN<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            redisClient<span class="token punctuation">.</span><span class="token function">setnx</span><span class="token punctuation">(</span>storeKey<span class="token punctuation">,</span><span class="token class-name">Long</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>prize<span class="token punctuation">.</span><span class="token function">getStock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token class-name">LotteryConstants</span><span class="token punctuation">.</span>EXPIRE_TIME<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> redisClient<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>storeKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%BA%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7">&#x6570;&#x636E;&#x5E93;&#x548C;&#x7F13;&#x5B58;&#x5E93;&#x5B58;&#x7684;&#x4E00;&#x81F4;&#x6027;</h3>
+
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;&#x578B;&#x6D88;&#x606F;&#x539F;&#x6D41;&#x7A0B;</p>
+<p>&#x4E8B;&#x52A1;&#x5F00;&#x59CB;</p>
+<ul>
+<li>&#x6263;&#x7F13;&#x5B58;</li>
+<li>&#x63D2;&#x5165;&#x4E2D;&#x5956;&#x8BB0;&#x5F55;</li>
+<li>&#x53D1;&#x9001;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x6263;&#x51CF;&#x5E93;&#x5B58;</li>
+</ul>
+<p>&#x4E8B;&#x52A1;&#x7ED3;&#x675F;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x6263;&#x5E93;&#x5B58;&#x548C;&#x63D2;&#x4E2D;&#x5956;&#x8BB0;&#x5F55;&#x4F1A;&#x56DE;&#x6EDA;&#xFF0C;&#x4F46;&#x662F;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x6263;&#x51CF;&#x5E93;&#x5B58;&#x5E76;&#x4E0D;&#x4F1A;&#x56DE;&#x6EDA;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x51FA;&#x73B0;&#x7F13;&#x5B58;&#x5C11;&#x5356;&#x73B0;&#x8C61;&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>
+<p>redis&#x4E2D;&#x5E93;&#x5B58;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x51CF;&#x5C11;&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x8FC7;&#x671F;&#x4E4B;&#x540E;&#x518D;&#x6B21;&#x4ECE;db&#x4E2D;&#x635E;&#x53D6;&#x4FDD;&#x8BC1;&#x7F13;&#x5B58;&#x4E0E;dB&#x5DEE;&#x522B;&#x4E0D;&#x662F;&#x5F88;&#x5927;&#x3002;</p>
+</li>
+<li>
+<p>&#x4F7F;&#x7528;&#x4E8B;&#x52A1;&#x578B;&#x6D88;&#x606F;</p>
+<ul>
+<li>&#x6D88;&#x606F;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#x540E;&#x6D88;&#x8D39;&#x8005;&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x76F4;&#x5230;&#x7F13;&#x5B58;&#x6263;&#x51CF;&#x6210;&#x529F;&#x540C;&#x65F6;&#x63D2;&#x5165;&#x4E2D;&#x5956;&#x8BB0;&#x5F55;&#x6210;&#x529F;&#x624D;&#x88AB;&#x6D88;&#x8D39;&#x8005;&#x53EF;&#x89C1;</li>
+<li>&#x6D88;&#x8D39;&#x8005;&#x6263;&#x51CF;&#x5E93;&#x5B58;</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java">   <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MQClientException</span> <span class="token punctuation">{</span>
+        <span class="token comment">//&#x505A;mq producer&#x7684;&#x521D;&#x59CB;&#x5316;</span>
+        producer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultMQProducer</span><span class="token punctuation">(</span><span class="token string">&quot;producer_group&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        producer<span class="token punctuation">.</span><span class="token function">setNamesrvAddr</span><span class="token punctuation">(</span>nameAddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        producer<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        transactionMQProducer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TransactionMQProducer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">&quot;transaction_producer_group&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        transactionMQProducer<span class="token punctuation">.</span><span class="token function">setNamesrvAddr</span><span class="token punctuation">(</span>nameAddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        transactionMQProducer<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        transactionMQProducer<span class="token punctuation">.</span><span class="token function">setTransactionListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TransactionListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">//&#x6D88;&#x606F;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x6D88;&#x8D39;&#x8005;&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x5728;&#x6D88;&#x8D39;&#x4E4B;&#x524D;&#x505A;&#x7684;&#x4E8B;&#x60C5;</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">LocalTransactionState</span> <span class="token function">executeLocalTransaction</span><span class="token punctuation">(</span><span class="token class-name">Message</span> message<span class="token punctuation">,</span> <span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> argsMap <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+                <span class="token class-name">Integer</span> ip <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> argsMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;ip&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Integer</span> activityId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> argsMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;activityId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Integer</span> prizeId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> argsMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;prizeId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Integer</span> goodsId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> argsMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;goodsId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">//&#x771F;&#x6B63;&#x8981;&#x505A;&#x7684;&#x4E8B;  &#x521B;&#x5EFA;&#x8BA2;&#x5355;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;</span>
+                    <span class="token comment">/*&#x63D2;&#x5165;&#x4E2D;&#x5956;&#x8BB0;&#x5F55;
+                    &#x6263;&#x51CF;&#x7F13;&#x5B58;*/</span>
+                    <span class="token comment">//&#x5982;&#x679C;&#x6263;&#x51CF;&#x5931;&#x8D25;&#xFF0C;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">BusinessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token class-name">LocalTransactionState</span><span class="token punctuation">.</span>ROLLBACK_MESSAGE<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token class-name">LocalTransactionState</span><span class="token punctuation">.</span>COMMIT_MESSAGE<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">//&#x4E0A;&#x8FF0;&#x521B;&#x5EFA;&#x8BA2;&#x5355;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x4E00;&#x76F4;&#x5904;&#x4E8E;&#x51C6;&#x5907;&#x72B6;&#x6001;</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">LocalTransactionState</span> <span class="token function">checkLocalTransaction</span><span class="token punctuation">(</span><span class="token class-name">MessageExt</span> messageExt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token comment">//&#x4E8B;&#x52A1;&#x578B;&#x540C;&#x6B65;&#x5E93;&#x5B58;&#x6263;&#x51CF;&#x6D88;&#x606F;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">transactionAsyncReduceStock</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> ip<span class="token punctuation">,</span> <span class="token class-name">Integer</span> activityId<span class="token punctuation">,</span> <span class="token class-name">Integer</span> prizeId<span class="token punctuation">,</span> <span class="token class-name">Integer</span> goodsId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> bodyMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bodyMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;prizeId&quot;</span><span class="token punctuation">,</span> itemId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> argsMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        argsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;ip&quot;</span><span class="token punctuation">,</span> ip<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        argsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;activityId&quot;</span><span class="token punctuation">,</span> activityId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        argsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;prizeId&quot;</span><span class="token punctuation">,</span> prizeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        argsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;goodsId&quot;</span><span class="token punctuation">,</span> goodsId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Message</span> message <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Message</span><span class="token punctuation">(</span>topicName<span class="token punctuation">,</span> <span class="token string">&quot;increase&quot;</span><span class="token punctuation">,</span>
+                JSON<span class="token punctuation">.</span><span class="token function">toJSON</span><span class="token punctuation">(</span>bodyMap<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token class-name">Charset</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">&quot;UTF-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TransactionSendResult</span> sendResult <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            sendResult <span class="token operator">=</span> transactionMQProducer<span class="token punctuation">.</span><span class="token function">sendMessageInTransaction</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> argsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MQClientException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sendResult<span class="token punctuation">.</span><span class="token function">getLocalTransactionState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token class-name">LocalTransactionState</span><span class="token punctuation">.</span>COMMIT_MESSAGE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token comment">//&#x6D88;&#x8D39;&#x8005; &#x6263;&#x51CF;&#x6570;&#x636E;&#x5E93;</span>
+<span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MQClientException</span> <span class="token punctuation">{</span>
+        consumer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultMQPushConsumer</span><span class="token punctuation">(</span><span class="token string">&quot;stock_consumer_group&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        consumer<span class="token punctuation">.</span><span class="token function">setNamesrvAddr</span><span class="token punctuation">(</span>nameAddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        consumer<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>topicName<span class="token punctuation">,</span> <span class="token string">&quot;*&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        consumer<span class="token punctuation">.</span><span class="token function">registerMessageListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MessageListenerConcurrently</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">ConsumeConcurrentlyStatus</span> <span class="token function">consumeMessage</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MessageExt</span><span class="token punctuation">&gt;</span></span> msgs<span class="token punctuation">,</span> <span class="token class-name">ConsumeConcurrentlyContext</span> consumeConcurrentlyContext<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">MessageExt</span> messageExt <span class="token operator">=</span> msgs<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">String</span> jsonString <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>messageExt<span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parseObject</span><span class="token punctuation">(</span>jsonString<span class="token punctuation">,</span> <span class="token class-name">Map</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Integer</span> prizeId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;prizeId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                itemStockDOMapper<span class="token punctuation">.</span><span class="token function">decreaseStock</span><span class="token punctuation">(</span>prizeId<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token class-name">ConsumeConcurrentlyStatus</span><span class="token punctuation">.</span>CONSUME_SUCCESS<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        consumer<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="%E6%99%BA%E8%83%BD%E6%AD%A5%E6%80%81%E7%9B%91%E6%B5%8B%E7%B3%BB%E7%BB%9F">&#x667A;&#x80FD;&#x6B65;&#x6001;&#x76D1;&#x6D4B;&#x7CFB;&#x7EDF;</h4>
+
+<ul>
+<li>
+<p>&#x4E00;&#x53F0;&#x624B;&#x673A;&#x76D1;&#x63A7;&#x591A;&#x4E2A;&#x5E94;&#x7528;: &#x672C;&#x9879;&#x76EE;&#x62DF;&#x5728;&#x79FB;&#x52A8;&#x7AEF;&#x5F00;&#x53D1;&#x4E00;&#x6B3E;&#x53EF;&#x4EE5;&#x5B9E;&#x65F6;&#x663E;&#x793A;&#x6B65;&#x6001;&#x4FE1;&#x606F;&#x7684;&#x5B89;&#x5353;&#x7AEF;APP&#xFF0C;&#x67D4;&#x6027;&#x538B;&#x529B;&#x4F20;&#x611F;&#x5668;&#x5D4C;&#x5165;&#x978B;&#x57AB;&#x4E2D;&#xFF0C; APP&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x6765;&#x63A5;&#x6536;&#x84DD;&#x7259;&#x6570;&#x636E;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x4E4B;&#x540E;&#x901A;&#x8FC7;<code>sendMessage</code>&#x65B9;&#x6CD5;&#x5411;&#x4E3B;&#x7EBF;&#x7A0B;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x4ECE;&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x62FF;&#x5230;&#x6570;&#x636E;&#x540E;&#x66F4;&#x65B0;UI&#x548C;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x3002;</p>
+<p><img src="./images/%E5%9B%BE%E7%89%871.png" alt></p>
+</li>
+</ul>
+<p>&#x6D88;&#x606F;&#x961F;&#x5217;&#x7684;&#x4F5C;&#x7528;</p>
+<ul>
+<li>&#x5F02;&#x6B65;</li>
+<li>&#x89E3;&#x8026;</li>
+<li>&#x987A;&#x5E8F;</li>
+<li>&#x7F13;&#x5B58;</li>
+</ul>
+<p>&#x6211;&#x770B;&#x4F60;&#x753B;&#x7684;&#x56FE;&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<p><img src="./images/%E9%A1%B9%E7%9B%AE.png" alt></p>
+<ul>
+<li>&#x7B2C;&#x4E8C;&#x4E2A;&#x56FE;&#xFF0C;&#x6211;&#x5BF9;&#x8FD9;&#x4E2A;&#x56FE;&#x7684;&#x7406;&#x89E3;&#x662F;&#x4E09;&#x4E2A;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#x5B50;&#x7EBF;&#x7A0B;&#x63A5;&#x6536;&#x5230;&#x6570;&#x636E;&#x540E;&#x901A;&#x8FC7;<code>sendMessage</code>&#x5411;&#x53E6;&#x5916;&#x4E00;&#x4E2A;(&#x6216;&#x8005;&#x4E24;&#x4E2A;&#xFF09;&#x5B50;&#x7EBF;&#x7A0B;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x5904;&#x7406;&#x6570;&#x636E;&#x7684;&#x5B50;&#x7EBF;&#x7A0B;&#x518D;&#x901A;&#x8FC7;<code>sendMessage</code>&#x65B9;&#x6CD5;&#x5411;&#x4E3B;&#x7EBF;&#x7A0B;(View Thread)&#x548C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;(IO Thread)&#x7EBF;&#x7A0B;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x3002;&#x5B9E;&#x73B0;UI&#x66F4;&#x65B0;&#x548C;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x3002;&#x6240;&#x4EE5;&#x4E00;&#x5171;&#x4E03;&#x4E2A;&#x7EBF;&#x7A0B;&#x3002;&#x4E0D;&#x77E5;&#x9053;&#x6211;&#x8FD9;&#x6837;&#x7406;&#x89E3;&#x662F;&#x5426;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF1F;</li>
+<li>Raw Data Queue&#x4E2D;&#x540C;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x987A;&#x5E8F;&#x5E94;&#x8BE5;&#x6CA1;&#x6709;&#x4E71;&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4FDD;&#x8BC1;&#x987A;&#x5E8F;&#x6027;&#x7684;&#x8BDD;&#xFF0C;&#x6570;&#x636E;&#x89E3;&#x6790;&#x7684;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x662F;&#x4E0D;&#x662F;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF1F;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x4E09;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x89E3;&#x6790;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x3002;&#xFF08;&#x5982;&#x679C;&#x662F;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x89E3;&#x6790;&#x7684;&#x7EBF;&#x7A0B;&#x7684;&#x8BDD;&#xFF0C;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x4FDD;&#x8BC1;&#x987A;&#x5E8F;&#x6027;&#x5462;&#xFF1F;&#x8FD9;&#x4E00;&#x70B9;&#x6211;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#xFF09;&#x3002;</li>
+<li>&#x591A;&#x4E2A;Parse Thread&#x5904;&#x7406;&#x4E00;&#x4E2A;Raw Data Queue&#x7684;&#x6D88;&#x606F;&#xFF08;&#x6240;&#x6709;&#x84DD;&#x7259;&#x8BBE;&#x5907;&#xFF0C;&#x6BCF;&#x4E2A;&#x84DD;&#x7259;&#x8BBE;&#x5907;&#x7684;&#x5148;&#x540E;&#x7684;&#x6D88;&#x606F;&#x90FD;&#x5728;&#x4E00;&#x8D77;&#x4E86;&#xFF09;&#xFF0C;&#x5C31;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x540C;&#x4E00;&#x4E2A;&#x84DD;&#x7259;&#x8BBE;&#x5907;&#x539F;&#x6765;&#x7684;&#x5148;&#x540E;&#x987A;&#x5E8F;&#x4E86;&#x3002;&#x600E;&#x4E48;&#x89E3;&#x51B3;&#x5462;&#xFF1F;<br>
+&#x7B54;&#xFF1A;&#x76EE;&#x7684; &#x662F; &#x5BF9;&#x5E94;&#x540C;&#x4E00;&#x4E2A;&#x8BBE;&#x5907; &#x4E71;&#x5E8F;&#x6267;&#x884C;&#x7684; parse&#x7EBF;&#x7A0B; &#x5728;&#x5199;render queue&#x548C;IO queue&#x7684;&#x65F6;&#x5019;&#x80FD;&#x6709;&#x5E8F;&#x3002;&#x8FD9;&#x4E2A;&#x8BFE;&#x9898;&#x5BF9;&#x5E94;&#x5230; &#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x4F9D;&#x8D56;&#x7684;&#x8C03;&#x5EA6;&#x3002;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x7684;&#x4F9D;&#x8D56;&#x662F; &#x7EBF;&#x7A0B;&#x89E3;&#x6790;&#x7684;&#x6570;&#x636E;&#x7684;&#x63A5;&#x6536;&#x65F6;&#x95F4;&#xFF0C; &#x5373; &#x5982;&#x679C;&#x6709;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5728;&#x89E3;&#x6790;&#x66F4;&#x65E9;&#x7684;&#x63A5;&#x6536;&#x65F6;&#x95F4;&#xFF0C;&#x90A3;&#x4E48;&#x672C;&#x7EBF;&#x7A0B;&#x5C31;&#x4E0D;&#x80FD;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230; render queue&#x548C;IO queue.&#x6240;&#x4EE5; &#x5B9E;&#x73B0;&#x96BE;&#x70B9;&#x53EA;&#x662F;  &#x5982;&#x4F55;&#x5FEB;&#x901F;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B; &#x662F;&#x5426;&#x6709;&#x4F9D;&#x8D56;&#x7EBF;&#x7A0B;&#x3002;<br>
+&#x5982;&#x4F55;&#x5FEB;&#x901F;&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x6709;&#x4F9D;&#x8D56;&#xFF1A;<br>
+&#x8BA9;&#x6BCF;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x6709;&#x4E00;&#x4E2A;&#x6309;&#x65F6;&#x95F4;&#x6392;&#x5E8F;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x8BE5;&#x961F;&#x5217;&#x5B58;&#x50A8;&#x7740; &#x5F53;&#x524D;&#x8BE5;&#x8BBE;&#x5907;&#x6B63;&#x5728;parse&#x7EBF;&#x7A0B;&#x91CC;&#x7684;&#x6570;&#x636E;&#x7684;&#x65F6;&#x95F4;&#x70B9;<br>
+&#x6BCF;&#x4E00;&#x4E2A;parse&#x7EBF;&#x7A0B;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x6570;&#x636E;&#x7684;&#x65F6;&#x95F4;&#x70B9;&#x52A0;&#x5165;&#x8BE5;&#x8BBE;&#x5907;&#x961F;&#x5217;&#x7684;&#x5C3E;&#x90E8;&#xFF0C;&#x6BCF;&#x5F53;&#x4E00;&#x4E2A;parse&#x7EBF;&#x7A0B;&#x5373;&#x5C06;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x6570;&#x636E;&#x7684;&#x65F6;&#x95F4;&#x70B9;&#x662F;&#x5426;&#x662F;&#x961F;&#x5217;&#x7684;&#x5934;&#x90E8;&#xFF0C;<br>
+&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5934;&#x90E8;&#xFF0C;&#x5C31;&#x4EE3;&#x8868;&#x8FD8;&#x6709;&#x6BD4;&#x4ED6;&#x65E9;&#x7684;&#x7EBF;&#x7A0B;&#x8FD8;&#x6CA1;&#x7ED3;&#x675F;&#xFF0C;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x8FDB;&#x5165;wait&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x6570;&#x636E;&#x662F;&#x5934;&#x90E8;<br>
+&#x5982;&#x679C;&#x662F;&#x5934;&#x90E8;&#xFF0C;&#x5C31;&#x4EE3;&#x8868;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5199;&#x5165;render queue&#x548C;IO queue&#xFF0C;&#x5E76;notify&#x524D;&#x4ED6;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;<br>
+&#x8FD9;&#x6837;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6; &#x4F7F;&#x5F97; parse thread &#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C; &#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x65F6;&#x95F4;&#x987A;&#x5E8F;&#x4E32;&#x884C;&#x5730;&#x5199;&#x5165;render queue&#x548C;IO queue.</li>
+</ul>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E7%AE%80%E5%8E%86">&#x7B80;&#x5386;</a>
+<ul>
+<li><a href="#%E9%AA%A8%E5%85%B3%E8%8A%82%E5%8E%8B%E5%8A%9B%E4%BC%A0%E6%84%9F%E5%99%A8%E7%B3%BB%E7%BB%9F">&#x9AA8;&#x5173;&#x8282;&#x538B;&#x529B;&#x4F20;&#x611F;&#x5668;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="#%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F">&#x62BD;&#x5956;&#x7CFB;&#x7EDF;</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93">&#x6570;&#x636E;&#x5E93;</a></li>
+<li><a href="#%E6%8A%BD%E5%A5%96%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81">&#x62BD;&#x5956;&#x63A5;&#x53E3;&#x9650;&#x6D41;</a></li>
+<li><a href="#%E6%8A%BD%E5%A5%96%E6%8E%A5%E5%8F%A3%E9%98%B2%E5%88%B7">&#x62BD;&#x5956;&#x63A5;&#x53E3;&#x9632;&#x5237;</a>
+<ul>
+<li><a href="#ip%E8%8E%B7%E5%8F%96">IP&#x83B7;&#x53D6;</a></li>
+<li><a href="#%E9%98%B2%E9%81%8D%E5%8E%86">&#x9632;&#x904D;&#x5386;</a></li>
+<li><a href="#ip%E9%99%90%E5%88%B6">IP&#x9650;&#x5236;</a></li>
+</ul>
+</li>
+<li><a href="#%E9%98%9F%E5%88%97%E6%B3%84%E6%B4%AA">&#x961F;&#x5217;&#x6CC4;&#x6D2A;</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E6%B4%BB%E5%8A%A8%E4%BF%A1%E6%81%AF">&#x83B7;&#x53D6;&#x6D3B;&#x52A8;&#x4FE1;&#x606F;</a></li>
+<li><a href="#%E6%8A%BD%E5%A5%96%E7%AE%97%E6%B3%95">&#x62BD;&#x5956;&#x7B97;&#x6CD5;</a>
+<ul>
+<li><a href="#%E5%A5%96%E5%93%81%E5%BA%93%E5%AD%98">&#x5956;&#x54C1;&#x5E93;&#x5B58;</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%BA%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7">&#x6570;&#x636E;&#x5E93;&#x548C;&#x7F13;&#x5B58;&#x5E93;&#x5B58;&#x7684;&#x4E00;&#x81F4;&#x6027;</a>
+<ul>
+<li><a href="#%E6%99%BA%E8%83%BD%E6%AD%A5%E6%80%81%E7%9B%91%E6%B5%8B%E7%B3%BB%E7%BB%9F">&#x667A;&#x80FD;&#x6B65;&#x6001;&#x76D1;&#x6D4B;&#x7CFB;&#x7EDF;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

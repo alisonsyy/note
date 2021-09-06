@@ -1,0 +1,553 @@
+<!DOCTYPE html><html><head>
+      <title>asynctask</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\alison\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.18\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="%E4%B8%80-android%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B">&#x4E00;&#x3001;Android&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;</h2>
+
+<p>&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x7EBF;&#x7A0B;&#x662F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8C03;&#x5EA6;&#x7684;&#x6700;&#x5C0F;&#x5355;&#x5143;&#xFF0C;&#x540C;&#x65F6;&#x7EBF;&#x7A0B;&#x53C8;&#x662F;&#x4E00;&#x79CD;&#x53D7;&#x9650;&#x7684;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#xFF0C;&#x5373;&#x7EBF;&#x7A0B;&#x4E0D;&#x53EF;&#x80FD;&#x65E0;&#x9650;&#x5236;&#x5730;&#x4EA7;&#x751F;&#xFF0C;&#x5E76;&#x4E14;**&#x7EBF;&#x7A0B;&#x7684;&#x521B;&#x5EFA;&#x548C;&#x9500;&#x6BC1;&#x90FD;&#x4F1A;&#x6709;&#x76F8;&#x5E94;&#x7684;&#x5F00;&#x9500;&#x3002;**&#x5F53;&#x7CFB;&#x7EDF;&#x4E2D;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684;&#x7EBF;&#x7A0B;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x901A;&#x8FC7;&#x4F1A;&#x65F6;&#x95F4;&#x7247;&#x8F6E;&#x8F6C;&#x7684;&#x65B9;&#x5F0F;&#x8C03;&#x5EA6;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x56E0;&#x6B64;&#x7EBF;&#x7A0B;&#x4E0D;&#x53EF;&#x80FD;&#x505A;&#x5230;&#x7EDD;&#x5BF9;&#x7684;&#x5E76;&#x884C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x9891;&#x7E41;&#x5730;&#x521B;&#x5EFA;&#x548C;&#x9500;&#x6BC1;&#x7EBF;&#x7A0B;&#xFF0C;&#x663E;&#x7136;&#x4E0D;&#x662F;&#x9AD8;&#x6548;&#x7684;&#x505A;&#x6CD5;&#x3002;&#x6B63;&#x786E;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x91C7;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x4F1A;&#x7F13;&#x5B58;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x901A;&#x8FC7;&#x7EBF;&#x7A0B;&#x6C60;&#x5C31;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x56E0;&#x4E3A;&#x9891;&#x7E41;&#x521B;&#x5EFA;&#x548C;&#x9500;&#x6BC1;&#x7EBF;&#x7A0B;&#x6240;&#x5E26;&#x6765;&#x7684;&#x7CFB;&#x7EDF;&#x5F00;&#x9500;&#x3002;</p>
+<h2 class="mume-header" id="%E4%BA%8C-asynctask%E7%AE%80%E4%BB%8B">&#x4E8C;&#x3001;AsyncTask&#x7B80;&#x4ECB;</h2>
+
+<p>AsyncTask&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5B83;&#x662F;&#x7531;Android&#x5C01;&#x88C5;&#x7684;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x5F02;&#x6B65;&#x7C7B;&#xFF08;&#x8F7B;&#x91CF;&#x4F53;&#x73B0;&#x5728;&#x4F7F;&#x7528;&#x65B9;&#x4FBF;&#x3001;&#x4EE3;&#x7801;&#x7B80;&#x6D01;&#xFF09;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x6267;&#x884C;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6267;&#x884C;&#x7684;&#x8FDB;&#x5EA6;&#x548C;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x4F20;&#x9012;&#x7ED9;&#x4E3B;&#x7EBF;&#x7A0B;&#x5E76;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x66F4;&#x65B0;UI&#x3002;</p>
+<p>AsyncTask&#x7684;&#x5185;&#x90E8;&#x5C01;&#x88C5;&#x4E86;<strong>&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;</strong>(SerialExecutor&#x548C;THREAD_POOL_EXECUTOR)&#x548C;<strong>&#x4E00;&#x4E2A;Handler</strong>(InternalHandler)&#x3002;</p>
+<p>&#x5176;&#x4E2D;<strong>SerialExecutor&#x7EBF;&#x7A0B;&#x6C60;&#x7528;&#x4E8E;&#x4EFB;&#x52A1;&#x7684;&#x6392;&#x961F;&#xFF0C;&#x8BA9;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x591A;&#x4E2A;&#x8017;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x6309;&#x987A;&#x5E8F;&#x6392;&#x5217;</strong>&#xFF0C;<strong>THREAD_POOL_EXECUTOR&#x7EBF;&#x7A0B;&#x6C60;&#x624D;&#x771F;&#x6B63;&#x5730;&#x6267;&#x884C;&#x4EFB;&#x52A1;</strong>&#xFF0C;<strong>InternalHandler&#x7528;&#x4E8E;&#x4ECE;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#x5230;&#x4E3B;&#x7EBF;&#x7A0B;</strong>&#x3002;</p>
+<h4 class="mume-header" id="1asynctask%E7%9A%84%E6%B3%9B%E5%9E%8B%E5%8F%82%E6%95%B0">1.AsyncTask&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;</h4>
+
+<p>AsyncTask&#x7684;&#x7C7B;&#x58F0;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">AsyncTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Params</span><span class="token punctuation">,</span> <span class="token class-name">Progress</span><span class="token punctuation">,</span> <span class="token class-name">Result</span><span class="token punctuation">&gt;</span></span>
+</pre><p>AsyncTask&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x6CDB;&#x578B;&#x7C7B;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#xFF0C;&#x4E09;&#x4E2A;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;&#x542B;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>**Params&#xFF1A;**&#x5F00;&#x59CB;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#xFF1B;</p>
+<p>**Progress&#xFF1A;**&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x8FD4;&#x56DE;&#x4E0B;&#x8F7D;&#x8FDB;&#x5EA6;&#x503C;&#x7684;&#x7C7B;&#x578B;&#xFF1B;</p>
+<p>**Result&#xFF1A;**&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x7C7B;&#x578B;&#xFF1B;</p>
+<p><strong>&#x5982;&#x679C;AsyncTask&#x786E;&#x5B9A;&#x4E0D;&#x9700;&#x8981;&#x4F20;&#x9012;&#x5177;&#x4F53;&#x53C2;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E09;&#x4E2A;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x7528;Void&#x6765;&#x4EE3;&#x66FF;&#x3002;</strong></p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E4B;&#x540E;&#xFF0C;&#x4E5F;&#x5C31;&#x63A7;&#x5236;&#x4E86;&#x8FD9;&#x4E2A;AsyncTask&#x5B50;&#x7C7B;&#x5404;&#x4E2A;&#x9636;&#x6BB5;&#x7684;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4E0D;&#x540C;&#x4E1A;&#x52A1;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x518D;&#x53E6;&#x5199;&#x4E00;&#x4E2A;AsyncTask&#x7684;&#x5B50;&#x7C7B;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<h4 class="mume-header" id="2asynctask%E7%9A%84%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95">2.AsyncTask&#x7684;&#x6838;&#x5FC3;&#x65B9;&#x6CD5;</h4>
+
+<p><strong>onPreExecute()</strong></p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5728;**&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x4E4B;&#x95F4;&#x8C03;&#x7528;&#xFF0C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x3002;**&#x7528;&#x4E8E;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x754C;&#x9762;&#x4E0A;&#x7684;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x8FDB;&#x5EA6;&#x6761;&#x5BF9;&#x8BDD;&#x6846;&#x7B49;&#x3002;</p>
+<p><strong>doInBackground(Params...)</strong></p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x90FD;&#x4F1A;<strong>&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x5728;&#x8FD9;&#x91CC;&#x53BB;&#x5904;&#x7406;&#x6240;&#x6709;&#x7684;&#x8017;&#x65F6;&#x4EFB;&#x52A1;&#x3002;</strong></p>
+<p>&#x4EFB;&#x52A1;&#x4E00;&#x65E6;&#x5B8C;&#x6210;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;return&#x8BED;&#x53E5;&#x6765;&#x5C06;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x8FD4;&#x56DE;&#xFF0C;&#x5982;&#x679C;AsyncTask&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x7684;&#x662F;Void&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4E0D;&#x8FD4;&#x56DE;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x3002;<strong>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;UI&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x66F4;&#x65B0;UI&#x5143;&#x7D20;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;&#x53CD;&#x9988;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x8FDB;&#x5EA6;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;publishProgress(Progress...)&#x65B9;&#x6CD5;&#x6765;&#x5B8C;&#x6210;&#x3002;</strong></p>
+<p><strong>onProgressUpdate(Progress...)</strong></p>
+<p>&#x5F53;&#x5728;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#x4E2D;&#x8C03;&#x7528;&#x4E86;publishProgress(Progress...)&#x65B9;&#x6CD5;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C31;&#x5F88;&#x5FEB;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x65B9;&#x6CD5;&#x4E2D;&#x643A;&#x5E26;&#x7684;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x5728;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#x4E2D;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x3002;<strong>&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x53EF;&#x4EE5;&#x5BF9;UI&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#xFF0C;&#x5229;&#x7528;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x6570;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x5BF9;&#x754C;&#x9762;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x66F4;&#x65B0;&#x3002;</strong></p>
+<p><strong>onPostExecute(Result)</strong></p>
+<p>&#x5F53;doInBackground(Params...)&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x5E76;&#x901A;&#x8FC7;return&#x8BED;&#x53E5;&#x8FDB;&#x884C;&#x8FD4;&#x56DE;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C31;&#x5F88;&#x5FEB;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x4F1A;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x5230;&#x6B64;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;<strong>&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x6765;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;UI&#x64CD;&#x4F5C;&#xFF0C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;&#x63D0;&#x9192;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4EE5;&#x53CA;&#x5173;&#x95ED;&#x6389;&#x8FDB;&#x5EA6;&#x6761;&#x5BF9;&#x8BDD;&#x6846;&#x7B49;&#x3002;</strong></p>
+<p>&#x4E0A;&#x9762;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#xFF1A;<br>
+onPreExecute() --&gt; doInBackground() --&gt; publishProgress() --&gt; onProgressUpdate() --&gt; onPostExecute()</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x9700;&#x8981;&#x6267;&#x884C;&#x66F4;&#x65B0;&#x8FDB;&#x5EA6;&#x5219;&#x4E3A;onPreExecute() --&gt; doInBackground() --&gt; onPostExecute(),</p>
+<p>&#x9664;&#x4E86;&#x4E0A;&#x9762;&#x56DB;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;AsyncTask&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;onCancelled()&#x65B9;&#x6CD5;&#xFF0C;<strong>&#x5B83;&#x540C;&#x6837;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x53D6;&#x6D88;&#x65F6;&#xFF0C;onCancelled()&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;onPostExecute()&#x5219;&#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;</strong>&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<strong>AsyncTask&#x4E2D;&#x7684;cancel()&#x65B9;&#x6CD5;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x53BB;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#xFF0C;&#x53EA;&#x662F;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x4E3A;&#x53D6;&#x6D88;&#x72B6;&#x6001;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;doInBackground()&#x5224;&#x65AD;&#x7EC8;&#x6B62;&#x4EFB;&#x52A1;&#x3002;&#x5C31;&#x597D;&#x6BD4;&#x60F3;&#x8981;&#x7EC8;&#x6B62;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x8C03;&#x7528;interrupt()&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x662F;&#x8FDB;&#x884C;&#x6807;&#x8BB0;&#x4E3A;&#x4E2D;&#x65AD;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x7EBF;&#x7A0B;&#x5185;&#x90E8;&#x8FDB;&#x884C;&#x6807;&#x8BB0;&#x5224;&#x65AD;&#x7136;&#x540E;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x3002;</strong></p>
+<h4 class="mume-header" id="3asynctask%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">3.AsyncTask&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;</h4>
+
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">class</span> <span class="token class-name">DownloadTask</span> <span class="token keyword">extends</span> <span class="token class-name">AsyncTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Void</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>  
+
+    <span class="token annotation punctuation">@Override</span>  
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onPreExecute</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        progressDialog<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+
+    <span class="token annotation punctuation">@Override</span>  
+    <span class="token keyword">protected</span> <span class="token class-name">Boolean</span> <span class="token function">doInBackground</span><span class="token punctuation">(</span><span class="token class-name">Void</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> params<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>  
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+                <span class="token keyword">int</span> downloadPercent <span class="token operator">=</span> <span class="token function">doDownload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+                <span class="token function">publishProgress</span><span class="token punctuation">(</span>downloadPercent<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>downloadPercent <span class="token operator">&gt;=</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>  
+                <span class="token punctuation">}</span>  
+            <span class="token punctuation">}</span>  
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+
+    <span class="token annotation punctuation">@Override</span>  
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onProgressUpdate</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> values<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        progressDialog<span class="token punctuation">.</span><span class="token function">setMessage</span><span class="token punctuation">(</span><span class="token string">&quot;&#x5F53;&#x524D;&#x4E0B;&#x8F7D;&#x8FDB;&#x5EA6;&#xFF1A;&quot;</span> <span class="token operator">+</span> values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">&quot;%&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+
+    <span class="token annotation punctuation">@Override</span>  
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onPostExecute</span><span class="token punctuation">(</span><span class="token class-name">Boolean</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        progressDialog<span class="token punctuation">.</span><span class="token function">dismiss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+            <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token string">&quot;&#x4E0B;&#x8F7D;&#x6210;&#x529F;&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>  
+            <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token string">&quot;&#x4E0B;&#x8F7D;&#x5931;&#x8D25;&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</pre><p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6A21;&#x62DF;&#x4E86;&#x4E00;&#x4E2A;&#x4E0B;&#x8F7D;&#x4EFB;&#x52A1;&#xFF0C;&#x5728;doInBackground()&#x65B9;&#x6CD5;&#x4E2D;&#x53BB;&#x6267;&#x884C;&#x5177;&#x4F53;&#x7684;&#x4E0B;&#x8F7D;&#x903B;&#x8F91;&#xFF0C;&#x5728;onProgressUpdate()&#x65B9;&#x6CD5;&#x4E2D;&#x663E;&#x793A;&#x5F53;&#x524D;&#x7684;&#x4E0B;&#x8F7D;&#x8FDB;&#x5EA6;&#xFF0C;&#x5728;onPostExecute()&#x65B9;&#x6CD5;&#x4E2D;&#x6765;&#x63D0;&#x793A;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x3002;&#x5982;&#x679C;&#x60F3;&#x8981;&#x542F;&#x52A8;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x5730;&#x8C03;&#x7528;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">new</span> <span class="token class-name">DownloadTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="4%E4%BD%BF%E7%94%A8asynctask%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">4.&#x4F7F;&#x7528;AsyncTask&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h4>
+
+<p>&#x2460;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x5B9E;&#x4F8B;&#x5FC5;&#x987B;&#x5728;UI&#x7EBF;&#x7A0B;&#x4E2D;&#x521B;&#x5EFA;&#xFF0C;&#x5373;AsyncTask&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x5728;UI&#x7EBF;&#x7A0B;&#x4E2D;&#x521B;&#x5EFA;&#x3002;</p>
+<p>&#x2461;execute(Params... params)&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5728;UI&#x7EBF;&#x7A0B;&#x4E2D;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x2462;&#x4E0D;&#x8981;&#x624B;&#x52A8;&#x8C03;&#x7528;onPreExecute()&#xFF0C;doInBackground(Params... params)&#xFF0C;onProgressUpdate(Progress... values)&#xFF0C;onPostExecute(Result result)&#x8FD9;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x2463;&#x4E0D;&#x80FD;&#x5728;doInBackground(Params... params)&#x4E2D;&#x66F4;&#x6539;UI&#x7EC4;&#x4EF6;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x2464;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x5B9E;&#x4F8B;&#x53EA;&#x80FD;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x5982;&#x679C;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x6B21;&#x5C06;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</p>
+<h2 class="mume-header" id="%E4%B8%89-asynctask%E7%9A%84%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">&#x4E09;&#x3001;AsyncTask&#x7684;&#x6E90;&#x7801;&#x5206;&#x6790;</h2>
+
+<p>&#x5148;&#x4ECE;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;AsyncTask&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5F00;&#x59CB;&#x5206;&#x6790;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token class-name">AsyncTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mWorker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WorkerRunnable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Params</span><span class="token punctuation">,</span> <span class="token class-name">Result</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+                mTaskInvoked<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Result</span> result <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Process</span><span class="token punctuation">.</span><span class="token function">setThreadPriority</span><span class="token punctuation">(</span><span class="token class-name">Process</span><span class="token punctuation">.</span>THREAD_PRIORITY_BACKGROUND<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token comment">//noinspection unchecked</span>
+                    result <span class="token operator">=</span> <span class="token function">doInBackground</span><span class="token punctuation">(</span>mParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Binder</span><span class="token punctuation">.</span><span class="token function">flushPendingCommands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> tr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    mCancelled<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">throw</span> tr<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                    <span class="token function">postResult</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        mFuture <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FutureTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Result</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>mWorker<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token function">postResultIfNotInvoked</span><span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name"><span class="token namespace">android<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span>Log</span><span class="token punctuation">.</span><span class="token function">w</span><span class="token punctuation">(</span>LOG_TAG<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ExecutionException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">&quot;An error occurred while executing doInBackground()&quot;</span><span class="token punctuation">,</span>
+                            e<span class="token punctuation">.</span><span class="token function">getCause</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">CancellationException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token function">postResultIfNotInvoked</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x867D;&#x7136;&#x770B;&#x8D77;&#x6765;&#x6709;&#x70B9;&#x957F;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x5E76;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5177;&#x4F53;&#x7684;&#x903B;&#x8F91;&#x4F1A;&#x5F97;&#x5230;&#x6267;&#x884C;&#xFF0C;&#x53EA;&#x662F;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;mWorker&#x548C;mFuture&#xFF0C;&#x5E76;&#x5728;&#x521D;&#x59CB;&#x5316;mFuture&#x7684;&#x65F6;&#x5019;&#x5C06;mWorker&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x3002;mWorker&#x662F;&#x4E00;&#x4E2A;Callable&#x5BF9;&#x8C61;&#xFF0C;mFuture&#x662F;&#x4E00;&#x4E2A;FutureTask&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x6682;&#x65F6;&#x4FDD;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x7A0D;&#x540E;&#x624D;&#x4F1A;&#x7528;&#x5230;&#x5B83;&#x4EEC;&#x3002; FutureTask&#x5B9E;&#x73B0;&#x4E86;Runnable&#x63A5;&#x53E3;&#x3002;</p>
+<p>mWorker&#x4E2D;&#x7684;call()&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x4E86;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#xFF0C;&#x5373;<code>result = doInBackground(mParams);</code>,&#x7136;&#x540E;&#x628A;&#x6267;&#x884C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x901A;&#x8FC7;<code>postResult(result);</code>,&#x4F20;&#x9012;&#x7ED9;&#x5185;&#x90E8;&#x7684;Handler&#x8DF3;&#x8F6C;&#x5230;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x8FD9;&#x662F;&#x5B9E;&#x4F8B;&#x5316;&#x4E86;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x3002;</p>
+<p><strong>&#x90A3;&#x4E48;mFuture&#x5BF9;&#x8C61;&#x662F;&#x600E;&#x4E48;&#x52A0;&#x8F7D;&#x5230;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#xFF0C;&#x8FDB;&#x884C;&#x6267;&#x884C;&#x7684;&#x5462;&#xFF1F;</strong></p>
+<p>&#x63A5;&#x7740;&#x5982;&#x679C;&#x60F3;&#x8981;&#x542F;&#x52A8;&#x67D0;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x8C03;&#x7528;&#x8BE5;&#x4EFB;&#x52A1;&#x7684;execute()&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x770B;execute()&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">AsyncTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Params</span><span class="token punctuation">,</span> <span class="token class-name">Progress</span><span class="token punctuation">,</span> <span class="token class-name">Result</span><span class="token punctuation">&gt;</span></span> <span class="token function">execute</span><span class="token punctuation">(</span><span class="token class-name">Params</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">executeOnExecutor</span><span class="token punctuation">(</span>sDefaultExecutor<span class="token punctuation">,</span> params<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x8C03;&#x7528;&#x4E86;executeOnExecutor()&#x65B9;&#x6CD5;,&#x5177;&#x4F53;&#x6267;&#x884C;&#x903B;&#x8F91;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java">  <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">AsyncTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Params</span><span class="token punctuation">,</span> <span class="token class-name">Progress</span><span class="token punctuation">,</span> <span class="token class-name">Result</span><span class="token punctuation">&gt;</span></span> <span class="token function">executeOnExecutor</span><span class="token punctuation">(</span><span class="token class-name">Executor</span> exec<span class="token punctuation">,</span>
+            <span class="token class-name">Params</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mStatus <span class="token operator">!=</span> <span class="token class-name">Status</span><span class="token punctuation">.</span>PENDING<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>mStatus<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> RUNNING<span class="token operator">:</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token string">&quot;Cannot execute task:&quot;</span>
+                            <span class="token operator">+</span> <span class="token string">&quot; the task is already running.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> FINISHED<span class="token operator">:</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token string">&quot;Cannot execute task:&quot;</span>
+                            <span class="token operator">+</span> <span class="token string">&quot; the task has already been executed &quot;</span>
+                            <span class="token operator">+</span> <span class="token string">&quot;(a task can be executed only once)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        mStatus <span class="token operator">=</span> <span class="token class-name">Status</span><span class="token punctuation">.</span>RUNNING<span class="token punctuation">;</span>
+
+        <span class="token function">onPreExecute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        mWorker<span class="token punctuation">.</span>mParams <span class="token operator">=</span> params<span class="token punctuation">;</span>
+        exec<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>mFuture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5; &#x770B;&#x51FA;&#xFF0C;&#x5148;&#x6267;&#x884C;&#x4E86;onPreExecute()&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x5177;&#x4F53;&#x6267;&#x884C;&#x8017;&#x65F6;&#x4EFB;&#x52A1;&#x662F;&#x5728;<code>exec.execute(mFuture)</code>&#xFF0C;&#x628A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5B9E;&#x4F8B;&#x5316;&#x7684;mFuture&#x4F20;&#x9012;&#x8FDB;&#x53BB;&#x4E86;&#x3002;</p>
+<p><strong>exec&#x5177;&#x4F53;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</strong></p>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5177;&#x4F53;&#x662F;sDefaultExecutor&#xFF0C;&#x518D;&#x8FFD;&#x6EAF;&#x770B;&#x5230;&#x662F;SerialExecutor&#x7C7B;&#xFF0C;&#x5177;&#x4F53;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">SerialExecutor</span> <span class="token keyword">implements</span> <span class="token class-name">Executor</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Runnable</span><span class="token punctuation">&gt;</span></span> mTasks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Runnable</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Runnable</span> mActive<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Runnable</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mTasks<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                        r<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                        <span class="token function">scheduleNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>mActive <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">scheduleNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">protected</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">scheduleNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>mActive <span class="token operator">=</span> mTasks<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                THREAD_POOL_EXECUTOR<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>mActive<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x7EC8;&#x4E8E;&#x8FFD;&#x6EAF;&#x5230;&#x4E86;&#x8C03;&#x7528;&#x4E86;SerialExecutor &#x7C7B;&#x7684;execute&#x65B9;&#x6CD5;&#x3002;SerialExecutor &#x662F;&#x4E2A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x662F;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5316;&#x7684;AsyncTask&#x5BF9;&#x8C61;&#x516C;&#x6709;&#x7684;&#xFF0C;SerialExecutor &#x5185;&#x90E8;&#x7EF4;&#x6301;&#x4E86;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#xFF0C;&#x901A;&#x8FC7;&#x9501;&#x4F7F;&#x5F97;&#x8BE5;&#x961F;&#x5217;&#x4FDD;&#x8BC1;AsyncTask&#x4E2D;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x4E32;&#x884C;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x5373;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4E2A;&#x52A0;&#x5230;&#x8BE5;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x5B8C;&#x961F;&#x5217;&#x5934;&#x90E8;&#x7684;&#x518D;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x6B65;&#x9AA4;&#x3002;<br>
+&#x2460;&#x5411;&#x961F;&#x5217;&#x4E2D;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5373;&#x4E4B;&#x524D;&#x5B9E;&#x4F8B;&#x5316;&#x540E;&#x7684;mFuture&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x2461;&#x8C03;&#x7528; <code>scheduleNext()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8C03;&#x7528;THREAD_POOL_EXECUTOR&#x6267;&#x884C;&#x961F;&#x5217;&#x5934;&#x90E8;&#x7684;&#x4EFB;&#x52A1;&#x3002;</p>
+<p><strong>&#x7531;&#x6B64;&#x53EF;&#x89C1;SerialExecutor &#x7C7B;&#x4EC5;&#x4EC5;&#x4E3A;&#x4E86;&#x4FDD;&#x6301;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x662F;&#x4E32;&#x884C;&#x7684;&#xFF0C;&#x5B9E;&#x9645;&#x6267;&#x884C;&#x4EA4;&#x7ED9;&#x4E86;THREAD_POOL_EXECUTOR&#x3002;</strong></p>
+<p><strong>THREAD_POOL_EXECUTOR&#x53C8;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</strong></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token class-name">ThreadPoolExecutor</span> threadPoolExecutor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span>
+                CORE_POOL_SIZE<span class="token punctuation">,</span> MAXIMUM_POOL_SIZE<span class="token punctuation">,</span> KEEP_ALIVE_SECONDS<span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">,</span>
+                sPoolWorkQueue<span class="token punctuation">,</span> sThreadFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        threadPoolExecutor<span class="token punctuation">.</span><span class="token function">allowCoreThreadTimeOut</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        THREAD_POOL_EXECUTOR <span class="token operator">=</span> threadPoolExecutor<span class="token punctuation">;</span>
+</pre><p>&#x5B9E;&#x9645;&#x662F;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5F00;&#x542F;&#x4E86;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x6838;&#x5FC3;&#x7EBF;&#x7A0B;&#x548C;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3002;&#x7136;&#x540E;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;execute()&#x65B9;&#x6CD5;&#x3002;&#x6267;&#x884C;&#x5177;&#x4F53;&#x7684;&#x8017;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x5373;&#x5F00;&#x5934;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;mWorker&#x4E2D;call()&#x65B9;&#x6CD5;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x5148;&#x6267;&#x884C;&#x5B8C;doInBackground()&#x65B9;&#x6CD5;&#xFF0C;&#x53C8;&#x6267;&#x884C;postResult()&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x770B;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token keyword">private</span> <span class="token class-name">Result</span> <span class="token function">postResult</span><span class="token punctuation">(</span><span class="token class-name">Result</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">&quot;unchecked&quot;</span><span class="token punctuation">)</span>
+        <span class="token class-name">Message</span> message <span class="token operator">=</span> <span class="token function">getHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">obtainMessage</span><span class="token punctuation">(</span>MESSAGE_POST_RESULT<span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">AsyncTaskResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Result</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        message<span class="token punctuation">.</span><span class="token function">sendToTarget</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x8BE5;&#x65B9;&#x6CD5;&#x5411;Handler&#x5BF9;&#x8C61;&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#xFF0C;&#x4E0B;&#x9762;&#x5177;&#x4F53;&#x770B;AsyncTask&#x4E2D;&#x5B9E;&#x4F8B;&#x5316;&#x7684;Hanlder&#x5BF9;&#x8C61;&#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">InternalHandler</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token class-name">InternalHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token class-name">Looper</span><span class="token punctuation">.</span><span class="token function">getMainLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&quot;unchecked&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;RawUseOfParameterizedType&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token class-name">Message</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">AsyncTaskResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> result <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">AsyncTaskResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> msg<span class="token punctuation">.</span>obj<span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> MESSAGE_POST_RESULT<span class="token operator">:</span>
+                    <span class="token comment">// There is only one result</span>
+                    result<span class="token punctuation">.</span>mTask<span class="token punctuation">.</span><span class="token function">finish</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>mData<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> MESSAGE_POST_PROGRESS<span class="token operator">:</span>
+                    result<span class="token punctuation">.</span>mTask<span class="token punctuation">.</span><span class="token function">onProgressUpdate</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>mData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x5728;InternalHandler &#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6536;&#x5230;&#x7684;&#x6D88;&#x606F;&#x662F;MESSAGE_POST_RESULT&#xFF0C;&#x5373;&#x6267;&#x884C;&#x5B8C;&#x4E86;doInBackground()&#x65B9;&#x6CD5;&#x5E76;&#x4F20;&#x9012;&#x7ED3;&#x679C;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x8C03;&#x7528;finish()&#x65B9;&#x6CD5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">finish</span><span class="token punctuation">(</span><span class="token class-name">Result</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isCancelled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">onCancelled</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token function">onPostExecute</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        mStatus <span class="token operator">=</span> <span class="token class-name">Status</span><span class="token punctuation">.</span>FINISHED<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x53D6;&#x6D88;&#x4E86;&#xFF0C;&#x56DE;&#x8C03;onCancelled()&#x65B9;&#x6CD5;&#xFF0C;&#x5426;&#x5219;&#x56DE;&#x8C03; onPostExecute()&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6536;&#x5230;&#x7684;&#x6D88;&#x606F;&#x662F;MESSAGE_POST_PROGRESS&#xFF0C;&#x56DE;&#x8C03;onProgressUpdate()&#x65B9;&#x6CD5;&#xFF0C;&#x66F4;&#x65B0;&#x8FDB;&#x5EA6;&#x3002;</p>
+<p><strong>InternalHandler&#x662F;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x7C7B;&#xFF0C;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x5C06;&#x6267;&#x884C;&#x73AF;&#x5883;&#x5207;&#x6362;&#x5230;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x7C7B;&#x5FC5;&#x987B;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#x52A0;&#x8F7D;&#x3002;&#x6240;&#x4EE5;&#x53D8;&#x76F8;&#x8981;&#x6C42;AsyncTask&#x7684;&#x7C7B;&#x5FC5;&#x987B;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#x52A0;&#x8F7D;&#x3002;</strong></p>
+<p>&#x5230;&#x6B64;&#x4E3A;&#x6B62;&#xFF0C;&#x4ECE;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x5F00;&#x59CB;&#x5230;&#x7ED3;&#x675F;&#x90FD;&#x4ECE;&#x6E90;&#x7801;&#x5206;&#x6790;&#x5B8C;&#x4E86;&#x3002;</p>
+<h4 class="mume-header" id="asynctask%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C">AsyncTask&#x7684;&#x4E32;&#x884C;&#x548C;&#x5E76;&#x884C;</h4>
+
+<p>&#x4ECE;&#x4E0A;&#x8FF0;&#x6E90;&#x7801;&#x5206;&#x6790;&#x4E2D;&#x5206;&#x6790;&#x5F97;&#x5230;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;AsyncTask&#x7684;&#x6267;&#x884C;&#x6548;&#x679C;&#x662F;&#x4E32;&#x884C;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x4E86;SerialExecutor&#x7C7B;&#x6765;&#x7EF4;&#x6301;&#x4FDD;&#x8BC1;&#x961F;&#x5217;&#x7684;&#x4E32;&#x884C;&#x3002;&#x5982;&#x679C;&#x60F3;&#x4F7F;&#x7528;&#x5E76;&#x884C;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8DF3;&#x8FC7;SerialExecutor&#x7C7B;&#xFF0C;&#x4F7F;&#x7528;executeOnExecutor()&#x6765;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x3002;</p>
+<h2 class="mume-header" id="%E5%9B%9B-asynctask%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BD%93%E7%9A%84%E5%90%8E%E6%9E%9C">&#x56DB;&#x3001;AsyncTask&#x4F7F;&#x7528;&#x4E0D;&#x5F53;&#x7684;&#x540E;&#x679C;</h2>
+
+<p>1.)&#x751F;&#x547D;&#x5468;&#x671F;</p>
+<p>AsyncTask&#x4E0D;&#x4E0E;&#x4EFB;&#x4F55;&#x7EC4;&#x4EF6;&#x7ED1;&#x5B9A;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x6240;&#x4EE5;&#x5728;Activity/&#x6216;&#x8005;Fragment&#x4E2D;&#x521B;&#x5EFA;&#x6267;&#x884C;AsyncTask&#x65F6;&#xFF0C;&#x6700;&#x597D;&#x5728;Activity/Fragment&#x7684;onDestory()&#x8C03;&#x7528; cancel(boolean)&#xFF1B;</p>
+<p>2.)&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</p>
+<p>&#x5982;&#x679C;AsyncTask&#x88AB;&#x58F0;&#x660E;&#x4E3A;Activity&#x7684;&#x975E;&#x9759;&#x6001;&#x7684;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x90A3;&#x4E48;AsyncTask&#x4F1A;&#x4FDD;&#x7559;&#x4E00;&#x4E2A;&#x5BF9;&#x521B;&#x5EFA;&#x4E86;AsyncTask&#x7684;Activity&#x7684;&#x5F15;&#x7528;&#x3002;&#x5982;&#x679C;Activity&#x5DF2;&#x7ECF;&#x88AB;&#x9500;&#x6BC1;&#xFF0C;AsyncTask&#x7684;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x8FD8;&#x5728;&#x6267;&#x884C;&#xFF0C;&#x5B83;&#x5C06;&#x7EE7;&#x7EED;&#x5728;&#x5185;&#x5B58;&#x91CC;&#x4FDD;&#x7559;&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x5BFC;&#x81F4;Activity&#x65E0;&#x6CD5;&#x88AB;&#x56DE;&#x6536;&#xFF0C;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x3002;</p>
+<p>3.) &#x7ED3;&#x679C;&#x4E22;&#x5931;</p>
+<p>&#x5C4F;&#x5E55;&#x65CB;&#x8F6C;&#x6216;Activity&#x5728;&#x540E;&#x53F0;&#x88AB;&#x7CFB;&#x7EDF;&#x6740;&#x6389;&#x7B49;&#x60C5;&#x51B5;&#x4F1A;&#x5BFC;&#x81F4;Activity&#x7684;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#xFF0C;&#x4E4B;&#x524D;&#x8FD0;&#x884C;&#x7684;AsyncTask&#xFF08;&#x975E;&#x9759;&#x6001;&#x7684;&#x5185;&#x90E8;&#x7C7B;&#xFF09;&#x4F1A;&#x6301;&#x6709;&#x4E00;&#x4E2A;&#x4E4B;&#x524D;Activity&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#x5DF2;&#x7ECF;&#x65E0;&#x6548;&#xFF0C;&#x8FD9;&#x65F6;&#x8C03;&#x7528;onPostExecute()&#x518D;&#x53BB;&#x66F4;&#x65B0;&#x754C;&#x9762;&#x5C06;&#x4E0D;&#x518D;&#x751F;&#x6548;&#x3002;</p>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E4%B8%80-android%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B">&#x4E00;&#x3001;Android&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;</a></li>
+<li><a href="#%E4%BA%8C-asynctask%E7%AE%80%E4%BB%8B">&#x4E8C;&#x3001;AsyncTask&#x7B80;&#x4ECB;</a>
+<ul>
+<li><a href="#1asynctask%E7%9A%84%E6%B3%9B%E5%9E%8B%E5%8F%82%E6%95%B0">1.AsyncTask&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;</a></li>
+<li><a href="#2asynctask%E7%9A%84%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95">2.AsyncTask&#x7684;&#x6838;&#x5FC3;&#x65B9;&#x6CD5;</a></li>
+<li><a href="#3asynctask%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">3.AsyncTask&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;</a></li>
+<li><a href="#4%E4%BD%BF%E7%94%A8asynctask%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">4.&#x4F7F;&#x7528;AsyncTask&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-asynctask%E7%9A%84%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">&#x4E09;&#x3001;AsyncTask&#x7684;&#x6E90;&#x7801;&#x5206;&#x6790;</a>
+<ul>
+<li><a href="#asynctask%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C">AsyncTask&#x7684;&#x4E32;&#x884C;&#x548C;&#x5E76;&#x884C;</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-asynctask%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BD%93%E7%9A%84%E5%90%8E%E6%9E%9C">&#x56DB;&#x3001;AsyncTask&#x4F7F;&#x7528;&#x4E0D;&#x5F53;&#x7684;&#x540E;&#x679C;</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

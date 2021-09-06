@@ -1,0 +1,959 @@
+<!DOCTYPE html><html><head>
+      <title>virtualapk</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\alison\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.18\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="%E4%B8%80-%E6%A6%82%E8%BF%B0">&#x4E00;&#x3001;&#x6982;&#x8FF0;</h2>
+
+<p>&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x5199;&#x8FC7;&#x63D2;&#x4EF6;&#x5316;&#x76F8;&#x5173;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x521A;&#x597D;&#x6700;&#x8FD1;&#x6EF4;&#x6EF4;&#x548C;360&#x5206;&#x522B;&#x5F00;&#x6E90;&#x4E86;&#x81EA;&#x5BB6;&#x7684;&#x63D2;&#x4EF6;&#x5316;&#x65B9;&#x6848;&#xFF0C;&#x8D76;&#x7D27;&#x5B66;&#x4E60;&#x4E0B;&#xFF0C;&#x5199;&#x4E24;&#x7BC7;&#x535A;&#x5BA2;&#xFF0C;&#x7B2C;&#x4E00;&#x7BC7;&#x662F;&#x6EF4;&#x6EF4;&#x7684;&#x65B9;&#x6848;&#xFF1A;</p>
+<ul>
+<li><a href="https://github.com/didi/VirtualAPK">https://github.com/didi/VirtualAPK</a></li>
+</ul>
+<p>&#x90A3;&#x4E48;&#x5176;&#x4E2D;&#x7684;&#x96BE;&#x70B9;&#x5F88;&#x660E;&#x663E;&#x662F;&#x5BF9;&#x56DB;&#x5927;&#x7EC4;&#x4EF6;&#x652F;&#x6301;&#xFF0C;&#x56E0;&#x4E3A;&#x5927;&#x5BB6;&#x90FD;&#x6E05;&#x695A;&#xFF0C;&#x56DB;&#x5927;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;&#x9700;&#x8981;&#x5728;AndroidManifest&#x4E2D;&#x6CE8;&#x518C;&#x7684;&#xFF0C;&#x800C;&#x63D2;&#x4EF6;apk&#x4E2D;&#x7684;&#x7EC4;&#x4EF6;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x9884;&#x5148;&#x77E5;&#x6653;&#x540D;&#x5B57;&#xFF0C;&#x63D0;&#x524D;&#x6CE8;&#x518C;&#x4E2D;&#x5BBF;&#x4E3B;apk&#x4E2D;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x73B0;&#x5728;&#x57FA;&#x672C;&#x90FD;&#x91C7;&#x7528;&#x4E00;&#x4E9B;hack&#x65B9;&#x6848;&#x7C7B;&#x89E3;&#x51B3;&#xFF0C;VirtualAPK&#x5927;&#x4F53;&#x65B9;&#x6848;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>Activity&#xFF1A;&#x5728;&#x5BBF;&#x4E3B;apk&#x4E2D;&#x63D0;&#x524D;&#x5360;&#x51E0;&#x4E2A;&#x5751;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x201C;&#x6B3A;&#x4E0A;&#x7792;&#x4E0B;&#x201D;&#xFF08;&#x8FD9;&#x4E2A;&#x8BCD;&#x597D;&#x50CF;&#x662F;360&#x4E4B;&#x524D;&#x7684;ppt&#x4E2D;&#x63D0;&#x5230;&#xFF09;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x542F;&#x52A8;&#x63D2;&#x4EF6;apk&#x7684;Activity&#xFF1B;&#x56E0;&#x4E3A;&#x8981;&#x652F;&#x6301;&#x4E0D;&#x540C;&#x7684;launchMode&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x5360;&#x591A;&#x4E2A;&#x5751;&#x3002;</li>
+<li>Service&#xFF1A;&#x901A;&#x8FC7;&#x4EE3;&#x7406;Service&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x5206;&#x53D1;&#xFF1B;&#x4E3B;&#x8FDB;&#x7A0B;&#x548C;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#xFF0C;VirtualAPK&#x4F7F;&#x7528;&#x4E86;&#x4E24;&#x4E2A;&#x4EE3;&#x7406;Service&#x3002;</li>
+<li>BroadcastReceiver&#xFF1A;&#x9759;&#x6001;&#x8F6C;&#x52A8;&#x6001;</li>
+<li>ContentProvider&#xFF1A;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;Provider&#x8FDB;&#x884C;&#x5206;&#x53D1;&#x3002;</li>
+</ul>
+<p>&#x8FD9;&#x4E9B;&#x5360;&#x5751;&#x7684;&#x6570;&#x91CF;&#x5E76;&#x4E0D;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x6BD4;&#x5982;Activity&#x60F3;&#x652F;&#x6301;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x4E0D;&#x80FD;&#x52A8;&#x6001;&#x8BBE;&#x7F6E;&#xFF0C;&#x53EA;&#x80FD;&#x5728;Manifest&#x4E2D;&#x8BBE;&#x7F6E;&#xFF0C;&#x90A3;&#x5C31;&#x9700;&#x8981;&#x53BB;&#x5360;&#x5751;&#x652F;&#x6301;&#x3002;&#x6240;&#x4EE5;&#x5360;&#x5751;&#x6570;&#x91CF;&#x8FD9;&#x4E9B;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x5C31;&#x9010;&#x4E00;&#x53BB;&#x5206;&#x6790;&#x4EE3;&#x7801;&#x5566;~</p>
+<blockquote>
+<p>&#x6CE8;&#xFF1A;&#x672C;&#x7BC7;&#x535A;&#x5BA2;&#x6D89;&#x53CA;&#x5230;&#x7684;framework&#x903B;&#x8F91;&#xFF0C;&#x4E3A;API 22.<br>
+&#x5206;&#x671F;&#x7248;&#x672C;&#x4E3A; com.didi.virtualapk:core:0.9.0</p>
+</blockquote>
+<h2 class="mume-header" id="%E4%BA%8C-activity%E7%9A%84%E6%94%AF%E6%8C%81">&#x4E8C;&#x3001;Activity&#x7684;&#x652F;&#x6301;</h2>
+
+<p>&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x6309;&#x7167;&#x67D0;&#x4E2A;&#x6D41;&#x7A0B;&#x4E00;&#x884C;&#x884C;&#x4EE3;&#x7801;&#x5F80;&#x4E0B;&#x8BFB;&#x4E86;&#xFF0C;&#x9488;&#x5BF9;&#x6027;&#x7684;&#x8BB2;&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x6D41;&#x7A0B;&#xFF0C;&#x53EF;&#x80FD;&#x66F4;&#x597D;&#x9605;&#x8BFB;&#x4E00;&#x4E9B;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x770B;&#x4E00;&#x6BB5;&#x542F;&#x52A8;&#x63D2;&#x4EF6;Activity&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">final</span> <span class="token class-name">String</span> pkg <span class="token operator">=</span> <span class="token string">&quot;com.didi.virtualapk.demo&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">PluginManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>pkg<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;plugin [com.didi.virtualapk.demo] not loaded&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// test Activity and Service</span>
+<span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+intent<span class="token punctuation">.</span><span class="token function">setClassName</span><span class="token punctuation">(</span>pkg<span class="token punctuation">,</span> <span class="token string">&quot;com.didi.virtualapk.demo.aidl.BookManagerActivity&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4F18;&#x5148;&#x6839;&#x636E;&#x5305;&#x540D;&#x5224;&#x65AD;&#x8BE5;&#x63D2;&#x4EF6;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x63D2;&#x4EF6;&#x4F7F;&#x7528;&#x524D;&#x5176;&#x5B9E;&#x8FD8;&#x9700;&#x8981;&#x8C03;&#x7528;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java">pluginManager<span class="token punctuation">.</span><span class="token function">loadPlugin</span><span class="token punctuation">(</span>apk<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x52A0;&#x8F7D;&#x63D2;&#x4EF6;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x8D58;&#x8FF0;&#x6E90;&#x7801;&#x4E86;&#xFF0C;&#x5927;&#x81F4;&#x4E3A;&#x8C03;&#x7528;<code>PackageParser.parsePackage</code>&#x89E3;&#x6790;apk&#xFF0C;&#x83B7;&#x5F97;&#x8BE5;apk&#x5BF9;&#x5E94;&#x7684;PackageInfo&#xFF0C;&#x8D44;&#x6E90;&#x76F8;&#x5173;&#xFF08;AssetManager&#xFF0C;Resources&#xFF09;&#xFF0C;DexClassLoader&#xFF08;&#x52A0;&#x8F7D;&#x7C7B;&#xFF09;&#xFF0C;&#x56DB;&#x5927;&#x7EC4;&#x4EF6;&#x76F8;&#x5173;&#x96C6;&#x5408;&#xFF08;mActivityInfos&#xFF0C;mServiceInfos&#xFF0C;mReceiverInfos&#xFF0C;mProviderInfos&#xFF09;&#xFF0C;&#x9488;&#x5BF9;Plugin&#x7684;PluginContext&#x7B49;&#x4E00;&#x5806;&#x4FE1;&#x606F;&#xFF0C;&#x5C01;&#x88C5;&#x4E3A;LoadedPlugin&#x5BF9;&#x8C61;&#x3002;</p>
+<blockquote>
+<p>&#x8BE6;&#x7EC6;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<code>com.didi.virtualapk.internal.LoadedPlugin</code>&#x7C7B;&#x3002;</p>
+</blockquote>
+<p>ok&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x63D2;&#x4EF6;&#x4EE5;&#x53CA;&#x52A0;&#x8F7D;&#x8FC7;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x901A;&#x8FC7;startActivity&#x53BB;&#x542F;&#x52A8;&#x63D2;&#x4EF6;&#x4E2D;&#x76EE;&#x6807;Activity&#x3002;</p>
+<h3 class="mume-header" id="1%E6%9B%BF%E6%8D%A2activity">&#xFF08;1&#xFF09;&#x66FF;&#x6362;Activity</h3>
+
+<p>&#x8FD9;&#x91CC;&#x5927;&#x5BB6;&#x80AF;&#x5B9A;&#x4F1A;&#x6709;&#x7591;&#x60D1;&#xFF0C;&#x8BE5;Activity&#x5FC5;&#x7136;&#x6CA1;&#x6709;&#x5728;Manifest&#x4E2D;&#x6CE8;&#x518C;&#xFF0C;&#x8FD9;&#x4E48;&#x542F;&#x52A8;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#x5417;&#xFF1F;</p>
+<p>&#x6B63;&#x5E38;&#x80AF;&#x5B9A;&#x4F1A;&#x62A5;&#x9519;&#x5440;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x5B83;&#x662F;&#x600E;&#x4E48;&#x505A;&#x7684;&#x5427;&#x3002;</p>
+<p>&#x8DDF;&#x8FDB;startActivity&#x7684;&#x8C03;&#x7528;&#x6D41;&#x7A0B;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x5176;&#x6700;&#x7EC8;&#x4F1A;&#x8FDB;&#x5165;Instrumentation&#x7684;execStartActivity&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x901A;&#x8FC7;ActivityManagerProxy&#x4E0E;AMS&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;</p>
+<p>&#x800C;Activity&#x662F;&#x5426;&#x5B58;&#x5728;&#x7684;&#x6821;&#x9A8C;&#x662F;&#x53D1;&#x751F;&#x5728;AMS&#x7AEF;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5728;&#x4E8E;AMS&#x4EA4;&#x4E92;&#x524D;&#xFF0C;&#x63D0;&#x524D;&#x5C06;Activity&#x7684;ComponentName&#x8FDB;&#x884C;&#x66FF;&#x6362;&#x4E3A;&#x5360;&#x5751;&#x7684;&#x540D;&#x5B57;&#x4E0D;&#x5C31;&#x597D;&#x4E86;&#x4E48;&#xFF1F;</p>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x9009;&#x62E9;hook Instrumentation&#xFF0C;&#x6216;&#x8005;ActivityManagerProxy&#x90FD;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x76EE;&#x6807;&#xFF0C;VirtualAPK&#x9009;&#x62E9;&#x4E86;hook Instrumentation.</p>
+<p>&#x6253;&#x5F00;<code>PluginManager</code>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">hookInstrumentationAndHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Instrumentation</span> baseInstrumentation <span class="token operator">=</span> <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">getInstrumentation</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>mContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>baseInstrumentation<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">&quot;lbe&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// reject executing in paralell space, for example, lbe.</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">final</span> <span class="token class-name">VAInstrumentation</span> instrumentation <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VAInstrumentation</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> baseInstrumentation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Object</span> activityThread <span class="token operator">=</span> <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">getActivityThread</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>mContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">setInstrumentation</span><span class="token punctuation">(</span>activityThread<span class="token punctuation">,</span> instrumentation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">setHandlerCallback</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>mContext<span class="token punctuation">,</span> instrumentation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mInstrumentation <span class="token operator">=</span> instrumentation<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9996;&#x5148;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x62FF;&#x5230;&#x4E86;&#x539F;&#x672C;&#x7684;<code>Instrumentation</code>&#x5BF9;&#x8C61;&#xFF0C;&#x62FF;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x9996;&#x5148;&#x62FF;&#x5230;ActivityThread&#xFF0C;&#x7531;&#x4E8E;ActivityThread&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9759;&#x6001;&#x53D8;&#x91CF;<code>sCurrentActivityThread</code>&#x6216;&#x8005;&#x9759;&#x6001;&#x65B9;&#x6CD5;<code>currentActivityThread()</code>&#x83B7;&#x53D6;&#xFF0C;&#x6240;&#x4EE5;&#x62FF;&#x5230;&#x5176;&#x5BF9;&#x8C61;&#x76F8;&#x5F53;&#x8F7B;&#x677E;&#x3002;&#x62FF;&#x5230;ActivityThread&#x5BF9;&#x8C61;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x5176;<code>getInstrumentation()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5373;&#x53EF;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;Instrumentation&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;VAInstrumentation&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x76F4;&#x63A5;&#x53CD;&#x5C04;&#x5C06;VAInstrumentation&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;&#x7ED9;ActivityThread&#x5BF9;&#x8C61;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x5B8C;&#x6210;&#x4E86;hook Instrumentation,&#x4E4B;&#x540E;&#x8C03;&#x7528;Instrumentation&#x7684;&#x4EFB;&#x4F55;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x5728;VAInstrumentation&#x8FDB;&#x884C;&#x62E6;&#x622A;&#x5E76;&#x505A;&#x4E00;&#x4E9B;&#x4FEE;&#x6539;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x8FD8;hook&#x4E86;ActivityThread&#x7684;mH&#x7C7B;&#x7684;Callback&#xFF0C;&#x6682;&#x4E0D;&#x8D58;&#x8FF0;&#x3002;</p>
+<p>&#x521A;&#x624D;&#x8BF4;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Instrumentation&#x7684;execStartActivity&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5077;&#x6881;&#x6362;&#x67F1;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x770B;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token class-name">ActivityResult</span> <span class="token function">execStartActivity</span><span class="token punctuation">(</span>
+        <span class="token class-name">Context</span> who<span class="token punctuation">,</span> <span class="token class-name">IBinder</span> contextThread<span class="token punctuation">,</span> <span class="token class-name">IBinder</span> token<span class="token punctuation">,</span> <span class="token class-name">Activity</span> target<span class="token punctuation">,</span>
+        <span class="token class-name">Intent</span> intent<span class="token punctuation">,</span> <span class="token keyword">int</span> requestCode<span class="token punctuation">,</span> <span class="token class-name">Bundle</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mPluginManager<span class="token punctuation">.</span><span class="token function">getComponentsHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">transformIntentToExplicitAsNeeded</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// null component is an implicitly intent</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">i</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">&quot;execStartActivity[%s : %s]&quot;</span><span class="token punctuation">,</span> intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPackageName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// resolve intent with Stub Activity if needed</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getComponentsHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">markIntentIfNeeded</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">ActivityResult</span> result <span class="token operator">=</span> <span class="token function">realExecStartActivity</span><span class="token punctuation">(</span>who<span class="token punctuation">,</span> contextThread<span class="token punctuation">,</span> token<span class="token punctuation">,</span> target<span class="token punctuation">,</span>
+                intent<span class="token punctuation">,</span> requestCode<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</pre><p>&#x9996;&#x5148;&#x8C03;&#x7528;transformIntentToExplicitAsNeeded&#xFF0C;&#x8FD9;&#x4E2A;&#x4E3B;&#x8981;&#x662F;&#x5F53;component&#x4E3A;null&#x65F6;&#xFF0C;&#x6839;&#x636E;&#x542F;&#x52A8;Activity&#x65F6;&#xFF0C;&#x914D;&#x7F6E;&#x7684;action&#xFF0C;data,category&#x7B49;&#x53BB;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;plugin&#x4E2D;&#x5339;&#x914D;&#x5230;&#x786E;&#x5B9A;&#x7684;Activity&#x7684;&#x3002;</p>
+<p>&#x672C;&#x4F8B;&#x6211;&#x4EEC;&#x7684;&#x5199;&#x6CD5;ComponentName&#x80AF;&#x5B9A;&#x4E0D;&#x4E3A;null&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x770B;<code>markIntentIfNeeded()</code>&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">markIntentIfNeeded</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> intent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">String</span> targetPackageName <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPackageName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> targetClassName <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// search map and return specific launchmode stub activity</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>targetPackageName<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>mContext<span class="token punctuation">.</span><span class="token function">getPackageName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">&amp;&amp;</span> mPluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>targetPackageName<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>KEY_IS_PLUGIN<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>KEY_TARGET_PACKAGE<span class="token punctuation">,</span> targetPackageName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>KEY_TARGET_ACTIVITY<span class="token punctuation">,</span> targetClassName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dispatchStubActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5728;&#x8BE5;&#x65B9;&#x6CD5;&#x4E2D;&#x5224;&#x65AD;&#x5982;&#x679C;&#x542F;&#x52A8;&#x7684;&#x662F;&#x63D2;&#x4EF6;&#x4E2D;&#x7C7B;&#xFF0C;&#x5219;&#x5C06;&#x542F;&#x52A8;&#x7684;&#x5305;&#x540D;&#x548C;Activity&#x7C7B;&#x540D;&#x5B58;&#x5230;&#x4E86;intent&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x660E;&#x663E;&#x662F;&#x4E3A;&#x4E86;&#x540E;&#x9762;&#x6062;&#x590D;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x8C03;&#x7528;&#x4E86;<code>dispatchStubActivity(intent)</code></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">dispatchStubActivity</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> intent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">ComponentName</span> component <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> targetClassName <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">LoadedPlugin</span> loadedPlugin <span class="token operator">=</span> mPluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ActivityInfo</span> info <span class="token operator">=</span> loadedPlugin<span class="token punctuation">.</span><span class="token function">getActivityInfo</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>info <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">&quot;can not find &quot;</span> <span class="token operator">+</span> component<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> launchMode <span class="token operator">=</span> info<span class="token punctuation">.</span>launchMode<span class="token punctuation">;</span>
+    <span class="token class-name">Resources<span class="token punctuation">.</span>Theme</span> themeObj <span class="token operator">=</span> loadedPlugin<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newTheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    themeObj<span class="token punctuation">.</span><span class="token function">applyStyle</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>theme<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> stubActivity <span class="token operator">=</span> mStubActivityInfo<span class="token punctuation">.</span><span class="token function">getStubActivity</span><span class="token punctuation">(</span>targetClassName<span class="token punctuation">,</span> launchMode<span class="token punctuation">,</span> themeObj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">i</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">&quot;dispatchStubActivity,[%s -&gt; %s]&quot;</span><span class="token punctuation">,</span> targetClassName<span class="token punctuation">,</span> stubActivity<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    intent<span class="token punctuation">.</span><span class="token function">setClassName</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> stubActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x770B;&#x6700;&#x540E;&#x4E00;&#x884C;&#xFF0C;intent&#x901A;&#x8FC7;setClassName&#x66FF;&#x6362;&#x542F;&#x52A8;&#x7684;&#x76EE;&#x6807;Activity&#x4E86;&#xFF01;&#x8FD9;&#x4E2A;stubActivity&#x662F;&#x7531;<code>mStubActivityInfo.getStubActivity(targetClassName, launchMode, themeObj)</code>&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;launchMode&#x3001;themeObj&#x90FD;&#x662F;&#x51B3;&#x5B9A;&#x9009;&#x62E9;&#x54EA;&#x4E00;&#x4E2A;&#x5360;&#x5751;&#x7C7B;&#x7528;&#x7684;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getStubActivity</span><span class="token punctuation">(</span><span class="token class-name">String</span> className<span class="token punctuation">,</span> <span class="token keyword">int</span> launchMode<span class="token punctuation">,</span> <span class="token class-name">Theme</span> theme<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> stubActivity<span class="token operator">=</span> mCachedStubActivity<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>stubActivity <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> stubActivity<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">TypedArray</span> array <span class="token operator">=</span> theme<span class="token punctuation">.</span><span class="token function">obtainStyledAttributes</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token namespace">android<span class="token punctuation">.</span></span>R</span><span class="token punctuation">.</span>attr<span class="token punctuation">.</span>windowIsTranslucent<span class="token punctuation">,</span>
+            <span class="token class-name"><span class="token namespace">android<span class="token punctuation">.</span></span>R</span><span class="token punctuation">.</span>attr<span class="token punctuation">.</span>windowBackground
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> windowIsTranslucent <span class="token operator">=</span> array<span class="token punctuation">.</span><span class="token function">getBoolean</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    array<span class="token punctuation">.</span><span class="token function">recycle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Constants</span><span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span><span class="token string">&quot;StubActivityInfo&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;getStubActivity, is transparent theme ? &quot;</span> <span class="token operator">+</span> windowIsTranslucent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    stubActivity <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>STUB_ACTIVITY_STANDARD<span class="token punctuation">,</span> corePackage<span class="token punctuation">,</span> usedStandardStubActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>launchMode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token class-name">ActivityInfo</span><span class="token punctuation">.</span>LAUNCH_MULTIPLE<span class="token operator">:</span> <span class="token punctuation">{</span>
+            stubActivity <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>STUB_ACTIVITY_STANDARD<span class="token punctuation">,</span> corePackage<span class="token punctuation">,</span> usedStandardStubActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>windowIsTranslucent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                stubActivity <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>STUB_ACTIVITY_STANDARD<span class="token punctuation">,</span> corePackage<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">case</span> <span class="token class-name">ActivityInfo</span><span class="token punctuation">.</span>LAUNCH_SINGLE_TOP<span class="token operator">:</span> <span class="token punctuation">{</span>
+            usedSingleTopStubActivity <span class="token operator">=</span> usedSingleTopStubActivity <span class="token operator">%</span> MAX_COUNT_SINGLETOP <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            stubActivity <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>STUB_ACTIVITY_SINGLETOP<span class="token punctuation">,</span> corePackage<span class="token punctuation">,</span> usedSingleTopStubActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+       <span class="token comment">// &#x7701;&#x7565;LAUNCH_SINGLE_TASK&#xFF0C;LAUNCH_SINGLE_INSTANCE</span>
+    <span class="token punctuation">}</span>
+
+    mCachedStubActivity<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>className<span class="token punctuation">,</span> stubActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> stubActivity<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x6839;&#x636E;launchMode&#x53BB;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x7684;&#x5360;&#x5751;&#x7C7B;&#x3002;<br>
+&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java">stubActivity <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>STUB_ACTIVITY_STANDARD<span class="token punctuation">,</span> corePackage<span class="token punctuation">,</span> usedStandardStubActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p><code>STUB_ACTIVITY_STANDARD&#x503C;&#x4E3A;&#xFF1A;&quot;%s.A$%d&quot;</code>, corePackage&#x503C;&#x4E3A;<code>com.didi.virtualapk.core</code>&#xFF0C;usedStandardStubActivity&#x4E3A;&#x6570;&#x5B57;&#x503C;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x7C7B;&#x540D;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;<code>com.didi.virtualapk.core.A$1</code></p>
+<p>&#x518D;&#x770B;&#x4E00;&#x773C;&#xFF0C;CoreLibrary&#x4E0B;&#x7684;AndroidManifest&#x4E2D;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token operator">&lt;</span>activity android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">&quot;.A$1&quot;</span> android<span class="token operator">:</span>launchMode<span class="token operator">=</span><span class="token string">&quot;standard&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>activity android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">&quot;.A$2&quot;</span> android<span class="token operator">:</span>launchMode<span class="token operator">=</span><span class="token string">&quot;standard&quot;</span>
+    android<span class="token operator">:</span>theme<span class="token operator">=</span><span class="token string">&quot;@android:style/Theme.Translucent&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token class-name">Stub</span> <span class="token class-name">Activities</span> <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>activity android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">&quot;.B$1&quot;</span> android<span class="token operator">:</span>launchMode<span class="token operator">=</span><span class="token string">&quot;singleTop&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>activity android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">&quot;.B$2&quot;</span> android<span class="token operator">:</span>launchMode<span class="token operator">=</span><span class="token string">&quot;singleTop&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>activity android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">&quot;.B$3&quot;</span> android<span class="token operator">:</span>launchMode<span class="token operator">=</span><span class="token string">&quot;singleTop&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token comment">// &#x7701;&#x7565;&#x5F88;&#x591A;...    123456789123456789</span>
+</pre><p>&#x5C31;&#x5B8C;&#x5168;&#x660E;&#x767D;&#x4E86;&#x3002;</p>
+<p>&#x5230;&#x8FD9;&#x91CC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x66FF;&#x6362;&#x6211;&#x4EEC;&#x542F;&#x52A8;&#x7684;Activity&#x4E3A;&#x5360;&#x5751;Activity&#xFF0C;&#x5C06;&#x6211;&#x4EEC;&#x539F;&#x672C;&#x542F;&#x52A8;&#x7684;&#x5305;&#x540D;&#xFF0C;&#x7C7B;&#x540D;&#x5B58;&#x50A8;&#x5230;&#x4E86;Intent&#x4E2D;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x505A;&#x53EA;&#x5B8C;&#x6210;&#x4E86;&#x4E00;&#x534A;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x4E48;&#x8BF4;&#x5462;&#xFF1F;</p>
+<h3 class="mume-header" id="2-%E8%BF%98%E5%8E%9Factivity">(2) &#x8FD8;&#x539F;Activity</h3>
+
+<p>&#x56E0;&#x4E3A;&#x6B3A;&#x9A97;&#x8FC7;&#x4E86;AMS&#xFF0C;AMS&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6700;&#x7EC8;&#x8981;&#x542F;&#x52A8;&#x7684;&#x4E0D;&#x53EF;&#x80FD;&#x662F;&#x5360;&#x5751;Activity&#xFF0C;&#x8FD8;&#x5E94;&#x8BE5;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x542F;&#x52A8;&#x7684;&#x76EE;&#x6807;Activity&#x5440;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x77E5;&#x9053;Activity&#x7684;&#x542F;&#x52A8;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<p>AMS&#x5728;&#x5904;&#x7406;&#x5B8C;&#x542F;&#x52A8;Activity&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;&#xFF1A;<code>app.thread.scheduleLaunchActivity</code>&#xFF0C;&#x8FD9;&#x91CC;&#x7684;thread&#x5BF9;&#x5E94;&#x7684;server&#x7AEF;&#x672A;&#x6211;&#x4EEC;ActivityThread&#x4E2D;&#x7684;ApplicationThread&#x5BF9;&#x8C61;(binder&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6709;&#x4E00;&#x4E2A;client&#x7AEF;&#x548C;&#x4E00;&#x4E2A;server&#x7AEF;)&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x8C03;&#x7528;<code>ApplicationThread.scheduleLaunchActivity</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x5176;&#x5185;&#x90E8;&#x4F1A;&#x8C03;&#x7528;mH&#x7C7B;&#x7684;sendMessage&#x65B9;&#x6CD5;&#xFF0C;&#x4F20;&#x9012;&#x7684;&#x6807;&#x8BC6;&#x4E3A;<code>H.LAUNCH_ACTIVITY</code>&#xFF0C;&#x8FDB;&#x5165;&#x8C03;&#x7528;&#x5230;ActivityThread&#x7684;handleLaunchActivity&#x65B9;&#x6CD5;-&gt;ActivityThread#handleLaunchActivity-&gt;mInstrumentation.newActivity()&#x3002;</p>
+<blockquote>
+<p>ps:&#x8FD9;&#x91CC;&#x6D41;&#x7A0B;&#x4E0D;&#x6E05;&#x695A;&#x6CA1;&#x5173;&#x7CFB;&#xFF0C;&#x6682;&#x65F6;&#x7406;&#x89E3;&#x4E3A;&#x6700;&#x7EC8;&#x4F1A;&#x56DE;&#x8C03;&#x5230;Instrumentation&#x7684;newActivity&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#xFF0C;&#x7EC6;&#x8282;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x53BB;&#x67E5;&#x770B;&#x7ED3;&#x5408;&#x8001;&#x7F57;&#x7684;blog&#x7406;&#x89E3;&#x3002;</p>
+</blockquote>
+<p>&#x5173;&#x952E;&#x7684;&#x6765;&#x4E86;&#xFF0C;&#x6700;&#x7EC8;&#x53C8;&#x5230;&#x4E86;Instrumentation&#x7684;newActivity&#x65B9;&#x6CD5;&#xFF0C;&#x8FD8;&#x8BB0;&#x5F97;&#x8FD9;&#x4E2A;&#x7C7B;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x6539;&#x4E3A;VAInstrumentation&#x5566;&#xFF1A;</p>
+<p>&#x76F4;&#x63A5;&#x770B;&#x5176;newActivity&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">Activity</span> <span class="token function">newActivity</span><span class="token punctuation">(</span><span class="token class-name">ClassLoader</span> cl<span class="token punctuation">,</span> <span class="token class-name">String</span> className<span class="token punctuation">,</span> <span class="token class-name">Intent</span> intent<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InstantiationException</span><span class="token punctuation">,</span> <span class="token class-name">IllegalAccessException</span><span class="token punctuation">,</span> <span class="token class-name">ClassNotFoundException</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        cl<span class="token punctuation">.</span><span class="token function">loadClass</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ClassNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">LoadedPlugin</span> plugin <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> targetClassName <span class="token operator">=</span> <span class="token class-name">PluginUtil</span><span class="token punctuation">.</span><span class="token function">getTargetActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>targetClassName <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Activity</span> activity <span class="token operator">=</span> mBase<span class="token punctuation">.</span><span class="token function">newActivity</span><span class="token punctuation">(</span>plugin<span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> targetClassName<span class="token punctuation">,</span> intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            activity<span class="token punctuation">.</span><span class="token function">setIntent</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment">// &#x7701;&#x7565;&#x517C;&#x5BB9;&#x6027;&#x5904;&#x7406;&#x4EE3;&#x7801;</span>
+            <span class="token keyword">return</span> activity<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> mBase<span class="token punctuation">.</span><span class="token function">newActivity</span><span class="token punctuation">(</span>cl<span class="token punctuation">,</span> className<span class="token punctuation">,</span> intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x6838;&#x5FC3;&#x5C31;&#x662F;&#x9996;&#x5148;&#x4ECE;intent&#x4E2D;&#x53D6;&#x51FA;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x6807;Activity&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;plugin&#x7684;ClassLoader&#x53BB;&#x52A0;&#x8F7D;&#xFF08;&#x8FD8;&#x8BB0;&#x5F97;&#x5728;&#x52A0;&#x8F7D;&#x63D2;&#x4EF6;&#x65F6;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;LoadedPlugin&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D;&#x4F1A;&#x5BF9;&#x5E94;&#x5176;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;DexClassLoader&#xFF09;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x5B8C;&#x6210;&#x4E86;Activity&#x7684;&#x201C;&#x5077;&#x6881;&#x6362;&#x67F1;&#x201D;&#x3002;</p>
+<p>&#x8FD8;&#x6CA1;&#x5B8C;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5728;<code>callActivityOnCreate</code>&#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"> <span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">callActivityOnCreate</span><span class="token punctuation">(</span><span class="token class-name">Activity</span> activity<span class="token punctuation">,</span> <span class="token class-name">Bundle</span> icicle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token class-name">Intent</span> intent <span class="token operator">=</span> activity<span class="token punctuation">.</span><span class="token function">getIntent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">PluginUtil</span><span class="token punctuation">.</span><span class="token function">isIntentFromPlugin</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Context</span> base <span class="token operator">=</span> activity<span class="token punctuation">.</span><span class="token function">getBaseContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">LoadedPlugin</span> plugin <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">setField</span><span class="token punctuation">(</span>base<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> base<span class="token punctuation">,</span> <span class="token string">&quot;mResources&quot;</span><span class="token punctuation">,</span> plugin<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">setField</span><span class="token punctuation">(</span><span class="token class-name">ContextWrapper</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> activity<span class="token punctuation">,</span> <span class="token string">&quot;mBase&quot;</span><span class="token punctuation">,</span> plugin<span class="token punctuation">.</span><span class="token function">getPluginContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">setField</span><span class="token punctuation">(</span><span class="token class-name">Activity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> activity<span class="token punctuation">,</span> <span class="token string">&quot;mApplication&quot;</span><span class="token punctuation">,</span> plugin<span class="token punctuation">.</span><span class="token function">getApplication</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">setFieldNoException</span><span class="token punctuation">(</span><span class="token class-name">ContextThemeWrapper</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> activity<span class="token punctuation">,</span> <span class="token string">&quot;mBase&quot;</span><span class="token punctuation">,</span> plugin<span class="token punctuation">.</span><span class="token function">getPluginContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// set screenOrientation</span>
+            <span class="token class-name">ActivityInfo</span> activityInfo <span class="token operator">=</span> plugin<span class="token punctuation">.</span><span class="token function">getActivityInfo</span><span class="token punctuation">(</span><span class="token class-name">PluginUtil</span><span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>activityInfo<span class="token punctuation">.</span>screenOrientation <span class="token operator">!=</span> <span class="token class-name">ActivityInfo</span><span class="token punctuation">.</span>SCREEN_ORIENTATION_UNSPECIFIED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                activity<span class="token punctuation">.</span><span class="token function">setRequestedOrientation</span><span class="token punctuation">(</span>activityInfo<span class="token punctuation">.</span>screenOrientation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    mBase<span class="token punctuation">.</span><span class="token function">callActivityOnCreate</span><span class="token punctuation">(</span>activity<span class="token punctuation">,</span> icicle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x8BBE;&#x7F6E;&#x4E86;&#x4FEE;&#x6539;&#x4E86;mResources&#x3001;mBase&#xFF08;Context&#xFF09;&#x3001;mApplication&#x5BF9;&#x8C61;&#x3002;&#x4EE5;&#x53CA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x53EF;&#x52A8;&#x6001;&#x8BBE;&#x7F6E;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x91CC;&#x4EC5;&#x8BBE;&#x7F6E;&#x4E86;&#x5C4F;&#x5E55;&#x65B9;&#x5411;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x63D0;&#x4E00;&#x4E0B;&#xFF0C;&#x5C06;mBase&#x66FF;&#x6362;&#x4E3A;PluginContext&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;Resources&#x3001;AssetManager&#x4EE5;&#x53CA;&#x62E6;&#x622A;&#x76F8;&#x5F53;&#x591A;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x770B;&#x4E00;&#x773C;&#x4EE3;&#x7801;&#x5C31;&#x6E05;&#x695A;&#x4E86;&#xFF1A;</p>
+<p>&#x539F;&#x672C;Activity&#x7684;&#x90E8;&#x5206;get&#x64CD;&#x4F5C;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"># <span class="token class-name">ContextWrapper</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">AssetManager</span> <span class="token function">getAssets</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> mBase<span class="token punctuation">.</span><span class="token function">getAssets</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">Resources</span> <span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> mBase<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">PackageManager</span> <span class="token function">getPackageManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> mBase<span class="token punctuation">.</span><span class="token function">getPackageManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">ContentResolver</span> <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> mBase<span class="token punctuation">.</span><span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x76F4;&#x63A5;&#x66FF;&#x6362;&#x4E3A;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"># <span class="token class-name">PluginContext</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">Resources</span> <span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPlugin<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">AssetManager</span> <span class="token function">getAssets</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPlugin<span class="token punctuation">.</span><span class="token function">getAssets</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">ContentResolver</span> <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PluginContentResolver</span><span class="token punctuation">(</span><span class="token function">getHostContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x770B;&#x5F97;&#x51FA;&#x6765;&#x8FD8;&#x662F;&#x975E;&#x5E38;&#x5DE7;&#x5999;&#x7684;&#x3002;&#x53EF;&#x4EE5;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x4E5F;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x540E;&#x9762;&#x5BF9;ContentProvider&#x7684;&#x63CF;&#x8FF0;&#x4E5F;&#x4F1A;&#x63D0;&#x73B0;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x5230;&#x6B64;Activity&#x5C31;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x542F;&#x52A8;&#x4E86;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x770B;Service&#x3002;</p>
+<h2 class="mume-header" id="%E4%B8%89-service%E7%9A%84%E6%94%AF%E6%8C%81">&#x4E09;&#x3001;Service&#x7684;&#x652F;&#x6301;</h2>
+
+<p>Service&#x548C;Activity&#x6709;&#x70B9;&#x4E0D;&#x540C;&#xFF0C;&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x4E5F;&#x4F1A;&#x5C06;&#x8981;&#x542F;&#x52A8;&#x7684;Service&#x7C7B;&#x66FF;&#x6362;&#x4E3A;&#x5360;&#x5751;&#x7684;Service&#x7C7B;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4E00;&#x70B9;&#x4E0D;&#x540C;&#xFF0C;&#x5728;Standard&#x6A21;&#x5F0F;&#x4E0B;&#x591A;&#x6B21;&#x542F;&#x52A8;&#x540C;&#x4E00;&#x4E2A;&#x5360;&#x5751;Activity&#x4F1A;&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x6765;&#x5BF9;&#x8C61;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x6807;&#x7C7B;&#x3002;&#x800C;Service&#x591A;&#x6B21;&#x542F;&#x52A8;&#x53EA;&#x4F1A;&#x8C03;&#x7528;onStartCommond&#x65B9;&#x6CD5;&#xFF0C;&#x751A;&#x81F3;&#x5E38;&#x89C4;&#x591A;&#x6B21;&#x8C03;&#x7528;bindService&#xFF0C;seviceConn&#x5BF9;&#x8C61;&#x4E0D;&#x53D8;&#xFF0C;&#x751A;&#x81F3;&#x90FD;&#x4E0D;&#x4F1A;&#x591A;&#x6B21;&#x56DE;&#x8C03;bindService&#x65B9;&#x6CD5;&#xFF08;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7ED9;Intent&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;Action&#x89E3;&#x51B3;&#xFF09;&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x70B9;&#xFF0C;&#x6700;&#x660E;&#x663E;&#x7684;&#x5DEE;&#x5F02;&#x662F;&#xFF0C;Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x662F;&#x7531;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x800C;Service&#x7684;&#x58F0;&#x660E;&#x5468;&#x671F;&#x662F;&#x6211;&#x4EEC;&#x4E3B;&#x52A8;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x8C03;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;start&#x3001;stop&#x3001;bind&#x3001;unbind&#x90FD;&#x662F;&#x6211;&#x4EEC;&#x663E;&#x793A;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x62E6;&#x622A;&#x8FD9;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x505A;&#x4E00;&#x4E9B;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>Virtual Apk&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x5373;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x62E6;&#x622A;&#xFF0C;&#x90FD;&#x6539;&#x4E3A;startService&#xFF0C;&#x7136;&#x540E;&#x7EDF;&#x4E00;&#x5728;onStartCommond&#x4E2D;&#x5206;&#x53D1;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x770B;&#x8BE6;&#x7EC6;&#x4EE3;&#x7801;&#xFF1A;</p>
+<h3 class="mume-header" id="1-hook-iactivitymanager">(1) hook IActivityManager</h3>
+
+<p>&#x518D;&#x6B21;&#x6765;&#x5230;PluginManager&#xFF0C;&#x53D1;&#x4E0B;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">hookSystemServices</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Singleton</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">IActivityManager</span><span class="token punctuation">&gt;</span></span> defaultSingleton <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Singleton</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">IActivityManager</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">getField</span><span class="token punctuation">(</span><span class="token class-name">ActivityManagerNative</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">&quot;gDefault&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">IActivityManager</span> activityManagerProxy <span class="token operator">=</span> <span class="token class-name">ActivityManagerProxy</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> defaultSingleton<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Hook IActivityManager from ActivityManagerNative</span>
+        <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">setField</span><span class="token punctuation">(</span>defaultSingleton<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSuperclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> defaultSingleton<span class="token punctuation">,</span> <span class="token string">&quot;mInstance&quot;</span><span class="token punctuation">,</span> activityManagerProxy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>defaultSingleton<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> activityManagerProxy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>mActivityManager <span class="token operator">=</span> activityManagerProxy<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x9996;&#x5148;&#x62FF;&#x5230;ActivityManagerNative&#x4E2D;&#x7684;gDefault&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;<code>Singleton&lt;IActivityManager&gt;</code>,&#x7136;&#x540E;&#x62FF;&#x5230;&#x5176;mInstance&#x5BF9;&#x8C61;&#xFF0C;&#x5373;IActivityManager&#x5BF9;&#x8C61;&#xFF08;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x548C;AMS&#x4EA4;&#x4E92;&#x7684;binder&#x7684;client&#x5BF9;&#x8C61;&#xFF09;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x901A;&#x8FC7;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x66FF;&#x6362;&#x4E3A;&#x4E86;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x91CD;&#x70B9;&#x770B;&#x5BF9;&#x5E94;&#x7684;InvocationHandler&#x5BF9;&#x8C61;&#x5373;&#x53EF;&#xFF0C;&#x8BE5;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x8F97;&#x8F6C;&#x5230;&#x5176;invoke&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">&quot;startService&quot;</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">startService</span><span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> method<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;Start service error&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">&quot;stopService&quot;</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">stopService</span><span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> method<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;Stop Service error&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">&quot;stopServiceToken&quot;</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">stopServiceToken</span><span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> method<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;Stop service token error&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// &#x7701;&#x7565;bindService&#xFF0C;unbindService&#x7B49;&#x65B9;&#x6CD5;</span>
+<span class="token punctuation">}</span>    
+</pre><p>&#x5F53;&#x6211;&#x4EEC;&#x8C03;&#x7528;startService&#x65F6;&#xFF0C;&#x8DDF;&#x8FDB;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x8C03;&#x7528;&#x6D41;&#x7A0B;&#x4E3A;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java">startService<span class="token operator">-&gt;</span>startServiceCommon<span class="token operator">-&gt;</span><span class="token class-name">ActivityManagerNative</span><span class="token punctuation">.</span><span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>startService
+</pre><p>&#x8FD9;&#x4E2A;getDefault&#x521A;&#x88AB;&#x6211;&#x4EEC;hook&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x88AB;&#x4E0A;&#x8FF0;&#x65B9;&#x6CD5;&#x62E6;&#x622A;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#xFF1A;<code>startService(proxy, method, args)</code></p>
+<pre data-role="codeBlock" data-info="Java" class="language-java"><span class="token keyword">private</span> <span class="token class-name">Object</span> <span class="token function">startService</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+    <span class="token class-name">IApplicationThread</span> appThread <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">IApplicationThread</span><span class="token punctuation">)</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token class-name">Intent</span> target <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Intent</span><span class="token punctuation">)</span> args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token class-name">ResolveInfo</span> resolveInfo <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">resolveService</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">==</span> resolveInfo <span class="token operator">||</span> <span class="token keyword">null</span> <span class="token operator">==</span> resolveInfo<span class="token punctuation">.</span>serviceInfo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// is host service</span>
+        <span class="token keyword">return</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>mActivityManager<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token function">startDelegateServiceForTarget</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> resolveInfo<span class="token punctuation">.</span>serviceInfo<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token class-name">RemoteService</span><span class="token punctuation">.</span>EXTRA_COMMAND_START_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5148;&#x4E0D;&#x770B;&#x4EE3;&#x7801;&#xFF0C;&#x8003;&#x8651;&#x4E0B;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x552F;&#x4E00;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x901A;&#x8FC7;Intent&#x4FDD;&#x5B58;&#x5173;&#x952E;&#x6570;&#x636E;&#xFF0C;&#x66FF;&#x6362;&#x542F;&#x52A8;&#x7684;Service&#x7C7B;&#x4E3A;&#x5360;&#x5751;&#x7C7B;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x770B;&#x6700;&#x540E;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token class-name">ComponentName</span> <span class="token function">startDelegateServiceForTarget</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> target<span class="token punctuation">,</span>
+                                                    <span class="token class-name">ServiceInfo</span> serviceInfo<span class="token punctuation">,</span>
+                                                    <span class="token class-name">Bundle</span> extras<span class="token punctuation">,</span> <span class="token keyword">int</span> command<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Intent</span> wrapperIntent <span class="token operator">=</span> <span class="token function">wrapperTargetIntent</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> serviceInfo<span class="token punctuation">,</span> extras<span class="token punctuation">,</span> command<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> mPluginManager<span class="token punctuation">.</span><span class="token function">getHostContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startService</span><span class="token punctuation">(</span>wrapperIntent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x6700;&#x540E;&#x4E00;&#x884C;&#x5C31;&#x662F;&#x542F;&#x52A8;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x66FF;&#x6362;&#x7684;&#x64CD;&#x4F5C;&#x5E94;&#x8BE5;&#x5728;wrapperTargetIntent&#x4E2D;&#x5B8C;&#x6210;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token class-name">Intent</span> <span class="token function">wrapperTargetIntent</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> target<span class="token punctuation">,</span> <span class="token class-name">ServiceInfo</span> serviceInfo<span class="token punctuation">,</span> <span class="token class-name">Bundle</span> extras<span class="token punctuation">,</span> <span class="token keyword">int</span> command<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// fill in service with ComponentName</span>
+    target<span class="token punctuation">.</span><span class="token function">setComponent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ComponentName</span><span class="token punctuation">(</span>serviceInfo<span class="token punctuation">.</span>packageName<span class="token punctuation">,</span> serviceInfo<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> pluginLocation <span class="token operator">=</span> mPluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>target<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getLocation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// start delegate service to run plugin service inside</span>
+    <span class="token keyword">boolean</span> local <span class="token operator">=</span> <span class="token class-name">PluginUtil</span><span class="token punctuation">.</span><span class="token function">isLocalService</span><span class="token punctuation">(</span>serviceInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">Service</span><span class="token punctuation">&gt;</span></span> delegate <span class="token operator">=</span> local <span class="token operator">?</span> <span class="token class-name">LocalService</span><span class="token punctuation">.</span><span class="token keyword">class</span> <span class="token operator">:</span> <span class="token class-name">RemoteService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span>
+    <span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    intent<span class="token punctuation">.</span><span class="token function">setClass</span><span class="token punctuation">(</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getHostContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> delegate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token class-name">RemoteService</span><span class="token punctuation">.</span>EXTRA_TARGET<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token class-name">RemoteService</span><span class="token punctuation">.</span>EXTRA_COMMAND<span class="token punctuation">,</span> command<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token class-name">RemoteService</span><span class="token punctuation">.</span>EXTRA_PLUGIN_LOCATION<span class="token punctuation">,</span> pluginLocation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>extras <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        intent<span class="token punctuation">.</span><span class="token function">putExtras</span><span class="token punctuation">(</span>extras<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> intent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x679C;&#x4E0D;&#x5176;&#x7136;&#xFF0C;&#x91CD;&#x65B0;&#x521D;&#x59CB;&#x5316;&#x4E86;Intent&#xFF0C;&#x8BBE;&#x7F6E;&#x4E86;&#x76EE;&#x6807;&#x7C7B;&#x4E3A;LocalService&#xFF08;&#x591A;&#x8FDB;&#x7A0B;&#x65F6;&#x8BBE;&#x7F6E;&#x4E3A;RemoteService&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x539F;&#x672C;&#x7684;Intent&#x5B58;&#x50A8;&#x5230;<code>EXTRA_TARGET</code>&#xFF0C;&#x643A;&#x5E26;command&#x4E3A;<code>EXTRA_COMMAND_START_SERVICE</code>&#xFF0C;&#x4EE5;&#x53CA;&#x63D2;&#x4EF6;apk&#x8DEF;&#x5F84;&#x3002;</p>
+<h3 class="mume-header" id="2%E4%BB%A3%E7%90%86%E5%88%86%E5%8F%91">&#xFF08;2&#xFF09;&#x4EE3;&#x7406;&#x5206;&#x53D1;</h3>
+
+<p>&#x90A3;&#x4E48;&#x63A5;&#x4E0B;&#x6765;&#x4EE3;&#x7801;&#x5C31;&#x5230;&#x4E86;LocalService&#x7684;onStartCommond&#x4E2D;&#x5566;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">onStartCommand</span><span class="token punctuation">(</span><span class="token class-name">Intent</span> intent<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">int</span> startId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x7701;&#x7565;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;...</span>
+
+    <span class="token class-name">Intent</span> target <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getParcelableExtra</span><span class="token punctuation">(</span>EXTRA_TARGET<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> command <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getIntExtra</span><span class="token punctuation">(</span>EXTRA_COMMAND<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">==</span> target <span class="token operator">||</span> command <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> START_STICKY<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">ComponentName</span> component <span class="token operator">=</span> target<span class="token punctuation">.</span><span class="token function">getComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">LoadedPlugin</span> plugin <span class="token operator">=</span> mPluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>command<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> EXTRA_COMMAND_START_SERVICE<span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token class-name">ActivityThread</span> mainThread <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">ActivityThread</span><span class="token punctuation">)</span><span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">getActivityThread</span><span class="token punctuation">(</span><span class="token function">getBaseContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">IApplicationThread</span> appThread <span class="token operator">=</span> mainThread<span class="token punctuation">.</span><span class="token function">getApplicationThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Service</span> service<span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getComponentsHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isServiceAvailable</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                service <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getComponentsHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getService</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    service <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Service</span><span class="token punctuation">)</span> plugin<span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loadClass</span><span class="token punctuation">(</span>component<span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token class-name">Application</span> app <span class="token operator">=</span> plugin<span class="token punctuation">.</span><span class="token function">getApplication</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">IBinder</span> token <span class="token operator">=</span> appThread<span class="token punctuation">.</span><span class="token function">asBinder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Method</span> attach <span class="token operator">=</span> service<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token string">&quot;attach&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Context</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">ActivityThread</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">IBinder</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">Application</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">IActivityManager</span> am <span class="token operator">=</span> mPluginManager<span class="token punctuation">.</span><span class="token function">getActivityManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    attach<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>service<span class="token punctuation">,</span> plugin<span class="token punctuation">.</span><span class="token function">getPluginContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mainThread<span class="token punctuation">,</span> component<span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> token<span class="token punctuation">,</span> app<span class="token punctuation">,</span> am<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    service<span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getComponentsHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rememberService</span><span class="token punctuation">(</span>component<span class="token punctuation">,</span> service<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> START_STICKY<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+            service<span class="token punctuation">.</span><span class="token function">onStartCommand</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPluginManager<span class="token punctuation">.</span><span class="token function">getComponentsHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getServiceCounter</span><span class="token punctuation">(</span>service<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAndIncrement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// &#x7701;&#x7565;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;</span>
+         <span class="token keyword">case</span> EXTRA_COMMAND_BIND_SERVICE<span class="token operator">:</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+         <span class="token keyword">case</span> EXTRA_COMMAND_STOP_SERVICE<span class="token operator">:</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+         <span class="token keyword">case</span> EXTRA_COMMAND_UNBIND_SERVICE<span class="token operator">:</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x8FD9;&#x91CC;&#x4EE3;&#x7801;&#x5F88;&#x7B80;&#x5355;&#x4E86;&#xFF0C;&#x6839;&#x636E;command&#x7C7B;&#x578B;&#xFF0C;&#x6BD4;&#x5982;<code>EXTRA_COMMAND_START_SERVICE</code>&#xFF0C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;plugin&#x7684;ClassLoader&#x53BB;load&#x76EE;&#x6807;Service&#x7684;class&#xFF0C;&#x7136;&#x540E;&#x53CD;&#x5C04;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x3002;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;Service&#x521B;&#x5EFA;&#x597D;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x8C03;&#x7528;&#x5B83;&#x7684;attach&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x51D1;&#x591F;&#x53C2;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x53CD;&#x5C04;&#x8C03;&#x7528;&#x5373;&#x53EF;&#xFF0C;&#x6700;&#x540E;&#x8C03;&#x7528;onCreate&#x3001;onStartCommand&#x6536;&#x5DE5;&#x3002;&#x7136;&#x540E;&#x5C06;&#x5176;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#xFF0C;stop&#x7684;&#x65F6;&#x5019;&#x53D6;&#x51FA;&#x6765;&#x8C03;&#x7528;&#x5176;onDestroy&#x5373;&#x53EF;&#x3002;</p>
+<p>bind&#x3001;unbind&#x4EE5;&#x53CA;stop&#x7684;&#x4EE3;&#x7801;&#x4E0E;&#x4E0A;&#x8FF0;&#x57FA;&#x672C;&#x4E00;&#x81F4;&#xFF0C;&#x4E0D;&#x5728;&#x8D58;&#x8FF0;&#x3002;</p>
+<p>&#x552F;&#x4E00;&#x63D0;&#x9192;&#x7684;&#x5C31;&#x662F;&#xFF0C;&#x521A;&#x624D;&#x770B;&#x5230;&#x8FD8;hook&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x53EB;&#x505A;&#xFF1A;<code>stopServiceToken</code>&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;&#x7684;&#x5462;&#xFF1F;</p>
+<p>&#x4E3B;&#x8981;&#x6709;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;Service&#xFF0C;&#x6BD4;&#x5982;IntentService&#xFF0C;&#x5176;stopSelf&#x662F;&#x7531;&#x81EA;&#x8EAB;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x6700;&#x7EC8;&#x4F1A;&#x8C03;&#x7528;<code>mActivityManager.stopServiceToken</code>&#x65B9;&#x6CD5;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x4E2D;&#x8F6C;&#x4E3A;STOP&#x64CD;&#x4F5C;&#x5373;&#x53EF;&#x3002;</p>
+<h2 class="mume-header" id="%E5%9B%9B-broadcastreceiver%E7%9A%84%E6%94%AF%E6%8C%81">&#x56DB;&#x3001;BroadcastReceiver&#x7684;&#x652F;&#x6301;</h2>
+
+<p>&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x76F4;&#x63A5;&#x89E3;&#x6790;Manifest&#x540E;&#xFF0C;&#x9759;&#x6001;&#x8F6C;&#x52A8;&#x6001;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x5728;LoadedPlugin&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">PackageParser<span class="token punctuation">.</span>Activity</span> receiver <span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mPackage<span class="token punctuation">.</span>receivers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    receivers<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>receiver<span class="token punctuation">.</span><span class="token function">getComponentName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> receiver<span class="token punctuation">.</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">BroadcastReceiver</span> br <span class="token operator">=</span> <span class="token class-name">BroadcastReceiver</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">cast</span><span class="token punctuation">(</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loadClass</span><span class="token punctuation">(</span>receiver<span class="token punctuation">.</span><span class="token function">getComponentName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">PackageParser<span class="token punctuation">.</span>ActivityIntentInfo</span> aii <span class="token operator">:</span> receiver<span class="token punctuation">.</span>intents<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>mHostContext<span class="token punctuation">.</span><span class="token function">registerReceiver</span><span class="token punctuation">(</span>br<span class="token punctuation">,</span> aii<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x89E3;&#x6790;&#x5230;receiver&#x4FE1;&#x606F;&#x540E;&#xFF0C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;pluginClassloader&#x53BB;loadClass&#x62FF;&#x5230;receiver&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;this.mHostContext.registerReceiver&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5F00;&#x5FC3;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4E86;~</p>
+<h2 class="mume-header" id="%E4%BA%94-contentprovider%E7%9A%84%E6%94%AF%E6%8C%81">&#x4E94;&#x3001;ContentProvider&#x7684;&#x652F;&#x6301;</h2>
+
+<h3 class="mume-header" id="1hook-icontentprovider">&#xFF08;1&#xFF09;hook IContentProvider</h3>
+
+<p>ContentProvider&#x7684;&#x652F;&#x6301;&#x4F9D;&#x7136;&#x662F;&#x901A;&#x8FC7;&#x4EE3;&#x7406;&#x5206;&#x53D1;&#x3002;</p>
+<p>&#x770B;&#x4E00;&#x6BB5;CP&#x4F7F;&#x7528;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token class-name">Cursor</span> bookCursor <span class="token operator">=</span> <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>bookUri<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">&quot;_id&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x8FD9;&#x91CC;&#x7528;&#x5230;&#x4E86;PluginContext&#xFF0C;&#x5728;&#x751F;&#x6210;Activity&#x3001;Service&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E3A;&#x5176;&#x8BBE;&#x7F6E;&#x7684;Context&#x90FD;&#x4E3A;PluginContext&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x5F53;&#x4F60;&#x8C03;&#x7528;getContentResolver&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x4E3A;PluginContext&#x7684;getContentResolver&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">ContentResolver</span> <span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PluginContentResolver</span><span class="token punctuation">(</span><span class="token function">getHostContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;PluginContentResolver&#x5BF9;&#x8C61;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8C03;&#x7528;query&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x4F1A;&#x8F97;&#x8F6C;&#x8C03;&#x7528;&#x5230;<br>
+<code>ContentResolver.acquireUnstableProvider</code>&#x65B9;&#x6CD5;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x88AB;PluginContentResolver&#x4E2D;&#x590D;&#x5199;:</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">protected</span> <span class="token class-name">IContentProvider</span> <span class="token function">acquireUnstableProvider</span><span class="token punctuation">(</span><span class="token class-name">Context</span> context<span class="token punctuation">,</span> <span class="token class-name">String</span> auth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mPluginManager<span class="token punctuation">.</span><span class="token function">resolveContentProvider</span><span class="token punctuation">(</span>auth<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> mPluginManager<span class="token punctuation">.</span><span class="token function">getIContentProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">IContentProvider</span><span class="token punctuation">)</span> sAcquireUnstableProvider<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>mBase<span class="token punctuation">,</span> context<span class="token punctuation">,</span> auth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5982;&#x679C;&#x8C03;&#x7528;&#x7684;auth&#x4E3A;&#x63D2;&#x4EF6;apk&#x4E2D;&#x7684;provider&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;<code>mPluginManager.getIContentProvider()</code>&#x3002;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token class-name">IContentProvider</span> <span class="token function">getIContentProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>mIContentProvider <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">hookIContentProviderAsNeeded</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> mIContentProvider<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x54A6;&#xFF0C;&#x53C8;&#x770B;&#x5230;&#x4E00;&#x4E2A;hook&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">hookIContentProviderAsNeeded</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Uri</span> uri <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token class-name">PluginContentResolver</span><span class="token punctuation">.</span><span class="token function">getUri</span><span class="token punctuation">(</span>mContext<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    mContext<span class="token punctuation">.</span><span class="token function">getContentResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>uri<span class="token punctuation">,</span> <span class="token string">&quot;wakeup&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Field</span> authority <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">Field</span> mProvider <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">ActivityThread</span> activityThread <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">ActivityThread</span><span class="token punctuation">)</span> <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">getActivityThread</span><span class="token punctuation">(</span>mContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span> mProviderMap <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token punctuation">)</span> <span class="token class-name">ReflectUtil</span><span class="token punctuation">.</span><span class="token function">getField</span><span class="token punctuation">(</span>activityThread<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> activityThread<span class="token punctuation">,</span> <span class="token string">&quot;mProviderMap&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Iterator</span> iter <span class="token operator">=</span> mProviderMap<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>iter<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Map<span class="token punctuation">.</span>Entry</span> entry <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Map<span class="token punctuation">.</span>Entry</span><span class="token punctuation">)</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Object</span> key <span class="token operator">=</span> entry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Object</span> val <span class="token operator">=</span> entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> auth<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                auth <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> key<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>authority <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    authority <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span><span class="token string">&quot;authority&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    authority<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                auth <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> authority<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>auth<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">PluginContentResolver</span><span class="token punctuation">.</span><span class="token function">getAuthority</span><span class="token punctuation">(</span>mContext<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>mProvider <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    mProvider <span class="token operator">=</span> val<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span><span class="token string">&quot;mProvider&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    mProvider<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token class-name">IContentProvider</span> rawProvider <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">IContentProvider</span><span class="token punctuation">)</span> mProvider<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">IContentProvider</span> proxy <span class="token operator">=</span> <span class="token class-name">IContentProviderProxy</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> rawProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mIContentProvider <span class="token operator">=</span> proxy<span class="token punctuation">;</span>
+                <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;hookIContentProvider succeed : &quot;</span> <span class="token operator">+</span> mIContentProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x524D;&#x4E24;&#x884C;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#xFF0C;&#x7B2C;&#x4E00;&#x884C;&#x662F;&#x62FF;&#x5230;&#x4E86;&#x5360;&#x5751;&#x7684;provider&#x7684;uri&#xFF0C;&#x7136;&#x540E;&#x4E3B;&#x52A8;&#x8C03;&#x7528;&#x4E86;&#x5176;call&#x65B9;&#x6CD5;&#x3002;<br>
+&#x5982;&#x679C;&#x4F60;&#x8DDF;&#x8FDB;&#x53BB;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x5176;&#x4F1A;&#x8C03;&#x7528;acquireProvider-&gt;mMainThread.acquireProvider-&gt;ActivityManagerNative.getDefault().getContentProvider-&gt;installProvider&#x3002;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5176;&#x9996;&#x5148;&#x8C03;&#x7528;&#x5DF2;&#x7ECF;&#x6CE8;&#x518C;provider&#xFF0C;&#x5F97;&#x5230;&#x8FD4;&#x56DE;&#x7684;IContentProvider&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;IContentProvider&#x5BF9;&#x8C61;&#x662F;&#x5728;ActivityThread.installProvider&#x65B9;&#x6CD5;&#x4E2D;&#x52A0;&#x5165;&#x5230;mProviderMap&#x4E2D;&#x3002;</p>
+<p>&#x800C;ActivityThread&#x5BF9;&#x8C61;&#x53C8;&#x5BB9;&#x6613;&#x83B7;&#x53D6;&#xFF0C;mProviderMap&#x53C8;&#x662F;&#x5B83;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x4E5F;&#x5BB9;&#x6613;&#x83B7;&#x53D6;&#xFF0C;&#x6240;&#x4EE5;&#x4E0A;&#x9762;&#x7684;&#x4E00;&#x5927;&#x5768;&#xFF08;&#x9664;&#x4E86;&#x524D;&#x4E24;&#x884C;&#xFF09;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x4E3A;&#x4E86;&#x62FF;&#x5230;&#x5360;&#x5751;&#x7684;provider&#x5BF9;&#x5E94;&#x7684;IContentProvider&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x901A;&#x8FC7;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x8FDB;&#x884C;&#x4E86;hook&#xFF0C;&#x5173;&#x6CE8;InvocationHandler&#x7684;&#x5B9E;&#x4F8B;IContentProviderProxy&#x3002;</p>
+<p>IContentProvider&#x80FD;&#x5E72;&#x5417;&#x5462;&#xFF1F;&#x5176;&#x5B9E;&#x5C31;&#x80FD;&#x62E6;&#x622A;&#x6211;&#x4EEC;&#x6B63;&#x5E38;&#x7684;query&#x3001;insert&#x3001;update&#x3001;delete&#x7B49;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x62E6;&#x622A;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5E72;&#x561B;&#xFF1F;</p>
+<p>&#x5F53;&#x7136;&#x662F;&#x4FEE;&#x6539;uri&#x5566;&#xFF0C;&#x628A;&#x7528;&#x6237;&#x8C03;&#x7528;&#x7684;uri&#xFF0C;&#x66FF;&#x6362;&#x4E3A;&#x5360;&#x5751;provider&#x7684;uri&#xFF0C;&#x518D;&#x628A;&#x539F;&#x672C;&#x7684;uri&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x62FC;&#x63A5;&#x5728;&#x5360;&#x5751;provider&#x7684;uri&#x540E;&#x9762;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x76F4;&#x63A5;&#x770B;invoke&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">v</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> method<span class="token punctuation">.</span><span class="token function">toGenericString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; : &quot;</span> <span class="token operator">+</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">wrapperUri</span><span class="token punctuation">(</span>method<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>mBase<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InvocationTargetException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> e<span class="token punctuation">.</span><span class="token function">getTargetException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x76F4;&#x63A5;&#x770B;wrapperUri</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">wrapperUri</span><span class="token punctuation">(</span><span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Uri</span> uri <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>args <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> args<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">instanceof</span> <span class="token class-name">Uri</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                uri <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Uri</span><span class="token punctuation">)</span> args<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                index <span class="token operator">=</span> i<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x7701;&#x7565;&#x90E8;&#x5206;&#x4EE3;&#x7801;</span>
+
+    <span class="token class-name">PluginManager</span> pluginManager <span class="token operator">=</span> <span class="token class-name">PluginManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span>mContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ProviderInfo</span> info <span class="token operator">=</span> pluginManager<span class="token punctuation">.</span><span class="token function">resolveContentProvider</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">getAuthority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>info <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> pkg <span class="token operator">=</span> info<span class="token punctuation">.</span>packageName<span class="token punctuation">;</span>
+        <span class="token class-name">LoadedPlugin</span> plugin <span class="token operator">=</span> pluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>pkg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> pluginUri <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">StringBuilder</span> builder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token class-name">PluginContentResolver</span><span class="token punctuation">.</span><span class="token function">getUri</span><span class="token punctuation">(</span>mContext<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;/?plugin=&quot;</span> <span class="token operator">+</span> plugin<span class="token punctuation">.</span><span class="token function">getLocation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;&amp;pkg=&quot;</span> <span class="token operator">+</span> pkg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;&amp;uri=&quot;</span> <span class="token operator">+</span> pluginUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Uri</span> wrapperUri <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">&quot;call&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            bundleInCallMethod<span class="token punctuation">.</span><span class="token function">putString</span><span class="token punctuation">(</span>KEY_WRAPPER_URI<span class="token punctuation">,</span> wrapperUri<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            args<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> wrapperUri<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4ECE;&#x53C2;&#x6570;&#x4E2D;&#x627E;&#x5230;uri&#xFF0C;&#x5F80;&#x4E0B;&#x770B;&#xFF0C;&#x641E;&#x4E86;&#x4E2A;StringBuilder&#x9996;&#x5148;&#x52A0;&#x5165;&#x5360;&#x5751;provider&#x7684;uri&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x76EE;&#x6807;uri&#xFF0C;pkg,plugin&#x7B49;&#x53C2;&#x6570;&#x7B49;&#x62FC;&#x63A5;&#x4E0A;&#x53BB;&#xFF0C;&#x66FF;&#x6362;&#x5230;args&#x4E2D;&#x7684;uri&#xFF0C;&#x7136;&#x540E;&#x7EE7;&#x7EED;&#x8D70;&#x539F;&#x672C;&#x7684;&#x6D41;&#x7A0B;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x662F;query&#x65B9;&#x6CD5;&#xFF0C;&#x5E94;&#x8BE5;&#x5C31;&#x5230;&#x8FBE;&#x6211;&#x4EEC;&#x5360;&#x5751;provider&#x7684;query&#x65B9;&#x6CD5;&#x5566;&#x3002;</p>
+<h3 class="mume-header" id="2%E4%BB%A3%E7%90%86%E5%88%86%E5%8F%91-1">&#xFF08;2&#xFF09;&#x4EE3;&#x7406;&#x5206;&#x53D1;</h3>
+
+<p>&#x5360;&#x5751;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>provider</span>
+    <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>com.didi.virtualapk.delegate.RemoteContentProvider<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>authorities</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>${applicationId}.VirtualAPK.Provider<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>process</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>:daemon<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</pre><p>&#x6253;&#x5F00;RemoteContentProvider&#xFF0C;&#x76F4;&#x63A5;&#x770B;query&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">Cursor</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token class-name">Uri</span> uri<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> projection<span class="token punctuation">,</span> <span class="token class-name">String</span> selection<span class="token punctuation">,</span>
+                    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> selectionArgs<span class="token punctuation">,</span> <span class="token class-name">String</span> sortOrder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token class-name">ContentProvider</span> provider <span class="token operator">=</span> <span class="token function">getContentProvider</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Uri</span> pluginUri <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">getQueryParameter</span><span class="token punctuation">(</span>KEY_URI<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>provider <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> provider<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>pluginUri<span class="token punctuation">,</span> projection<span class="token punctuation">,</span> selection<span class="token punctuation">,</span> selectionArgs<span class="token punctuation">,</span> sortOrder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;provider,&#x7136;&#x540E;&#x62FF;&#x5230;&#x76EE;&#x6807;uri&#xFF0C;&#x5728;&#x76F4;&#x63A5;&#x8C03;&#x7528;provider.query&#x4F20;&#x5165;&#x76EE;&#x6807;uri&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;provider&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x8FD9;&#x4E2A;&#x4EE3;&#x7406;&#x7C7B;&#x5E2E;&#x6211;&#x4EEC;&#x751F;&#x6210;&#x7684;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">private</span> <span class="token class-name">ContentProvider</span> <span class="token function">getContentProvider</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Uri</span> uri<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token class-name">PluginManager</span> pluginManager <span class="token operator">=</span> <span class="token class-name">PluginManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Uri</span> pluginUri <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">getQueryParameter</span><span class="token punctuation">(</span>KEY_URI<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">String</span> auth <span class="token operator">=</span> pluginUri<span class="token punctuation">.</span><span class="token function">getAuthority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// &#x7701;&#x7565;&#x4E86;&#x7F13;&#x5B58;&#x7BA1;&#x7406;</span>
+    <span class="token class-name">LoadedPlugin</span> plugin <span class="token operator">=</span> pluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">getQueryParameter</span><span class="token punctuation">(</span>KEY_PKG<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>plugin <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            pluginManager<span class="token punctuation">.</span><span class="token function">loadPlugin</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">getQueryParameter</span><span class="token punctuation">(</span>KEY_PLUGIN<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">final</span> <span class="token class-name">ProviderInfo</span> providerInfo <span class="token operator">=</span> pluginManager<span class="token punctuation">.</span><span class="token function">resolveContentProvider</span><span class="token punctuation">(</span>auth<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>providerInfo <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">RunUtil</span><span class="token punctuation">.</span><span class="token function">runOnUiThread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">LoadedPlugin</span> loadedPlugin <span class="token operator">=</span> pluginManager<span class="token punctuation">.</span><span class="token function">getLoadedPlugin</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">getQueryParameter</span><span class="token punctuation">(</span>KEY_PKG<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">ContentProvider</span> contentProvider <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">ContentProvider</span><span class="token punctuation">)</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>providerInfo<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    contentProvider<span class="token punctuation">.</span><span class="token function">attachInfo</span><span class="token punctuation">(</span>loadedPlugin<span class="token punctuation">.</span><span class="token function">getPluginContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> providerInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    sCachedProviders<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>auth<span class="token punctuation">,</span> contentProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> sCachedProviders<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>auth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53D6;&#x51FA;&#x539F;&#x672C;&#x7684;uri&#xFF0C;&#x62FF;&#x5230;auth&#xFF0C;&#x5728;&#x901A;&#x8FC7;&#x52A0;&#x8F7D;plugin&#x5F97;&#x5230;providerInfo&#xFF0C;&#x53CD;&#x5C04;&#x751F;&#x6210;provider&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x5176;attachInfo&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5176;&#x4ED6;&#x7684;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;insert&#x3001;update&#x3001;delete&#x3001;call&#x903B;&#x8F91;&#x57FA;&#x672C;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x4E0D;&#x8D58;&#x8FF0;&#x4E86;&#x3002;</p>
+<p>&#x611F;&#x89C9;&#x8FD9;&#x91CC;&#x5176;&#x5B9E;&#x901A;&#x8FC7;hook AMS&#x7684;getContentProvider&#x65B9;&#x6CD5;&#x4E5F;&#x80FD;&#x5B8C;&#x6210;&#x4E0A;&#x8FF0;&#x6D41;&#x7A0B;&#xFF0C;&#x611F;&#x89C9;&#x597D;&#x50CF;&#x53EF;&#x4EE5;&#x66F4;&#x5F7B;&#x5E95;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4F9D;&#x8D56;PluginContext&#x4E86;&#x3002;</p>
+<h2 class="mume-header" id="%E5%85%AD-%E6%80%BB%E7%BB%93">&#x516D;&#x3001;&#x603B;&#x7ED3;</h2>
+
+<p>&#x603B;&#x7ED3;&#x4E0B;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x6587;&#x521D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;VritualApk&#x5927;&#x4F53;&#x65B9;&#x6848;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>Activity&#xFF1A;&#x5728;&#x5BBF;&#x4E3B;apk&#x4E2D;&#x63D0;&#x524D;&#x5360;&#x51E0;&#x4E2A;&#x5751;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x201C;&#x6B3A;&#x4E0A;&#x7792;&#x4E0B;&#x201D;&#xFF08;&#x8FD9;&#x4E2A;&#x8BCD;&#x597D;&#x50CF;&#x662F;360&#x4E4B;&#x524D;&#x7684;ppt&#x4E2D;&#x63D0;&#x5230;&#xFF09;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x542F;&#x52A8;&#x63D2;&#x4EF6;apk&#x7684;Activity&#xFF1B;&#x56E0;&#x4E3A;&#x8981;&#x652F;&#x6301;&#x4E0D;&#x540C;&#x7684;launchMode&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x5360;&#x591A;&#x4E2A;&#x5751;&#x3002;</li>
+<li>Service&#xFF1A;&#x901A;&#x8FC7;&#x4EE3;&#x7406;Service&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x5206;&#x53D1;&#xFF1B;&#x4E3B;&#x8FDB;&#x7A0B;&#x548C;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#xFF0C;VirtualAPK&#x4F7F;&#x7528;&#x4E86;&#x4E24;&#x4E2A;&#x4EE3;&#x7406;Service&#x3002;</li>
+<li>BroadcastReceiver&#xFF1A;&#x9759;&#x6001;&#x8F6C;&#x52A8;&#x6001;&#x3002;</li>
+<li>ContentProvider&#xFF1A;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;Provider&#x8FDB;&#x884C;&#x5206;&#x53D1;&#x3002;</li>
+</ul>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E4%B8%80-%E6%A6%82%E8%BF%B0">&#x4E00;&#x3001;&#x6982;&#x8FF0;</a></li>
+<li><a href="#%E4%BA%8C-activity%E7%9A%84%E6%94%AF%E6%8C%81">&#x4E8C;&#x3001;Activity&#x7684;&#x652F;&#x6301;</a>
+<ul>
+<li><a href="#1%E6%9B%BF%E6%8D%A2activity">&#xFF08;1&#xFF09;&#x66FF;&#x6362;Activity</a></li>
+<li><a href="#2-%E8%BF%98%E5%8E%9Factivity">(2) &#x8FD8;&#x539F;Activity</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-service%E7%9A%84%E6%94%AF%E6%8C%81">&#x4E09;&#x3001;Service&#x7684;&#x652F;&#x6301;</a>
+<ul>
+<li><a href="#1-hook-iactivitymanager">(1) hook IActivityManager</a></li>
+<li><a href="#2%E4%BB%A3%E7%90%86%E5%88%86%E5%8F%91">&#xFF08;2&#xFF09;&#x4EE3;&#x7406;&#x5206;&#x53D1;</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-broadcastreceiver%E7%9A%84%E6%94%AF%E6%8C%81">&#x56DB;&#x3001;BroadcastReceiver&#x7684;&#x652F;&#x6301;</a></li>
+<li><a href="#%E4%BA%94-contentprovider%E7%9A%84%E6%94%AF%E6%8C%81">&#x4E94;&#x3001;ContentProvider&#x7684;&#x652F;&#x6301;</a>
+<ul>
+<li><a href="#1hook-icontentprovider">&#xFF08;1&#xFF09;hook IContentProvider</a></li>
+<li><a href="#2%E4%BB%A3%E7%90%86%E5%88%86%E5%8F%91-1">&#xFF08;2&#xFF09;&#x4EE3;&#x7406;&#x5206;&#x53D1;</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD-%E6%80%BB%E7%BB%93">&#x516D;&#x3001;&#x603B;&#x7ED3;</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

@@ -1,0 +1,1159 @@
+<!DOCTYPE html><html><head>
+      <title>&#x57FA;&#x7840;&#x77E5;&#x8BC6;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\alison\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.18\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E4%B8%80-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93">&#x4E00;&#x3001;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;</h1>
+
+<h2 class="mume-header" id="11-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93">1.1 &#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;</h2>
+
+<h2 class="mume-header" id="12-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%97%E7%B1%BB%E5%9E%8B">1.2 &#x6570;&#x636E;&#x5E93;&#x5217;&#x7C7B;&#x578B;</h2>
+
+<blockquote>
+<p>&#x6570;&#x503C;</p>
+</blockquote>
+<ul>
+<li>tinyint   &#x5341;&#x5206;&#x5C0F;&#x7684;&#x6570;&#x636E;    1&#x4E2A;&#x5B57;&#x8282;</li>
+<li>smallint  &#x8F83;&#x5C0F;&#x7684;&#x6570;&#x636E;      2&#x4E2A;&#x5B57;&#x8282;</li>
+<li>mediumint  &#x4E2D;&#x7B49;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x636E;   3&#x4E2A;&#x5B57;&#x8282;</li>
+<li><strong>int             &#x6807;&#x51C6;&#x7684;&#x6574;&#x6570;       4&#x4E2A;&#x5B57;&#x8282;</strong></li>
+<li>bigint        &#x8F83;&#x5927;&#x7684;&#x6570;&#x636E;     8&#x4E2A;&#x5B57;&#x8282;</li>
+<li>float         &#x6D6E;&#x70B9;&#x6570;              4&#x4E2A;&#x5B57;&#x8282;</li>
+<li>double     &#x6D6E;&#x70B9;&#x6570;              8&#x4E2A;&#x5B57;&#x8282;</li>
+<li>decimal     &#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x7684;&#x6D6E;&#x70B9;&#x6570;    &#x91D1;&#x878D;&#x8BA1;&#x7B97;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x822C;&#x4F7F;&#x7528;decimal</li>
+</ul>
+<blockquote>
+<p>&#x5B57;&#x7B26;&#x4E32;</p>
+</blockquote>
+<ul>
+<li>char      &#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;     0-255</li>
+<li><strong>varchar    &#x53EF;&#x53D8;&#x5B57;&#x7B26;&#x4E32;             0-65535</strong></li>
+<li>tinytest    &#x5FAE;&#x578B;&#x6587;&#x672C;                 2^8-1</li>
+<li>test           &#x6587;&#x672C;&#x4E32;                   2^16-1</li>
+</ul>
+<blockquote>
+<p>&#x65F6;&#x95F4;&#x548C;&#x65E5;&#x671F;</p>
+</blockquote>
+<ul>
+<li>data    YYYY-MM-DD   &#x65E5;&#x671F;&#x683C;&#x5F0F;</li>
+<li>time     HH:mm:ss  &#x65F6;&#x95F4;&#x683C;&#x5F0F;</li>
+<li><strong>datatime    YYYY-MM-DD HH:mm:ss &#x6700;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;</strong></li>
+<li><strong>timestamp   &#x65F6;&#x95F4;&#x6233;      1970.1.1&#x5230;&#x73B0;&#x5728;&#x7684;&#x6BEB;&#x79D2;&#x6570;</strong></li>
+<li>year &#x5E74;&#x4EFD;&#x8868;&#x793A;</li>
+</ul>
+<blockquote>
+<p>NULL</p>
+</blockquote>
+<ul>
+<li>&#x6CA1;&#x6709;&#x503C;&#xFF0C;&#x672A;&#x77E5;</li>
+<li>==&#x6CE8;&#x610F;&#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;NULL&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#xFF0C;&#x7ED3;&#x679C;&#x4E3A;NULL</li>
+</ul>
+<h2 class="mume-header" id="13-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7">1.3 &#x6570;&#x636E;&#x5E93;&#x7684;&#x5B57;&#x6BB5;&#x5C5E;&#x6027;</h2>
+
+<p><strong>Unsigned</strong></p>
+<ul>
+<li>&#x65E0;&#x7B26;&#x53F7;&#x7684;&#x6574;&#x6570;</li>
+<li>&#x58F0;&#x660E;&#x4E86;&#x8BE5;&#x5217;&#x4E0D;&#x80FD;&#x58F0;&#x660E;&#x4E3A;&#x8D1F;&#x6570;</li>
+</ul>
+<p><strong>zerofill</strong></p>
+<ul>
+<li>0&#x586B;&#x5145;&#x7684;</li>
+<li>&#x4E0D;&#x8DB3;&#x7684;&#x4F4D;&#x6570;&#x7528;0&#x586B;&#x5145;     int(3)      5----&gt;005</li>
+</ul>
+<p><strong>&#x81EA;&#x589E;</strong></p>
+<ul>
+<li>&#x901A;&#x5E38;&#x7406;&#x89E3;&#x4E3A;&#x81EA;&#x589E;&#xFF0C;&#x81EA;&#x52A8;&#x5728;&#x4E0A;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x57FA;&#x7840;&#x4E0A;+1(&#x9ED8;&#x8BA4;)</li>
+<li>&#x901A;&#x5E38;&#x7528;&#x6765;&#x8BBE;&#x8BA1;&#x552F;&#x4E00;&#x7684;&#x4E3B;&#x952E;  index,&#x5FC5;&#x987B;&#x662F;&#x6574;&#x6570;&#x7C7B;&#x578B;</li>
+<li>&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x8BBE;&#x8BA1;&#x4E3B;&#x952E;&#x81EA;&#x589E;&#x7684;&#x8D77;&#x59CB;&#x503C;&#x548C;&#x6B65;&#x957F;</li>
+</ul>
+<p><strong>&#x975E;&#x7A7A;  NULL not null</strong></p>
+<ul>
+<li>&#x5047;&#x8BBE;&#x8BBE;&#x7F6E;&#x4E3A;not null&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x7ED9;&#x4ED6;&#x8D4B;&#x503C;&#xFF0C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;</li>
+<li>NULL&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x586B;&#x5199;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;null</li>
+</ul>
+<p><strong>&#x9ED8;&#x8BA4;</strong></p>
+<ul>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x7684;&#x503C;</li>
+<li>&#x5982;&#x679C;&#x8BBE;&#x7F6E;sex &#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#x7537;&#xFF0C;&#x5219;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x8BE5;&#x5217;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#x7537;</li>
+</ul>
+<h2 class="mume-header" id="14-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8">1.4 &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8868;</h2>
+
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x76EE;&#x6807;&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;school&#x6570;&#x636E;&#x5E93;
+-- &#x521B;&#x5EFA;&#x5B66;&#x751F;&#x8868;(&#x5217;&#xFF0C;&#x5B57;&#x6BB5;)
+-- &#x5B66;&#x53F7;int  &#x767B;&#x9646;&#x5BC6;&#x7801; varchar(20)&#xFF0C;&#x59D3;&#x540D;&#xFF0C;&#x6027;&#x522B; varchar(2) &#x51FA;&#x751F;&#x65E5;&#x671F;(datatime) &#x5BB6;&#x5EAD;&#x4F4F;&#x5740; email
+-- &#x6CE8;&#x610F;&#x70B9;  &#x4F7F;&#x7528;&#x82F1;&#x6587;()  &#x8868;&#x7684;&#x540D;&#x79F0;&#x548C;&#x5B57;&#x6BB5;&#x5C3D;&#x91CF;&#x7528;``&#x62EC;&#x8D77;&#x6765;
+-- AUTO_INCREMENT &#x81EA;&#x589E;
+-- &#x5B57;&#x7B26;&#x4E32;&#x4F7F;&#x7528;&apos;&apos;&#x62EC;&#x8D77;&#x6765;&#xFF0C;&#x8BDD;&#x8981;&#x52A0;, &#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4E0D;&#x7528;&#x52A0;
+CREATE TABLE IF NOT EXISTS `student`(
+     `id`  INT(4) NOT NULL AUTO_INCREMENT COMMENT &apos;&#x5B66;&#x53F7;&apos;,
+     `name` VARCHAR(30) NOT NULL DEFAULT &apos;&#x533F;&#x540D;&apos; COMMENT &apos;&#x59D3;&#x540D;&apos;,
+      `pwd`  VARCHAR(20)  NOT NULL DEFAULT &apos;123456&apos; COMMENT &apos;&#x5BC6;&#x7801;&apos;,
+      `sex`  VARCHAR(2)   NOT NULL DEFAULT &apos;&#x5973;&apos; COMMENT &apos;&#x6027;&#x522B;&apos;,
+      `birthday` DATETIME  DEFAULT NULL COMMENT &apos;&#x51FA;&#x751F;&#x65E5;&#x671F;&apos;,
+      `address`  VARCHAR(100)    DEFAULT NULL COMMENT &apos;&#x5BB6;&#x5EAD;&#x4F4F;&#x5740;&apos;,
+       `email`  VARCHAR(50)    DEFAULT NULL COMMENT &apos;&#x90AE;&#x7BB1;&apos;,
+       PRIMARY KEY(`id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8
+</code></pre><p>&#x683C;&#x5F0F;</p>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>CREATE TABLE IF NOT EXISTS `&#x8868;&#x540D;`(
+    
+    `&#x5B57;&#x6BB5;&#x540D;` &#x5217;&#x7C7B;&#x578B; [&#x5C5E;&#x6027;] [&#x7D22;&#x5F15;] [&#x6CE8;&#x91CA;]&#xFF0C;
+    `&#x5B57;&#x6BB5;&#x540D;` &#x5217;&#x7C7B;&#x578B; [&#x5C5E;&#x6027;] [&#x7D22;&#x5F15;] [&#x6CE8;&#x91CA;]&#xFF0C;
+    .....
+    `&#x5B57;&#x6BB5;&#x540D;` &#x5217;&#x7C7B;&#x578B; [&#x5C5E;&#x6027;] [&#x7D22;&#x5F15;] [&#x6CE8;&#x91CA;]&#xFF0C;
+)[&#x8868;&#x7C7B;&#x578B;][&#x5B57;&#x7B26;&#x96C6;&#x8BBE;&#x7F6E;][&#x6CE8;&#x91CA;]
+</code></pre><h2 class="mume-header" id="15-innodb%E4%B8%8Emyisam%E7%9A%84%E5%8C%BA%E5%88%AB">1.5 INNODB&#x4E0E;MYISAM&#x7684;&#x533A;&#x522B;</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MYISAM</th>
+<th>INNODB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x4E8B;&#x52A1;&#x652F;&#x6301;</td>
+<td>&#x4E0D;&#x652F;&#x6301;</td>
+<td>&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td>&#x884C;&#x9501;</td>
+<td>&#x4E0D;&#x652F;&#x6301;</td>
+<td>&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td>&#x5916;&#x952E;&#x7EA6;&#x675F;</td>
+<td>&#x4E0D;&#x652F;&#x6301;</td>
+<td>&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td>&#x5168;&#x6587;&#x7D22;&#x5F15;</td>
+<td>&#x652F;&#x6301;</td>
+<td>&#x4E0D;&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td>&#x8868;&#x7A7A;&#x95F4;&#x7684;&#x5927;&#x5C0F;</td>
+<td>&#x8F83;&#x5C0F;</td>
+<td>&#x8F83;&#x5927;&#xFF0C;&#x7EA6;&#x4E3A;myisam&#x7684;&#x4E24;&#x500D;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5E38;&#x89C4;&#x4F7F;&#x7528;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ul>
+<li>MYISAM  &#x8282;&#x7EA6;&#x7A7A;&#x95F4;&#xFF0C;&#x901F;&#x5EA6;&#x8F83;&#x5FEB;</li>
+<li>INNODB &#x5B89;&#x5168;&#x6027;&#x9AD8;&#xFF0C;&#x652F;&#x6301;&#x4E8B;&#x52A1;&#xFF0C;&#x652F;&#x6301;&#x5916;&#x952E;&#x5C31;&#x652F;&#x6301;&#x591A;&#x8868;&#x591A;&#x7528;&#x6237;</li>
+</ul>
+<blockquote>
+<p>&#x5728;&#x7269;&#x7406;&#x7A7A;&#x95F4;&#x5B58;&#x5728;&#x7684;&#x4F4D;&#x7F6E;</p>
+</blockquote>
+<p>&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x90FD;&#x5B58;&#x5728;data&#x76EE;&#x5F55;&#x4E0B;</p>
+<p>&#x672C;&#x8D28;&#x8FD8;&#x662F;&#x6587;&#x4EF6;&#x7684;&#x5B58;&#x50A8;&#xFF01;</p>
+<p>MYSQL&#x5F15;&#x64CE;&#x5728;&#x7269;&#x7406;&#x6587;&#x4EF6;&#x4E0A;&#x7684;&#x533A;&#x522B;</p>
+<ul>
+<li>
+<p>INNODB&#x5728;&#x6570;&#x636E;&#x5E93;&#x8868;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;*.frm&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x53CA;&#x4E0A;&#x7EA7;&#x76EE;&#x5F55;&#x4E0B;&#x7684;ibdata1&#x6587;&#x4EF6;</p>
+</li>
+<li>
+<p>MYISAM &#x5BF9;&#x5E94;&#x6587;&#x4EF6;</p>
+<ul>
+<li>
+<p>*.frm &#x8868;&#x7ED3;&#x6784;&#x7684;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;</p>
+</li>
+<li>
+<p>*.MYD &#x6570;&#x636E;&#x6587;&#x4EF6;&#xFF08;data)</p>
+</li>
+<li>
+<p>*.MYI &#x7D22;&#x5F15;&#x6587;&#x4EF6;(index)</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x8BBE;&#x7F6E;&#x6570;&#x636E;&#x5E93;&#x8868;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#x7F16;&#x7801;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info class="language-"><code>CHARSET=utf8
+</code></pre><p>&#x4E0D;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x662F;mysql&#x9ED8;&#x8BA4;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#x7F16;&#x7801;&#xFF08;&#x4E0D;&#x652F;&#x6301;&#x4E2D;&#x6587;&#xFF01;&#xFF09;</p>
+<h2 class="mume-header" id="16-%E4%BF%AE%E6%94%B9%E5%88%A0%E9%99%A4%E8%A1%A8">1.6 &#x4FEE;&#x6539;&#x5220;&#x9664;&#x8868;</h2>
+
+<blockquote>
+<p>&#x4FEE;&#x6539;&#x8868;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x4FEE;&#x6539;&#x8868;&#x540D; ALTER TABLE &#x65E7;&#x8868;&#x540D; RENAME AS &#x65B0;&#x8868;&#x540D;
+ALTER TABLE teacher RENAME AS teacher1
+-- &#x589E;&#x52A0;&#x8868;&#x7684;&#x5B57;&#x6BB5; ALTER TABLE &#x8868;&#x660E; ADD &#x5B57;&#x6BB5;&#x540D; &#x5217;&#x5C5E;&#x6027;
+ALTER TABLE teacher1 ADD age INT(1)
+-- &#x4FEE;&#x6539;&#x8868;&#x7684;&#x5B57;&#x6BB5;(&#x91CD;&#x547D;&#x540D;&#xFF0C;&#x4FEE;&#x6539;&#x7EA6;&#x675F;)
+-- ALTER TABLE &#x8868;&#x540D; MODIFY &#x5B57;&#x6BB5;&#x540D; &#x5217;&#x5C5E;&#x6027;[] 
+ALTER TABLE teacher MODIFY age VARCHAR(11)  -- &#x4FEE;&#x6539;&#x7EA6;&#x675F;
+-- ALTER TABLE &#x8868;&#x540D; CHANGE &#x65E7;&#x540D;&#x5B57; &#x65B0;&#x540D;&#x5B57; &#x5217;&#x5C5E;&#x6027;[] 
+ALTER TABLE teacher CHANGE age age1 INT(1)  -- &#x5B57;&#x6BB5;&#x91CD;&#x547D;&#x540D;
+-- &#x5220;&#x9664;&#x8868;&#x7684;&#x5B57;&#x6BB5; ALTER TABLE &#x8868;&#x540D; DROP &#x5B57;&#x6BB5;&#x540D;
+ALTER TABLE teacher1 DROP age1
+</code></pre><blockquote>
+<p>&#x5220;&#x9664;&#x8868;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>DROP TABLE IF EXISTS teacher1
+</code></pre><p>&#x6240;&#x6709;&#x7684;&#x521B;&#x5EFA;&#x548C;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x5C3D;&#x91CF;&#x52A0;&#x4E0A;&#x5224;&#x65AD;&#xFF0C;&#x4EE5;&#x514D;&#x62A5;&#x9519;~</p>
+<h1 class="mume-header" id="%E4%BA%8C-mysql%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86">&#x4E8C;&#x3001;MYSQL&#x6570;&#x636E;&#x7BA1;&#x7406;</h1>
+
+<h2 class="mume-header" id="21%E5%A4%96%E9%94%AE">2.1&#x5916;&#x952E;</h2>
+
+<blockquote>
+<p>&#x65B9;&#x5F0F;&#x4E00; :&#x5728;&#x521B;&#x5EFA;&#x8868;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x589E;&#x52A0;&#x7EA6;&#x675F;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>CREATE TABLE IF NOT EXISTS `student`(
+     `id`  INT(4) NOT NULL AUTO_INCREMENT COMMENT &apos;&#x5B66;&#x53F7;&apos;,
+     `name` VARCHAR(30) NOT NULL DEFAULT &apos;&#x533F;&#x540D;&apos; COMMENT &apos;&#x59D3;&#x540D;&apos;,
+      `pwd`  VARCHAR(20)  NOT NULL DEFAULT &apos;123456&apos; COMMENT &apos;&#x5BC6;&#x7801;&apos;,
+      `sex`  VARCHAR(2)   NOT NULL DEFAULT &apos;&#x5973;&apos; COMMENT &apos;&#x6027;&#x522B;&apos;,
+      `birthday` DATETIME  DEFAULT NULL COMMENT &apos;&#x51FA;&#x751F;&#x65E5;&#x671F;&apos;,
+      `gradeid`  INT(10) NOT NULL COMMENT &apos;&#x5B66;&#x751F;&#x7684;&#x5E74;&#x7EA7;&apos;
+      `address`  VARCHAR(100)    DEFAULT NULL COMMENT &apos;&#x5BB6;&#x5EAD;&#x4F4F;&#x5740;&apos;,
+       `email`  VARCHAR(50)    DEFAULT NULL COMMENT &apos;&#x90AE;&#x7BB1;&apos;,
+       PRIMARY KEY(`id`)  
+       KEY `FK_gradeid` (`gradeid`)-- 
+       CONSTRAINT `FK_gradeid` FOREIGN KEY(`gradeid`) REFERENCES `grade`(`gradeid`)-- &#x4E3A;grade&#x8868;&#x7684;&#x5916;&#x952E;
+) ENGINE=INNODB DEFAULT CHARSET=utf8
+</code></pre><p>&#x5220;&#x9664;&#x6709;&#x5916;&#x952E;&#x5173;&#x7CFB;&#x7684;&#x8868;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x5220;&#x9664;&#x5F15;&#x7528;&#x522B;&#x4EBA;&#x7684;&#x8868;&#xFF08;&#x4ECE;&#x8868;&#xFF09;&#xFF0C;&#x518D;&#x5220;&#x9664;&#x88AB;&#x5F15;&#x7528;&#x7684;&#x8868;&#x3002;&#xFF08;&#x4E3B;&#x8868;)</p>
+<blockquote>
+<p>&#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x521B;&#x5EFA;&#x8868;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x5916;&#x952E;&#x5173;&#x7CFB;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>ALTER TABLE `student`
+ADD CONSTRINT `FK_gradeid` FOREIGN KEY(`gradeid`) REFERENCES `grade`(`gradeid`)
+</code></pre><p>&#x4EE5;&#x4E0A;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x7269;&#x7406;&#x5916;&#x952E;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x7EA7;&#x522B;&#x7684;&#x5916;&#x952E;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF08;&#x907F;&#x514D;&#x6570;&#x636E;&#x8FC7;&#x591A;&#x9020;&#x6210;&#x56F0;&#x6270;&#xFF09;</p>
+<p><mark>&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</mark></p>
+<ul>
+<li>&#x6570;&#x636E;&#x5E93;&#x5C31;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EA;&#x7528;&#x6765;&#x5B58;&#x6570;&#x636E;&#xFF0C;&#x53EA;&#x6709;&#x884C;&#xFF08;&#x6570;&#x636E;&#xFF09;&#x548C;&#x5217;&#xFF08;&#x5B57;&#x6BB5;&#xFF09;</li>
+<li>&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x591A;&#x5F20;&#x8868;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x60F3;&#x4F7F;&#x7528;&#x5916;&#x952E;&#xFF0C;&#x5C31;&#x7528;&#x7A0B;&#x5E8F;&#x6765;&#x5B9E;&#x73B0;&#x3002;</li>
+</ul>
+<h2 class="mume-header" id="22-dml%E8%AF%AD%E8%A8%80">2.2 DML&#x8BED;&#x8A00;</h2>
+
+<p>DML&#x8BED;&#x8A00;&#xFF1A;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x8BED;&#x8A00;</p>
+<h3 class="mume-header" id="221-%E6%8F%92%E5%85%A5">2.2.1 &#x63D2;&#x5165;</h3>
+
+<blockquote>
+<p>Insert</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>INSERT INTO &#x8868;&#x540D;([&#x5B57;&#x6BB5;&#x540D;1,&#x5B57;&#x6BB5;&#x540D;2,&#x5B57;&#x6BB5;&#x540D;3]) VALUES(&apos;&#x503C;1&apos;),(&apos;&#x503C;2&apos;),(&apos;&#x503C;3&apos;)...
+INSERT INTO `grade` (`gradename`)  VALUES (`&#x5927;&#x4E8C;`)&#xFF0C;(`&#x5927;&#x4E09;`)  -- &#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x63D2;&#x5165;&#x591A;&#x6761;&#x6570;&#x636E;&#xFF0C;VALUE&#x540E;&#x9762;&#x7684;&#x503C;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;,&#x9694;&#x5F00;
+INSERT INTO `student` (`name`,`pwd`,`sex`) VALUES(&apos;&#x5F20;&#x4E09;&apos;,&apos;1234&apos;,&apos;&#x7537;&apos;) 
+
+</code></pre><p>&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;&#x5B57;&#x6BB5;&#x548C;&#x5B57;&#x6BB5;&#x4F7F;&#x7528;&#x82F1;&#x6587;&#x9017;&#x53F7;&#x9694;&#x5F00;</p>
+<p>&#x5B57;&#x6BB5;&#x662F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x3002;&#x5982;</p>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>INSERT INTO `student` VALUES(&apos;&#x5F20;&#x4E09;&apos;,&apos;1234&apos;,&apos;&#x7537;&apos;)-- &#x8FD9;&#x65F6;&#x5019;&#x8981;&#x628A;&#x6240;&#x6709;&#x7684;&#x90FD;&#x8865;&#x5168;
+</code></pre><h3 class="mume-header" id="222-%E4%BF%AE%E6%94%B9">2.2.2 &#x4FEE;&#x6539;</h3>
+
+<blockquote>
+<p>update</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x4FEE;&#x6539;&#x5B66;&#x751F;&#x540D;&#x5B57;
+UPDATE `student` SET `name` = &apos;syy&apos; WHERE id=1;
+
+-- &#x4E0D;&#x6307;&#x5B9A;&#x6761;&#x4EF6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F1A;&#x6539;&#x52A8;&#x6240;&#x6709;&#x7684;&#x8868;
+UPDATE `student` SET `name`=&apos;&#x957F;&#x6C5F;&#x4E03;&#x53F7;&apos;
+
+-- &#x4FEE;&#x6539;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;
+UPDATE `student` SET `name`= &apos;syy&apos;,email= &apos;123@163.com&apos; WHERE id=1;
+
+-- &#x8BED;&#x6CD5;
+-- UPDATE &#x8868;&#x540D; set clonum_name=value [,clonum_name=value ]where [&#x6761;&#x4EF6;]
+-- clonum_name&#x662F;&#x6570;&#x636E;&#x7684;&#x5217;&#xFF0C;&#x5C3D;&#x91CF;&#x5E26;&#x4E0A;``
+-- &#x6761;&#x4EF6;&#xFF0C;&#x7B5B;&#x9009;&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x5217;&#xFF0C;&#x5C06;&#x4F1A;&#x4FEE;&#x6539;&#x6240;&#x6709;&#x7684;&#x5217;
+-- value &#x662F;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x503C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;
+UPDATE `student` SET `birthday`= CURRENT_TIME WHERE `name`=&apos;&#x957F;&#x6C5F;&#x4E03;&#x53F7;&apos; AND sex=&apos;&#x7537;&apos;
+</code></pre><p>&#x6761;&#x4EF6;: where &#x5B50;&#x53E5;&#x8FD0;&#x7B97;&#x7B26;  id&#x7B49;&#x4E8E;&#x67D0;&#x4E2A;&#x503C;&#xFF0C;&#x5927;&#x4E8E;&#x67D0;&#x4E2A;&#x503C;&#xFF0C;&#x5728;&#x67D0;&#x4E2A;&#x533A;&#x95F4;&#x5185;&#x4FEE;&#x6539;</p>
+<table>
+<thead>
+<tr>
+<th>&#x64CD;&#x4F5C;&#x7B26;</th>
+<th>&#x542B;&#x4E49;</th>
+<th>&#x4F8B;&#x5B50;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>&#x7B49;&#x4E8E;</td>
+<td>where id=5</td>
+</tr>
+<tr>
+<td>&lt;&gt; &#x6216; !=</td>
+<td>&#x4E0D;&#x7B49;&#x4E8E;</td>
+<td>where id&lt;&gt;5</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>&#x5C0F;&#x4E8E;</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>&#x5927;&#x4E8E;</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;</td>
+<td></td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>&#x5927;&#x4E8E;&#x7B49;&#x4E8E;</td>
+<td></td>
+</tr>
+<tr>
+<td>BETWEEN ... and ...</td>
+<td>&#x5728;&#x67D0;&#x4E2A;&#x8303;&#x56F4;&#x5185;</td>
+<td>BETWEEN 2 AND 5  &#x542B;&#x4E49; [2,5]</td>
+</tr>
+<tr>
+<td>AND</td>
+<td>&#x4E0E;</td>
+<td>id&gt;2 AND id&lt;5</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>&#x6216;</td>
+<td>id&gt;2 OR id&lt;5</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="223-%E5%88%A0%E9%99%A4">2.2.3 &#x5220;&#x9664;</h3>
+
+<blockquote>
+<p>delete</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x5220;&#x9664;&#x6570;&#x636E;
+DELETE FROM `student` WHERE id=1;
+</code></pre><blockquote>
+<p>Truncate</p>
+</blockquote>
+<p>&#x4F5C;&#x7528;&#xFF1A;&#x5B8C;&#x5168;&#x6E05;&#x7A7A;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x8868;&#xFF0C;&#x4F46;&#x662F;&#x8868;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x7D22;&#x5F15;&#x7EA6;&#x675F;&#x4E0D;&#x4F1A;&#x53D8;&#xFF01;</p>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x6E05;&#x7A7A; student&#x8868;
+TRUNCATE TABLE `student`
+</code></pre><blockquote>
+<p>delete &#x548C; Truncate &#x533A;&#x522B;</p>
+</blockquote>
+<ul>
+<li>&#x76F8;&#x540C;&#x70B9;&#xFF1A;&#x90FD;&#x80FD;&#x5220;&#x9664;&#x6570;&#x636E;&#xFF0C;&#x90FD;&#x4E0D;&#x4F1A;&#x5220;&#x9664;&#x8868;&#x7ED3;&#x6784;</li>
+<li>&#x4E0D;&#x540C;&#x70B9;
+<ul>
+<li>TRUNCATE &#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x81EA;&#x589E;&#x5217;&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x4F1A;&#x5F52;&#x96F6;</li>
+<li>TRUNCATE &#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x4E8B;&#x52A1;</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>CREATE TABLE `test`(
+   `id` INT(4) NOT NULL AUTO_INCREMENT,
+    `coll` VARCHAR(20) NOT NULL;
+    PRIMARY KEY(`id`)
+)ENGINE = INNODB DEFAULT CHARSET=utf8
+
+INSERT INTO `test` (coll`) VALUES (&apos;1&apos;),(&apos;2&apos;),(&apos;3&apos;)
+
+DELETE FROM `test` --&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x81EA;&#x589E;  &#x540E;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#x4E3B;&#x952E;&#x4ECE;4&#x5F00;&#x59CB;
+TRUNCATE TABLE`student` --&#x5F71;&#x54CD;&#x81EA;&#x589E;&#xFF0C;&#x81EA;&#x589E;&#x4F1A;&#x5F52;&#x96F6;  &#x540E;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#x4E3B;&#x952E;&#x4ECE;1&#x5F00;&#x59CB;
+
+</code></pre><p>DELETE&#x5220;&#x9664;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x91CD;&#x542F;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x73B0;&#x8C61;&#xFF1A;</p>
+<ul>
+<li>INNODB  &#x81EA;&#x589E;&#x5217;&#x4F1A;&#x4ECE;1&#x5F00;&#x59CB;&#xFF08;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x65AD;&#x7535;&#x5373;&#x5931;&#xFF09;</li>
+<li>MYISAM &#x7EE7;&#x7EED;&#x4ECE;&#x4E0A;&#x4E00;&#x4E2A;&#x81EA;&#x589E;&#x91CF;&#x5F00;&#x59CB;&#xFF08;&#x5B58;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E22;&#x5931;&#xFF09;</li>
+</ul>
+<h1 class="mume-header" id="%E4%B8%89-dql%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE">&#x4E09;&#x3001;DQL&#x67E5;&#x8BE2;&#x6570;&#x636E;</h1>
+
+<h2 class="mume-header" id="31-dql">3.1 DQL</h2>
+
+<p>(Data Query language)  &#x6570;&#x636E;&#x5E93;&#x67E5;&#x8BE2;&#x8BED;&#x8A00;</p>
+<ul>
+<li>&#x6240;&#x6709;&#x7684;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;&#x90FD;&#x7528;&#x5B83;  select</li>
+</ul>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>SELECT [ALL | DISTINCT]
+{*|table.* }
+FROM Table_name [as table]
+	[left | right |inner join table name2 ON]
+	[WHERE ..]
+	[GROUP BY...]
+	[HAVING..] 
+	[ORDER BY..]
+	[LIMIT startindex,pagesize]
+
+</code></pre><h2 class="mume-header" id="32-%E6%8C%87%E5%AE%9A%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5">3.2 &#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;</h2>
+
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x7684;&#x5B66;&#x751F;
+SELECT * FROM student
+SELECT * FROM result
+
+-- &#x67E5;&#x8BE2;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;
+SELECT studentNo,studentName FROM student
+
+-- &#x522B;&#x540D;
+SELECT studentNo AS &#x5B66;&#x53F7;&#xFF0C;studentName AS &#x5B66;&#x751F;&#x59D3;&#x540D; FROM student AS s
+ 
+-- &#x51FD;&#x6570;  Concat(a,b)  &#x62FC;&#x63A5;&#x5B57;&#x7B26;&#x4E32;
+SELECT CONCAT(&apos;&#x59D3;&#x540D;&#xFF1A;&apos; StudentName)  AS &#x65B0;&#x540D;&#x5B57; FROM student
+</code></pre><blockquote>
+<p>&#x53BB;&#x91CD; DISTINCT</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x53BB;&#x9664;SELECT &#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x91CD;&#x590D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x91CD;&#x590D;&#x7684;&#x6570;&#x636E;&#x53EA;&#x663E;&#x793A;&#x4E00;&#x6761;
+SELECT DISTINCT studentNo FROM result
+</code></pre><blockquote>
+<p>&#x6570;&#x636E;&#x5E93;&#x7684;&#x5217;(&#x8868;&#x8FBE;&#x5F0F;)</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>SELECT VERSION() -- &#x67E5;&#x8BE2;&#x7CFB;&#x7EDF;&#x7248;&#x672C;(&#x51FD;&#x6570;)
+SELECT 100*3-1 AS &#x8BA1;&#x7B97;&#x7ED3;&#x679C;  -- &#x7528;&#x6765;&#x8BA1;&#x7B97;
+SELECT @@auto_increment_increment  --&#x67E5;&#x8BE2;&#x81EA;&#x589E;&#x7684;&#x6B65;&#x957F;
+
+-- &#x5B66;&#x5458;&#x8003;&#x8BD5;&#x6210;&#x7EE9; +1&#x5206;&#x67E5;&#x770B;
+SELECT studentNo,studentresult+1 AS &apos;&#x63D0;&#x5206;&#x540E;&apos; FROM result
+</code></pre><h2 class="mume-header" id="33-where%E6%9D%A1%E4%BB%B6%E5%AD%90%E5%8F%A5">3.3 WHERE&#x6761;&#x4EF6;&#x5B50;&#x53E5;</h2>
+
+<p>&#x4F5C;&#x7528;&#xFF1A;&#x68C0;&#x6D4B;&#x6570;&#x636E;&#x4E2D;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x503C;</p>
+<blockquote>
+<p>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x7B26;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x8BED;&#x6CD5;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and   &amp;&amp;</td>
+<td>a and b</td>
+<td>&#x903B;&#x8F91;&#x4E0E;</td>
+</tr>
+<tr>
+<td>or   ||</td>
+<td>a or b</td>
+<td>&#x903B;&#x8F91;&#x6216;</td>
+</tr>
+<tr>
+<td>NOT !</td>
+<td>not a     !a</td>
+<td>&#x975E;</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x67E5;&#x8BE2;&#x8003;&#x8BD5;&#x6210;&#x7EE9;&#x5728;95-100&#x5206;
+SELECT studentNo,studentResult FROM result
+WHERE studentResult&gt;=95  AND dentResult&lt;=100
+-- &#x6A21;&#x7CCA;&#x67E5;&#x8BE2; &#x533A;&#x95F4;
+SELECT studentNo,studentResult FROM result
+WHERE studentResult BETWEEN 95 AND 100
+
+-- &#x9664;&#x4E86;10000&#x53F7;&#x5B66;&#x751F;&#x4E4B;&#x5916;&#x7684;&#x540C;&#x5B66;&#x7684;&#x6210;&#x7EE9;  !=  NOT
+SELECT studentNo,studentResult FROM result
+WHERE NOT studentNo=1000
+</code></pre><blockquote>
+<p>&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;&#xFF1A;&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x7B26;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x8BED;&#x6CD5;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IS NULL</td>
+<td>a is null</td>
+<td>&#x5982;&#x679C;&#x64CD;&#x4F5C;&#x7B26;&#x4E3A;NULL  &#x7ED3;&#x679C;&#x4E3A;&#x771F;</td>
+</tr>
+<tr>
+<td>IS NOT NULL</td>
+<td>a is not null</td>
+<td>&#x5982;&#x679C;&#x64CD;&#x4F5C;&#x7B26;&#x4E0D;&#x4E3A;null&#xFF0C;&#x7ED3;&#x679C;&#x4E3A;&#x771F;</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>a between b and  c</td>
+<td>&#x82E5;a&#x5728;b&#x548C;c&#x4E4B;&#x95F4;&#xFF0C;&#x7ED3;&#x679C;&#x4E3A;&#x771F;</td>
+</tr>
+<tr>
+<td>Like</td>
+<td>a like b</td>
+<td>SQL&#x5339;&#x914D;&#xFF0C;&#x5982;&#x679C;a&#x5339;&#x914D;b ,&#x5219;&#x7ED3;&#x679C;&#x4E3A;&#x771F;</td>
+</tr>
+<tr>
+<td>In</td>
+<td>a in(a1,a2,a3...)</td>
+<td>&#x5047;&#x8BBE;a &#x5728;a1,a2,a3&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E3A;&#x771F;</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- =============like========
+-- &#x67E5;&#x8BE2;&#x59D3;&#x5218;&#x7684;&#x540C;&#x5B66;
+-- like &#x7ED3;&#x5408;%(&#x4EE3;&#x8868;0&#x5230;&#x4EFB;&#x610F;&#x4E2A;&#x5B57;&#x7B26;)  _(&#x4E00;&#x4E2A;&#x5B57;&#x7B26;)
+SELECT studentNo,studentName  From  student
+WHERE studentName LIKE &apos;&#x5218;%&apos;
+-- &#x67E5;&#x8BE2;&#x59D3;&#x5218;&#x7684;&#x540C;&#x5B66;&#xFF0C;&#x540D;&#x5B57;&#x540E;&#x9762;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B57;
+SELECT studentNo,studentName  From  student
+WHERE studentName LIKE &apos;&#x5218;_&apos;
+-- &#x67E5;&#x8BE2;&#x59D3;&#x5218;&#x7684;&#x540C;&#x5B66;&#xFF0C;&#x540D;&#x5B57;&#x540E;&#x9762;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x5B57;
+SELECT studentNo,studentName  From  student
+WHERE studentName LIKE &apos;&#x5218;__&apos;
+
+-- &#x67E5;&#x8BE2;&#x540D;&#x5B57;&#x4E2D;&#x5E26;&#x6709;&#x5609;&#x7684;
+SELECT studentNo,studentName  From  student
+WHERE studentName LIKE &apos;%&#x5609;%&apos;
+
+-- ==========in(&#x5177;&#x4F53;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x503C;)======
+-- &#x67E5;&#x8BE2;1001&#xFF0C;1002&#xFF0C;1003&#x53F7;&#x5B66;&#x5458;
+SELECT studentNo,studentName FROM student
+WHERE studentNo in(1001,1002,1003)
+-- &#x67E5;&#x8BE2;&#x5728;&#x5317;&#x4EAC;&#x7684;&#x5B66;&#x751F;
+SELECT studentNo,studentName FROM student
+WHERE Adress in(&apos;&#x5B89;&#x5FBD;&apos;,&apos;&#x6CB3;&#x5357;&apos;);
+
+-- ==========null not null======
+-- &#x67E5;&#x8BE2;&#x5730;&#x5740;&#x4E3A;&#x7A7A;&#x7684;&#x5B66;&#x751F;  null
+SELECT studentNo,studentName FROM student
+WHERE address=&apos;&apos; OR adress is NULL
+
+-- &#x67E5;&#x8BE2;&#x6709;&#x51FA;&#x751F;&#x65E5;&#x671F;&#x7684;&#x540C;&#x5B66;
+SELECT studentNo,studentName FROM student
+WHERE bornDate is Not NULL
+
+</code></pre><h2 class="mume-header" id="34-%E8%81%94%E8%A1%A8%E6%9F%A5%E8%AF%A2">3.4 &#x8054;&#x8868;&#x67E5;&#x8BE2;</h2>
+
+<blockquote>
+<p>JOIN</p>
+</blockquote>
+<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic2.zhimg.com%2Fv2-9558e847d122f104dc9acb19e600496d_b.jpg&amp;refer=http%3A%2F%2Fpic2.zhimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1621134684&amp;t=49a6b78deb38980ef8ccd1d2951528bf" alt="img"></p>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>--  ======== &#x8054;&#x8868;&#x67E5;&#x8BE2;=====
+-- &#x67E5;&#x8BE2;&#x53C2;&#x52A0;&#x4E86;&#x8003;&#x8BD5;&#x7684;&#x540C;&#x5B66;(&#x5B66;&#x53F7;&#xFF0C;&#x59D3;&#x540D;&#xFF0C;&#x79D1;&#x76EE;&#x7F16;&#x53F7;&#xFF0C;&#x5206;&#x6570;)
+/*&#x601D;&#x8DEF;
+1.&#x5206;&#x6790;&#x9700;&#x6C42;&#xFF0C;&#x5206;&#x6790;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x6765;&#x81EA;&#x54EA;&#x4E9B;&#x8868;(&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;)
+2. &#x786E;&#x5B9A;&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;
+&#x786E;&#x5B9A;&#x4EA4;&#x53C9;&#x70B9;(&#x8FD9;&#x4E24;&#x4E2A;&#x8868;&#x4E2D;&#x54EA;&#x4E9B;&#x6570;&#x636E;&#x662F;&#x76F8;&#x540C;&#x7684;)&#x3002;
+&#x5224;&#x65AD;&#x6761;&#x4EF6;&#xFF1A;&#x5B66;&#x751F;&#x8868;&#x4E2D;&#x7684;studentNo=&#x6210;&#x7EE9;&#x8868; studentNo
+*/
+
+-- Inner Join  &#x5982;&#x679C;&#x8868;&#x4E2D;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x8FD4;&#x56DE;&#x884C;,&#x4E24;&#x4E2A;&#x8868;&#x5171;&#x6709;&#x7684;&#x90E8;&#x95E8;
+SELECT s.studentNo,studentName,subjectNo,studentResult
+FROM student s
+INNER JOIN result r
+ON s.studentNo=r.studentNo
+
+-- right join  &#x4F1A;&#x4ECE;&#x53F3;&#x8868;&#x4E2D;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x7684;&#x503C;&#xFF0C;&#x5373;&#x4F7F;&#x5DE6;&#x8868;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x7684;&#x503C;,&#x5DE6;&#x8868;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x5C31;&#x4E3A;null
+SELECT s.studentNo,studentName,subjectNo,studentResult
+FROM student s
+Right JOIN result r
+ON s.studentNo=r.studentNo
+
+-- left join  &#x4F1A;&#x4ECE;&#x5DE6;&#x8868;&#x4E2D;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x7684;&#x503C;&#xFF0C;&#x5373;&#x4F7F;&#x53F3;&#x8868;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x7684;&#x503C;,&#x53F3;&#x8868;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x5C31;&#x4E3A;null
+
+SELECT s.studentNo,studentName,subjectNo,studentResult
+FROM student s
+left JOIN result r
+ON s.studentNo=r.studentNo
+
+-- &#x67E5;&#x8BE2;&#x7F3A;&#x8003;&#x7684;&#x540C;&#x5B66;
+SELECT s.studentNo,studentName,subjectNo,studentResult
+FROM student s
+left JOIN result r
+ON s.studentNo=r.studentNo
+WHERE studentResult IS NULL
+
+-- &#x67E5;&#x8BE2;&#x4E86;&#x53C2;&#x52A0;&#x8003;&#x8BD5;&#x7684;&#x540C;&#x5B66;&#x4FE1;&#x606F;&#xFF1A;&#x5B66;&#x53F7;&#xFF0C;&#x5B66;&#x751F;&#x59D3;&#x540D;&#xFF0C;&#x79D1;&#x76EE;&#x540D;&#xFF0C;&#x5206;&#x6570;
+/*&#x601D;&#x8DEF;&#xFF1A;
+1.&#x5206;&#x6790;&#x9700;&#x6C42;&#xFF0C;&#x5206;&#x6790;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x6765;&#x81EA;&#x54EA;&#x4E9B;&#x8868;&#xFF0C;student(&#x5B66;&#x53F7;&#xFF0C;&#x5B66;&#x751F;&#x59D3;&#x540D;),result(&#x5B66;&#x53F7;&#xFF0C;&#x79D1;&#x76EE;&#x7F16;&#x53F7;&#xFF0C;&#x5206;&#x6570;),subject(&#x79D1;&#x76EE;&#x7F16;&#x53F7;&#xFF0C;&#x79D1;&#x76EE;&#x540D;)
+*/
+SELECT s.studentNo,studentName,subjectName,sudentResult
+FROM student s
+RIGHT JOIN result r
+ON r.studentNo=s.studentNo
+INNER JOIN subject sub
+ON r.subjectNo= sub.subjectNo
+
+-- &#x67E5;&#x8BE2;&#x4E86;&#x53C2;&#x52A0;&#x6570;&#x636E;&#x5E93;&#x8003;&#x8BD5;&#x7684;&#x540C;&#x5B66;&#x4FE1;&#x606F;&#xFF1A;&#x5B66;&#x53F7;&#xFF0C;&#x5B66;&#x751F;&#x59D3;&#x540D;&#xFF0C;&#x79D1;&#x76EE;&#x540D;&#xFF0C;&#x5206;&#x6570;
+SELECT s.studentNo,studentName,subjectName,sudentResult
+FROM student s
+RIGHT JOIN result r
+ON r.studentNo=s.studentNo
+INNER JOIN subject sub
+ON r.subjectNo= sub.subjectNo
+WHERE subjectName=&apos;&#x6570;&#x636E;&#x5E93;&apos;
+</code></pre><blockquote>
+<p>&#x81EA;&#x8FDE;&#x63A5;</p>
+</blockquote>
+<p>&#x81EA;&#x5DF1;&#x7684;&#x8868;&#x548C;&#x81EA;&#x5DF1;&#x7684;&#x8868;&#x8FDE;&#x63A5;&#xFF0C;&#x6838;&#x5FC3;&#xFF1A;&#x4E00;&#x5F20;&#x8868;&#x62C6;&#x4E3A;&#x4E24;&#x4E2A;&#x4E00;&#x6837;&#x7684;&#x8868;&#x5373;&#x53EF;</p>
+<h2 class="mume-header" id="35-%E5%88%86%E9%A1%B5%E5%92%8C%E6%8E%92%E5%BA%8F">3.5 &#x5206;&#x9875;&#x548C;&#x6392;&#x5E8F;</h2>
+
+<blockquote>
+<p>ORDER BY     LIMIT</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x6392;&#x5E8F; &#x5347;&#x5E8F;ASC  &#x964D;&#x5E8F;DESC
+SELECT s.studentNo,studentName,subjectName,sudentResult
+FROM student s
+RIGHT JOIN result r
+ON r.studentNo=s.studentNo
+INNER JOIN subject sub
+ON r.subjectNo= sub.subjectNo
+WHERE subjectName=&apos;&#x6570;&#x636E;&#x5E93;&apos;
+ORDER&#x3000;BY&#x3000;sudentResult&#x3000;DESC
+
+-- &#x5206;&#x9875; LIMIT  &#x6240;&#x6709;&#x8BED;&#x53E5;&#x7684;&#x6700;&#x540E;&#x4E00;&#x53E5;
+-- &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5206;&#x9875;  &#x7F13;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x538B;&#x529B;
+-- Limit &#x8D77;&#x59CB;&#x9875; &#x9875;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x3001;
+-- &#x663E;&#x793A;&#x7B2C;n&#x9875;&#xFF1A; Limit (n-1)*pageSize, pageSize
+-- Limit 0,5  1-5&#x7684;&#x6570;&#x636E;
+-- Limit 1,5  2-6&#x7684;&#x6570;&#x636E;
+
+SELECT s.studentNo,studentName,subjectName,sudentResult
+FROM student s
+RIGHT JOIN result r
+ON r.studentNo=s.studentNo
+INNER JOIN subject sub
+ON r.subjectNo= sub.subjectNo
+WHERE subjectName=&apos;&#x6570;&#x636E;&#x5E93;&apos;
+ORDER&#x3000;BY&#x3000;sudentResult&#x3000;DESC
+LIMIT 0,5
+</code></pre><h2 class="mume-header" id="36-%E5%AD%90%E6%9F%A5%E8%AF%A2">3.6 &#x5B50;&#x67E5;&#x8BE2;</h2>
+
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x67E5;&#x8BE2;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x6240;&#x6709;&#x8003;&#x8BD5;&#x7ED3;&#x679C;(&#x5B66;&#x53F7;&#xFF0C;&#x79D1;&#x76EE;&#x7F16;&#x53F7;&#xFF0C;&#x6210;&#x7EE9;)&#xFF0C;&#x964D;&#x5E8F;&#x6392;&#x5217;
+-- &#x65B9;&#x5F0F;&#x4E00;&#xFF1A;&#x4F7F;&#x7528;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;
+SELECT StudentNo,r.subjectNo,studentResult
+FROM result r
+INNER JOIN subject sub
+ON r.StudentNo = sub.StudentNo
+WHERE SubjectName= &apos;&#x6570;&#x636E;&#x7ED3;&#x6784;&apos;
+ORDER&#x3000;BY&#x3000;sudentResult&#x3000;DESC
+-- &#x65B9;&#x5F0F;2 &#x4F7F;&#x7528;&#x5B50;&#x67E5;&#x8BE2;
+SELECT studentNo,subjectNo,studentResult
+FROM result
+WHERE subjectNo=(
+     SELECT subjectNo From subject
+     WHERE SubjectName =&apos;&#x6570;&#x636E;&#x7ED3;&#x6784;&apos;
+)
+ORDER BY studentResult DESC
+
+-- &#x5206;&#x6570;&#x4E0D;&#x5C11;&#x4E8E;80&#x5206;&#x7684;&#x5B66;&#x751F;&#x7684;&#x5B66;&#x53F7;&#x548C;&#x59D3;&#x540D;
+SELECT studentNo,studentName
+FROM student s
+INNER JOIN result r
+ON r.StudentNo = s.StudentNo
+WHERE StudentResult&gt;=80
+
+-- &#x5728;&#x8FD9;&#x4E2A;&#x57FA;&#x7840;&#x4E0A;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x79D1;&#x76EE; &#x9AD8;&#x7B49;&#x6570;&#x5B66;&#x5206;&#x6570;&#x4E0D;&#x5C11;&#x4E8E;80&#x5206;&#x7684;&#x5B66;&#x751F;&#x7684;&#x5B66;&#x53F7;&#x548C;&#x59D3;&#x540D;
+-- &#x4F7F;&#x7528;&#x5B50;&#x67E5;&#x8BE2;
+SELECT DISTINCT studentNo,studentName
+FROM student s
+INNER JOIN result r
+ON r.StudentNo = s.StudentNo
+WHERE StudentResult&gt;=80 AND SubjectNo=(
+    SELECT SubjectNo FROM subject
+    WHERE subjectName=&apos;&#x9AD8;&#x7B49;&#x6570;&#x5B66;&apos;
+)
+-- &#x65B9;&#x6CD5;2 &#x8054;&#x8868;&#x67E5;&#x8BE2;
+SELECT DISTINCT s.studentNo,StudentName
+FROM student s
+INNER JOIN result r
+ON s.studentNo = r.studentNo
+INNER JOIN subject sub
+ON r.subjectNo = sub.subjectNo
+WHERE subjectName=&apos;&#x9AD8;&#x7B49;&#x6570;&#x5B66;&apos; AND studentResult&gt;=80
+
+-- &#x65B9;&#x6CD5;3 
+SELECT studentNo,StudentName FROM student WHERE StudentNo IN(
+	SELECT StudentNo FROM result WHERE studentResult&gt;80 AND subjectNo=(
+    	SELECT subjectNo FROM subject WHERE subjectName=&apos;&#x9AD8;&#x7B49;&#x6570;&#x5B66;&apos;
+    )
+)
+
+</code></pre><h1 class="mume-header" id="%E5%9B%9B-mysql%E5%87%BD%E6%95%B0">&#x56DB;&#x3001;MYSQL&#x51FD;&#x6570;</h1>
+
+<h2 class="mume-header" id="41-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0">4.1 &#x5E38;&#x7528;&#x51FD;&#x6570;</h2>
+
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x6570;&#x5B66;&#x8FD0;&#x7B97;(&#x4E0D;&#x7528;&#x8BB0;)
+SELECT ABS(-8)  -- &#x7EDD;&#x5BF9;&#x503C;
+SELECT CEILING(9,4) -- &#x5411;&#x4E0A;&#x53D6;&#x6574;
+SELECT FLOOR(9,4) -- &#x5411;&#x4E0B;&#x53D6;&#x6574;
+SELECT RAND()  -- &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;0&#x5230;1&#x7684;&#x968F;&#x673A;&#x6570;
+SELECT SIGN(-1)  -- &#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x7B26;&#x53F7;&#xFF0C;&#x8D1F;&#x6570;&#x8FD4;&#x56DE;-1&#xFF0C;&#x6574;&#x6570;&#x8FD4;&#x56DE;1
+-- &#x5B57;&#x7B26;&#x4E32;&#x51FD;&#x6570;(&#x4E0D;&#x7528;&#x8BB0;)
+SELECT CHAR_LENGTH(&apos;syy&apos;) -- &#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;
+SELECT CONCAT(&apos;s&apos;,&apos;y&apos;,&apos;y&apos;) -- &#x62FC;&#x63A5;&#x5B57;&#x7B26;&#x4E32;
+SELECT INSERT(&apos;suyuying&apos;,1,2,&apos;syy&apos;) -- &#x67E5;&#x8BE2;&#xFF0C;&#x4ECE;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x66FF;&#x6362;&#x67D0;&#x4E2A;&#x957F;&#x5EA6; &#x4ECE;s&#x5F00;&#x59CB;&#xFF0C;&#x5C06;su&#x6539;&#x4E3A;syy.&#x5373;syyyuying
+SELECT LOWER(&apos;SYY&apos;)  -- &#x8F6C;&#x4E3A;&#x5C0F;&#x5199;
+SELECT UPPER(&apos;syy&apos;)  -- &#x8F6C;&#x4E3A;&#x5927;&#x5199;
+SELECT INSTR(&apos;syy&apos;,h) -- &#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x5B50;&#x4E32;&#x7684;&#x7D22;&#x5F15;
+SELECT REPLACE(&apos;syy&apos;,&apos;s&apos;,&apos;y&apos;) -- &#x66FF;&#x6362;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;
+-- &#x65F6;&#x95F4;&#x548C;&#x65E5;&#x671F;(&#x8981;&#x8BB0;)
+SELECT CURRENT_DATE() -- &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x65E5;&#x671F;
+SELECT CURDATE()  -- &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;
+SELECT NOW()   -- &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;
+SELECT LOCALTIME()   -- &#x672C;&#x5730;&#x65F6;&#x95F4;
+SELECT SYSTIME()   -- &#x7CFB;&#x7EDF;&#x65F6;&#x95F4;
+SUM(if(name = &apos;syy&apos;,1,0))  -- &#x5982;&#x679C;name=syy&#x5219;&#x4E3A;1,&#x7EDF;&#x8BA1;name=syy&#x7684;&#x4E2A;&#x6570;
+ifnull(sum(quantity), 0)  --&#x5982;&#x679C; sum(quantity)&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x7B49;&#x4E8E;0
+</code></pre><h2 class="mume-header" id="42-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0">4.2 &#x805A;&#x5408;&#x51FD;&#x6570;</h2>
+
+<table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;&#x540D;&#x79F0;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COUNT()</td>
+<td>&#x8BA1;&#x6570;</td>
+</tr>
+<tr>
+<td>SUM()</td>
+<td>&#x6C42;&#x548C;</td>
+</tr>
+<tr>
+<td>AVG()</td>
+<td>&#x5E73;&#x5747;&#x503C;</td>
+</tr>
+<tr>
+<td>MAX()</td>
+<td>&#x6700;&#x5927;&#x503C;</td>
+</tr>
+<tr>
+<td>MIN()</td>
+<td>&#x6700;&#x5C0F;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- &#x805A;&#x5408;&#x51FD;&#x6570;
+SELECT COUNT(studentname) FROM student; -- &#x6307;&#x5B9A;&#x5217;,&#x4F1A;&#x5FFD;&#x7565;&#x6240;&#x6709;&#x7684;NULL&#x503C;
+SELECT COUNT(*) FROM student; -- count(*)  &#x4E0D;&#x4F1A;&#x5FFD;&#x7565;null&#x503C;
+SELECT COUNT(1) FROM student;  -- count(1)  &#x4E0D;&#x4F1A;&#x5FFD;&#x7565;null&#x503C;
+
+SELECT SUM(studentResult) AS &#x603B;&#x548C; FROM result
+SELECT AVG(studentResult) AS &#x5E73;&#x5747;&#x5206; FROM result
+SELECT MAX(studentResult) AS &#x6700;&#x9AD8;&#x5206; FROM result
+SELECT MIN(studentResult) AS &#x6700;&#x4F4E;&#x5206; FROM result
+
+
+</code></pre><h2 class="mume-header" id="43-%E5%88%86%E7%BB%84%E5%92%8C%E8%BF%87%E6%BB%A4">4.3 &#x5206;&#x7EC4;&#x548C;&#x8FC7;&#x6EE4;</h2>
+
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>SELECT subjectName,AVG(studentResult) AS &#x5E73;&#x5747;&#x5206;,MAX(studentResult),MIN(studentResult)
+FROM result r 
+INNOR JOIN subject sub
+ON r.subjectNo=sub.subjectNo
+GROUP BY r.subjectNo   -- &#x5206;&#x7EC4;
+HAVING &#x5E73;&#x5747;&#x5206;&gt;80
+</code></pre><h1 class="mume-header" id="%E4%BA%94-%E4%BA%8B%E5%8A%A1">&#x4E94;&#x3001;&#x4E8B;&#x52A1;</h1>
+
+<p><mark>&#x8981;&#x4E48;&#x90FD;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x90FD;&#x5931;&#x8D25;</mark></p>
+<blockquote>
+<p>&#x4E8B;&#x52A1;&#x539F;&#x5219;&#xFF1A;ACID &#x539F;&#x5219;   &#x539F;&#x5B50;&#x6027;&#xFF0C;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x9694;&#x79BB;&#x6027;&#xFF0C;&#x6301;&#x4E45;&#x6027;</p>
+</blockquote>
+<ul>
+<li>&#x539F;&#x5B50;&#x6027;</li>
+</ul>
+<p>&#x8981;&#x4E48;&#x90FD;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x90FD;&#x5931;&#x8D25;</p>
+<ul>
+<li>&#x4E00;&#x81F4;&#x6027;</li>
+</ul>
+<p>&#x4E8B;&#x52A1;&#x524D;&#x540E;&#x7684;&#x6570;&#x636E;&#x5B8C;&#x6574;&#x6027;&#x8981;&#x4FDD;&#x8BC1;&#x4E00;&#x81F4;</p>
+<ul>
+<li>&#x6301;&#x4E45;&#x6027;</li>
+</ul>
+<p>&#x4E8B;&#x52A1;&#x4E00;&#x65E6;&#x63D0;&#x4EA4;&#x5219;&#x4E0D;&#x53EF;&#x9006;&#xFF0C;&#x88AB;&#x6301;&#x4E45;&#x5316;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;</p>
+<ul>
+<li>&#x9694;&#x79BB;&#x6027;</li>
+</ul>
+<p>&#x4E8B;&#x52A1;&#x7684;&#x9694;&#x79BB;&#x6027;&#x662F;&#x6307;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x5E76;&#x53D1;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x4E3A;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#x5F00;&#x542F;&#x7684;&#x4E8B;&#x52A1;&#xFF0C;&#x4E0D;&#x80FD;&#x88AB;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x7684;&#x64CD;&#x4F5C;&#x7684;&#x6570;&#x636E;&#x6240;&#x5E72;&#x6270;&#x3002;</p>
+<blockquote>
+<p>&#x9694;&#x79BB;&#x4EA7;&#x751F;&#x7684;&#x95EE;&#x9898;</p>
+</blockquote>
+<ul>
+<li>&#x810F;&#x8BFB;&#xFF1A;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x8BFB;&#x53D6;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#xFF1A;&#x5728;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x5185;&#x8BFB;&#x53D6;&#x8868;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x591A;&#x6B21;&#x8BFB;&#x53D6;&#x7ED3;&#x679C;&#x4E0D;&#x540C;&#x3002;</li>
+<li>&#x865A;&#x8BFB;&#xFF1A;&#x6307;&#x5728;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x4E2D;&#x8BFB;&#x5230;&#x4E86;&#x522B;&#x7684;&#x4E8B;&#x52A1;&#x63D2;&#x5165;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5BFC;&#x81F4;&#x524D;&#x540E;&#x8BFB;&#x53D6;&#x4E0D;&#x4E00;&#x81F4;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="mysql" class="language-mysql"><code>-- mysql&#x662F;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#x81EA;&#x52A8;&#x63D0;&#x4EA4;&#x7684;
+SET autocommit= 0 -- &#x5173;&#x95ED;
+SET autocommit= 1 -- &#x5F00;&#x542F;
+
+-- &#x624B;&#x52A8;&#x5904;&#x7406;&#x4E8B;&#x52A1; 
+SET autocommit= 0 -- &#x5173;&#x95ED;
+-- &#x4E8B;&#x52A1;&#x5F00;&#x542F;
+START TRANSANCTION 
+
+INSERT xxx
+INSERT xxx
+
+-- &#x63D0;&#x4EA4;&#xFF1A;&#x6301;&#x4E45;&#x5316;(&#x6210;&#x529F;)
+COMMIT
+-- &#x56DE;&#x6EDA;(&#x56DE;&#x5230;&#x539F;&#x6765;&#x7684;&#x6837;&#x5B50;)
+ROLLBACK
+-- &#x6062;&#x590D;&#x9ED8;&#x8BA4;&#x63D0;&#x4EA4;
+SET autocommit= 1 -- &#x5F00;&#x542F;
+</code></pre><h1 class="mume-header" id="%E5%85%AD-%E7%B4%A2%E5%BC%95">&#x516D;&#x3001;&#x7D22;&#x5F15;</h1>
+
+<h2 class="mume-header" id="61-%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB">6.1 &#x7D22;&#x5F15;&#x7684;&#x5206;&#x7C7B;</h2>
+
+<h3 class="mume-header" id="611-%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95">6.1.1 &#x4E3B;&#x952E;&#x7D22;&#x5F15;</h3>
+
+<ul>
+<li>&#x552F;&#x4E00;&#x7684;&#x6807;&#x8BC6;&#xFF0C;&#x4E3B;&#x952E;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#xFF0C;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x5217;&#x4F5C;&#x4E3A;&#x4E3B;&#x952E;</li>
+</ul>
+<h3 class="mume-header" id="612-%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95">6.1.2 &#x552F;&#x4E00;&#x7D22;&#x5F15;</h3>
+
+<ul>
+<li>&#x907F;&#x514D;&#x91CD;&#x590D;&#x7684;&#x5217;&#x51FA;&#x73B0;&#xFF0C;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x53EF;&#x4EE5;&#x91CD;&#x590D;&#xFF0C;&#x591A;&#x4E2A;&#x5217;&#x90FD;&#x53EF;&#x4EE5;&#x6807;&#x8BC6;&#x4E3A;&#x552F;&#x4E00;&#x7D22;&#x5F15;</li>
+</ul>
+<h3 class="mume-header" id="613-%E5%B8%B8%E8%A7%84%E7%B4%A2%E5%BC%95">6.1.3 &#x5E38;&#x89C4;&#x7D22;&#x5F15;</h3>
+
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x7684;&#xFF0C;index&#xFF0C;key&#x5173;&#x952E;&#x5B57;&#x6765;&#x8BBE;&#x7F6E;</li>
+</ul>
+<h3 class="mume-header" id="614-%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95">6.1.4  &#x5168;&#x6587;&#x7D22;&#x5F15;</h3>
+
+<ul>
+<li>&#x5728;&#x7279;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x5F15;&#x64CE;&#x4E0B;&#x624D;&#x6709;&#xFF0C;MYISAM</li>
+<li></li>
+</ul>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E4%B8%80-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93">&#x4E00;&#x3001;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;</a>
+<ul>
+<li><a href="#11-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93">1.1 &#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;</a></li>
+<li><a href="#12-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%97%E7%B1%BB%E5%9E%8B">1.2 &#x6570;&#x636E;&#x5E93;&#x5217;&#x7C7B;&#x578B;</a></li>
+<li><a href="#13-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7">1.3 &#x6570;&#x636E;&#x5E93;&#x7684;&#x5B57;&#x6BB5;&#x5C5E;&#x6027;</a></li>
+<li><a href="#14-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8">1.4 &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8868;</a></li>
+<li><a href="#15-innodb%E4%B8%8Emyisam%E7%9A%84%E5%8C%BA%E5%88%AB">1.5 INNODB&#x4E0E;MYISAM&#x7684;&#x533A;&#x522B;</a></li>
+<li><a href="#16-%E4%BF%AE%E6%94%B9%E5%88%A0%E9%99%A4%E8%A1%A8">1.6 &#x4FEE;&#x6539;&#x5220;&#x9664;&#x8868;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-mysql%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86">&#x4E8C;&#x3001;MYSQL&#x6570;&#x636E;&#x7BA1;&#x7406;</a>
+<ul>
+<li><a href="#21%E5%A4%96%E9%94%AE">2.1&#x5916;&#x952E;</a></li>
+<li><a href="#22-dml%E8%AF%AD%E8%A8%80">2.2 DML&#x8BED;&#x8A00;</a>
+<ul>
+<li><a href="#221-%E6%8F%92%E5%85%A5">2.2.1 &#x63D2;&#x5165;</a></li>
+<li><a href="#222-%E4%BF%AE%E6%94%B9">2.2.2 &#x4FEE;&#x6539;</a></li>
+<li><a href="#223-%E5%88%A0%E9%99%A4">2.2.3 &#x5220;&#x9664;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-dql%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE">&#x4E09;&#x3001;DQL&#x67E5;&#x8BE2;&#x6570;&#x636E;</a>
+<ul>
+<li><a href="#31-dql">3.1 DQL</a></li>
+<li><a href="#32-%E6%8C%87%E5%AE%9A%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5">3.2 &#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;</a></li>
+<li><a href="#33-where%E6%9D%A1%E4%BB%B6%E5%AD%90%E5%8F%A5">3.3 WHERE&#x6761;&#x4EF6;&#x5B50;&#x53E5;</a></li>
+<li><a href="#34-%E8%81%94%E8%A1%A8%E6%9F%A5%E8%AF%A2">3.4 &#x8054;&#x8868;&#x67E5;&#x8BE2;</a></li>
+<li><a href="#35-%E5%88%86%E9%A1%B5%E5%92%8C%E6%8E%92%E5%BA%8F">3.5 &#x5206;&#x9875;&#x548C;&#x6392;&#x5E8F;</a></li>
+<li><a href="#36-%E5%AD%90%E6%9F%A5%E8%AF%A2">3.6 &#x5B50;&#x67E5;&#x8BE2;</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-mysql%E5%87%BD%E6%95%B0">&#x56DB;&#x3001;MYSQL&#x51FD;&#x6570;</a>
+<ul>
+<li><a href="#41-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0">4.1 &#x5E38;&#x7528;&#x51FD;&#x6570;</a></li>
+<li><a href="#42-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0">4.2 &#x805A;&#x5408;&#x51FD;&#x6570;</a></li>
+<li><a href="#43-%E5%88%86%E7%BB%84%E5%92%8C%E8%BF%87%E6%BB%A4">4.3 &#x5206;&#x7EC4;&#x548C;&#x8FC7;&#x6EE4;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-%E4%BA%8B%E5%8A%A1">&#x4E94;&#x3001;&#x4E8B;&#x52A1;</a></li>
+<li><a href="#%E5%85%AD-%E7%B4%A2%E5%BC%95">&#x516D;&#x3001;&#x7D22;&#x5F15;</a>
+<ul>
+<li><a href="#61-%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB">6.1 &#x7D22;&#x5F15;&#x7684;&#x5206;&#x7C7B;</a>
+<ul>
+<li><a href="#611-%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95">6.1.1 &#x4E3B;&#x952E;&#x7D22;&#x5F15;</a></li>
+<li><a href="#612-%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95">6.1.2 &#x552F;&#x4E00;&#x7D22;&#x5F15;</a></li>
+<li><a href="#613-%E5%B8%B8%E8%A7%84%E7%B4%A2%E5%BC%95">6.1.3 &#x5E38;&#x89C4;&#x7D22;&#x5F15;</a></li>
+<li><a href="#614-%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95">6.1.4  &#x5168;&#x6587;&#x7D22;&#x5F15;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

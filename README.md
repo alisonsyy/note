@@ -50,7 +50,7 @@
 
 ### 消息队列
 
-- [kafka](/doc/kafka/kafka.html)
+- [kafka](/doc/Kafka/kafka.html)
 
 ### Android
 

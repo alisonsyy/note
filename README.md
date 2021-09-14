@@ -48,6 +48,10 @@
 
 - **[设计模式](/doc/DesignPatterns/设计模式.html)**
 
+### 消息队列
+
+- [kafka](/doc/kafka/kafka.html)
+
 ### Android
 
 > 直接拷贝https://github.com/LRH1993/android_interview 中的内容

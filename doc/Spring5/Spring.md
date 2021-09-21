@@ -1,4 +1,4 @@
-https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93?id=%e4%bb%80%e4%b9%88%e6%98%af-spring-%e6%a1%86%e6%9e%b6
+[Spring](https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93?id=%e4%bb%80%e4%b9%88%e6%98%af-spring-%e6%a1%86%e6%9e%b6)
 
 ### 工厂
 
@@ -8,7 +8,7 @@ https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spri
 
 ##### 1. EJB存在的问题
 
-![image-20200411104428457](D:/sjtu/AIR/SYY/JOB/Note/doc/Spring5/工厂.assets/image-20200411104428457.png)
+![image-20200411104428457](./工厂.assets/image-20200411104428457.png)
 
 ##### 2. 什么是Spring
 
@@ -28,7 +28,7 @@ Spring是一个轻量级的JavaEE解决方案，整合众多优秀的设计模�
 
 - JavaEE的解决方案
 
-![image-20200411111041836](D:/sjtu/AIR/SYY/JOB/Note/doc/Spring5/工厂.assets/image-20200411111041836.png)
+![image-20200411111041836](./工厂.assets/image-20200411111041836.png)
 
 - 整合设计模式
 
@@ -145,7 +145,7 @@ public class BeanFactory {
   简单工厂会存在大量的代码冗余
   ~~~
 
-  ![image-20200411181701143](D:/sjtu/AIR/SYY/JOB/Note/doc/Spring5/工厂.assets/image-20200411181701143.png)
+  ![image-20200411181701143](./工厂.assets/image-20200411181701143.png)
 
 - 通用工厂的代码
 
